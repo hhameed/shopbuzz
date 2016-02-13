@@ -11,6 +11,76 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160213224152) do
+
+  create_table "brands", force: :cascade do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "category_specifications", force: :cascade do |t|
+    t.integer  "category_id"
+    t.integer  "specification_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "category_specifications", ["category_id"], name: "index_category_specifications_on_category_id"
+  add_index "category_specifications", ["specification_id"], name: "index_category_specifications_on_specification_id"
+
+  create_table "product_reviews", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "rating"
+    t.text     "content"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "product_reviews", ["product_id"], name: "index_product_reviews_on_product_id"
+
+  create_table "product_specifications", force: :cascade do |t|
+    t.string   "value"
+    t.integer  "specification_id"
+    t.integer  "product_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "product_specifications", ["product_id"], name: "index_product_specifications_on_product_id"
+  add_index "product_specifications", ["specification_id"], name: "index_product_specifications_on_specification_id"
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.string   "image"
+    t.float    "rating"
+    t.integer  "review_count"
+    t.integer  "views"
+    t.integer  "brand_id"
+    t.integer  "category_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "products", ["brand_id"], name: "index_products_on_brand_id"
+  add_index "products", ["category_id"], name: "index_products_on_category_id"
+
+  create_table "specifications", force: :cascade do |t|
+    t.string   "code"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
