@@ -49,7 +49,7 @@ product_reviews=[{:id=>1, :product_id=>1, :name=>'Haider', :email=>nil, :rating=
                  {:id=>6, :product_id=>6, :name=>'John', :email=>nil, :rating=>3, :content=>'This is a bad comment'}]
 
 product_reviews.each do |product_review|
-  Product_review.create!(product_review)
+  ProductReview.create!(product_review)
 end
 
 specifications=[{:id=>1, :code=>'weight', :name=>'Weight'},
@@ -76,7 +76,7 @@ category_specifications=[{:id=>1, :category_id=>4, :specification_id=>1},
                          {:id=>10, :category_id=>6, :specification_id=>7}]
 
 category_specifications.each do |category_specification|
-  Category_specification.create!(category_specification)
+  CategorySpecification.create!(category_specification)
 end
 
 product_specifications=[{:id=>1, :product_id=>1, :specification_id=>1, :value=>'183 g (6.46 oz)'},
@@ -91,5 +91,5 @@ product_specifications=[{:id=>1, :product_id=>1, :specification_id=>1, :value=>'
                         {:id=>10, :product_id=>6, :specification_id=>7, :value=>'210.6 x 127.7 x 7.9 mm'}]
 
 product_specifications.each do |product_specification|
-  Product_specification.create!(product_specification)
+  ProductSpecification.create!(product_specification)
 end
