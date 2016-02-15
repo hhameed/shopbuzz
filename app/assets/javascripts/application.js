@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap.min
+//= require ie-emulation-modes-warning
+//= require ie10-viewport-bug-workaround
 //= require_tree .
