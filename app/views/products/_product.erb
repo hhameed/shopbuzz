@@ -1,0 +1,16 @@
+<table style="width:500px">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th style="text-align:right;">Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <--% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+      </tr>
+  <--% end %>
+  </tbody>
+</table>
