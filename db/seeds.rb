@@ -12,7 +12,7 @@ categories = [{:id=>1, :code=>'digital-cameras', :name=>'Digital Cameras'},
               {:id=>3, :code=>'handy-cameras', :name=>'Handy Cameras'},
               {:id=>4, :code=>'mobile-phones', :name=>'Mobile Phones'},
               {:id=>5, :code=>'laptops', :name=>'Laptops'},
-              {:id=>6, :code=>'tablets', :name=>'Tablets'}  ]
+              {:id=>6, :code=>'tablets', :name=>'Tablets'}]
 
 categories.each do |category|
   Category.create!(category)
