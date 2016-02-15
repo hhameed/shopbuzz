@@ -1,0 +1,41 @@
+
+<%= form_for([@product, @product_review]) do |f| %>
+
+  <% if @product_review.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= "#{pluralize(@product_review.errors.count, "error")} prohibited this food_review from being saved:" %>
+      </h2>
+      <ul>
+      <% @product_review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, "Email" %>
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="form-group">
+    <%=f.label :rating %>
+    <%=select :product_review, "rating", options_for_select([1, 2, 3, 4, 5])%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content, "Content" %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
