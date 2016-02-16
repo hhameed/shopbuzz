@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
+  before_action :productspec
   # GET /products
   # GET /products.json
   def index
@@ -10,12 +10,18 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @products = Product.all
+  end
+
+  def productspec
+    @productspec = ProductSpecification.all
   end
 
   # GET /products/new
   def new
     @product = Product.new
   end
+
 
   # GET /products/1/edit
   def edit
