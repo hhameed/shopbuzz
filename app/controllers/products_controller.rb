@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  before_action :productspec
   # GET /products
   # GET /products.json
   def index
+    #@products = Product.includes({:product_specification => :specification})
     @products = Product.all
   end
 
@@ -11,10 +11,6 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @products = Product.all
-  end
-
-  def productspec
-    @productspec = ProductSpecification.all
   end
 
   # GET /products/new
