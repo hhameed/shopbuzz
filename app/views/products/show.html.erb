@@ -50,6 +50,7 @@
            <%@product.product_specification.each do |spec| %>
              <tr>
                   <td width="50%"> <%=spec.specification.name %></td>
+                  <% puts spec.specification.name %>
                   <td width="50%" align="center"> <%=spec.value %> </td>
             </tr>
          <% end %>

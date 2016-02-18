@@ -1,10 +1,10 @@
 
-<%= form_for([@product, @product_review]) do |f| %>
+<%= form_for([@product, @product_review]) do |f|%>
 
   <% if @product_review.errors.any? %>
     <div id="error_explanation">
       <h2>
-        <%= "#{pluralize(@product_review.errors.count, "error")} prohibited this food_review from being saved:" %>
+        <%= "#{pluralize(@product_review.errors.count, "error")} prohibited your review from being submitted:" %>
       </h2>
       <ul>
       <% @product_review.errors.full_messages.each do |message| %>
@@ -16,12 +16,14 @@
 
   <div class="form-group">
     <%= f.label :name, "Name" %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name%>
+    <input type="name" class="form-control" id="exampleInputName" placeholder="Name">
   </div>
 
   <div class="form-group">
-    <%= f.label :email, "Email" %>
-    <%= f.text_field :email %>
+    <%= f.label :email, "Email Address" %>
+    <%= f.text_field :email%>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
   </div>
 
   <div class="form-group">
@@ -30,12 +32,13 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :content, "Content" %>
-    <%= f.text_area :content %>
+    <%= f.label :content, "Your Review Content" %>
+    <%=f.text_area :content%>
+    <input type="text" class="form-control" placeholder="Text input">
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%=f.submit%>
   </div>
 
 <% end %>
