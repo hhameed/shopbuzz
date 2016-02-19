@@ -57,11 +57,11 @@ specifications=[{:id=>1, :code=>'weight', :name=>'Weight'},
                 {:id=>3, :code=>'flash-light', :name=>'Flash Light'},
                 {:id=>4, :code=>'video-recording', :name=>'Video Recording'},
                 {:id=>5, :code=>'picture-resolution', :name=>'Picture Resolution'},
-                {:id=>6, :code=>'l3-cache', :name=>'L3 Cache'},
-                {:id=>7, :code=>'dimentions', :name=>'Dimensions'}]
+                {:id=>6, :code=>'l3-cache', :name=>'L3 Cache'}]
+
 
 specifications.each do |specification|
-  Specfication.create!(specification)
+  Specification.create!(specification)
 end
 
 category_specifications=[{:id=>1, :category_id=>4, :specification_id=>1},
@@ -72,8 +72,8 @@ category_specifications=[{:id=>1, :category_id=>4, :specification_id=>1},
                          {:id=>6, :category_id=>2, :specification_id=>5},
                          {:id=>7, :category_id=>5, :specification_id=>2},
                          {:id=>8, :category_id=>5, :specification_id=>6},
-                         {:id=>9, :category_id=>6, :specification_id=>2},
-                         {:id=>10, :category_id=>6, :specification_id=>7}]
+                         {:id=>9, :category_id=>6, :specification_id=>2}]
+
 
 category_specifications.each do |category_specification|
   CategorySpecification.create!(category_specification)
@@ -87,8 +87,8 @@ product_specifications=[{:id=>1, :product_id=>1, :specification_id=>1, :value=>'
                         {:id=>6, :product_id=>3, :specification_id=>5, :value=>'4928 x 3280'},
                         {:id=>7, :product_id=>5, :specification_id=>2, :value=>'13.3 Inches'},
                         {:id=>8, :product_id=>5, :specification_id=>6, :value=>'3 MB'},
-                        {:id=>9, :product_id=>6, :specification_id=>2, :value=>'8.0 inches'},
-                        {:id=>10, :product_id=>6, :specification_id=>7, :value=>'210.6 x 127.7 x 7.9 mm'}]
+                        {:id=>9, :product_id=>6, :specification_id=>2, :value=>'8.0 inches'}]
+
 
 product_specifications.each do |product_specification|
   ProductSpecification.create!(product_specification)

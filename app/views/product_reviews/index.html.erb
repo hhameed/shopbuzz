@@ -6,6 +6,16 @@
 
 <%= button_to 'Back to Products', product_path(@product), :method=>:get%>
 
+
+<div class="row">
+  <% (1..12).each do |i| %>
+      <div class="col-md-3" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
+        <% @product_reviews..each do |product_review| %>
+        <% end %>
+      </div>
+  <% end %>
+</div>
+
 <table>
   <thead>
     <tr>
