@@ -33,7 +33,7 @@ class ProductReviewsController < ApplicationController
 
     respond_to do |format|
       if @product_review.save
-        format.html { redirect_to @product, notice: 'Product review was successfully created.' }
+        format.html { redirect_to product_product_reviews_url, notice: 'Product review was successfully created.' }
         format.json { render :show, status: :created, location: @product_review }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class ProductReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @product_review.update(product_review_params)
-        format.html { redirect_to @product_review, notice: 'Product review was successfully updated.' }
+        format.html { redirect_to product_product_reviews_url, notice: 'Product review was successfully updated.' }
         format.json { render :show, status: :ok, location: @product_review }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class ProductReviewsController < ApplicationController
   def destroy
     @product_review.destroy
     respond_to do |format|
-      format.html { redirect_to product_reviews_url, notice: 'Product review was successfully destroyed.' }
+      format.html { redirect_to product_product_reviews_url, notice: 'Product review was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -78,6 +78,6 @@ class ProductReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_review_params
-      params.require(:product_review).permit(:rating, :content)
+      params.require(:product_review).permit(:rating, :content, :name)
     end
 end
