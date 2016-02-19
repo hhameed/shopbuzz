@@ -16,7 +16,6 @@
 !/log/.keep
 /tmp
 
-/.gitignore
 /.idea
 /coverage
 /spring

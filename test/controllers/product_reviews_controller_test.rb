@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class ProductReviewsControllerTest < ActionController::TestCase
+
   setup do
     @product_review = product_reviews(:one)
   end
