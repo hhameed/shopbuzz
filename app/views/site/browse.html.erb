@@ -40,11 +40,13 @@
   </div>
   <div class="col-md-9">
     <div class="row">
-    <% (1..12).each do |i| %>
         <div class="col-md-4" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
-        <%= render :partial => "product_summary" %>
+        <%= render @products %>
         </div>
-    <% end %>
+      <div class="col-md-12">
+        <%= will_paginate @products %>
+      </div>
+
       </div>
   </div>
 </div>

@@ -1,9 +1,11 @@
 class SiteController < ApplicationController
-  def index
 
+  def index
+    @products = Product.all.paginate(page: params[:page], per_page: 5)
   end
 
   def browse
-
+    @products = Product.all.paginate(page: params[:page], per_page: 5)
   end
+
 end

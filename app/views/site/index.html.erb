@@ -5,10 +5,17 @@
 </div>
 
 <h3>Mobile Phone Prices in Pakistan</h3>
-<div class="row">
-  <% Product.all.each do |product| %>
-      <div class="col-md-3" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
-        <%= render product %>
-      </div>
-  <% end %>
-</div>
+
+  <div class="row">
+
+  <div class="col-md-3" style="merge margin-top:10px;" itemscope itemtype="http://schema.org/Product">
+    <%= render @products %>
+  </div>
+
+  <div class="col-md-12" >
+    <%= will_paginate @products %>
+  </div>
+
+  </div>
+
+
