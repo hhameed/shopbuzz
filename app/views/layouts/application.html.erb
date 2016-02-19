@@ -29,28 +29,24 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">ShopBuzz</a>
+      <a class="navbar-brand" href="<%= root_url %>">ShopBuzz</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Category A</a></li>
-            <li><a href="#">Category B</a></li>
-            <li><a href="#">Category C</a></li>
-            <li><a href="#">Category D</a></li>
-            <li><a href="#">Category E</a></li>
+            <% Category.all.each do |category| %>
+            <li><a href="#"><%= category.name %></a></li>
+            <% end %>
           </ul>
         </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Used Products <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Category A</a></li>
-            <li><a href="#">Category B</a></li>
-            <li><a href="#">Category C</a></li>
-            <li><a href="#">Category D</a></li>
-            <li><a href="#">Category E</a></li>
+            <% Category.all.each do |category| %>
+                <li><a href="#">Used <%= category.name %></a></li>
+            <% end %>
           </ul>
         </li>
         <li><a href="#">Contact</a></li>
