@@ -41,12 +41,12 @@ products.each do |product|
   Product.create!(product)
 end
 
-product_reviews=[{:id=>1, :product_id=>1, :name=>'Haider', :email=>nil, :rating=>4, :content=>'This is a small comment'},
-                 {:id=>2, :product_id=>2, :name=>'Kiran', :email=>nil, :rating=>5, :content=>'This is a big comment'},
-                 {:id=>3, :product_id=>3, :name=>'Balaji', :email=>nil, :rating=>3, :content=>'This is a long comment'},
-                 {:id=>4, :product_id=>4, :name=>'Rishabh', :email=>nil, :rating=>4, :content=>'This is a short comment'},
-                 {:id=>5, :product_id=>5, :name=>'Tony', :email=>nil, :rating=>5, :content=>'This is a good comment'},
-                 {:id=>6, :product_id=>6, :name=>'John', :email=>nil, :rating=>3, :content=>'This is a bad comment'}]
+product_reviews=[{:id=>1, :product_id=>1, :name=>'Haider', :email=>nil, :rating=>4, :content=>'i wanna sale my LG G3 D850 genion 32GB nd 3GB RAM Android 5.0 lolipop gray colr 10/10 condition not a single scrtch demand 30000 contct no 03244711555 m from lahore'},
+                 {:id=>2, :product_id=>1, :name=>'Kiran', :email=>nil, :rating=>5, :content=>'LG G3 ke specs Qualcomm MSM8975AC Snapdragon 801,Quad-core 2.5 GHz Krait 400,Adreno 330 iss set ko gamers dream come true hona chahiye lekin heavy gaming mein still lag karta..'},
+                 {:id=>3, :product_id=>1, :name=>'Balaji', :email=>nil, :rating=>3, :content=>'pros Knock Code IR blaster QHD dislplay UHD video recording cons slow charging fast battery drain no front facing speaker screen not bright enough'},
+                 {:id=>4, :product_id=>1, :name=>'Rishabh', :email=>nil, :rating=>4, :content=>'pros: Lg G3 is loaded with features,Quad HD display,4K video recording,laser autofocus cons: UI lag karta hai'},
+                 {:id=>5, :product_id=>1, :name=>'Tony', :email=>nil, :rating=>5, :content=>'LG,Samsung achey Android smartphones nahi hain even HTC mein bi heating up lagging aur freezing ke issues hain,mein ab Motorola try karna chahta hoon,friends and family in USA highly recommend it.'},
+                 {:id=>6, :product_id=>1, :name=>'John', :email=>nil, :rating=>3, :content=>'Camera pics ke liya acha nai CPU itna heavy hai lekin phir bhi phone lag karta hai battery life achi nai hai'}]
 
 product_reviews.each do |product_review|
   ProductReview.create!(product_review)
