@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+ <div itemscope itemtype="http://schema.org/Product">
+   <div class="row">
+      <div class ="col-md-2">
+        <img src=<%=@product.image%> width="140px" itemprop="image" style="vertical-align: middle"/>
+      </div>
+      <div class ="col-md-6">
+        <h2>
+          <span itemprop="name"><%=@product.name%></span>
+          <br />
+          <small>
+            Price: <strong>Rs.<%=@product.price%>/-</strong> | Used Available: 24 | Comments: 32		</small>
+        </h2>
+
+        <!-- Social Widgets Begin Here -->
+        <table border="0px" cellpadding="5px" cellspacing="0px">
+          <tr>
+            <td>
+              <div class="fb-share-button" data-href="http://shopbuzz.pk/535-LG-G3-32GB-price-in-pakistan.htm" data-type="box_count"></div>
+            </td>
+            <td>
+              <div class="fb-like" data-href="http://shopbuzz.pk/535-LG-G3-32GB-price-in-pakistan.htm" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+            </td>
+            <td>
+              <div class="g-plus" data-action="share" data-annotation="vertical-bubble" data-height="60"></div>
+            </td>
+            <td>
+              <div class="g-plusone" data-size="tall"></div>
+            </td>
+          </tr>
+        </table>
+       </div>
+        <!-- Social Widgets End Here -->
+      <div class ="col-md-4">
+        <div class="fb-page" data-href="https://www.facebook.com/pages/Shopbuzzpk/530971380350516" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/Shopbuzzpk/530971380350516"><a href="https://www.facebook.com/pages/Shopbuzzpk/530971380350516">Shopbuzz.pk</a></blockquote></div></div>
+      </div>
+   </div>
+ </div>
+   <h3>Specifications</h3>
+   <table class="items table table-striped table-bordered" >
+
+           <%@product.product_specification.each do |spec| %>
+             <tr>
+                  <td width="50%"> <%=spec.specification.name %></td>
+                  <% puts spec.specification.name %>
+                  <td width="50%" align="center"> <%=spec.value %> </td>
+            </tr>
+         <% end %>
+
+   </table>
+
+
+
+
+<%= button_to 'Add Review',new_product_product_review_path(@product)%>
+<%= button_to 'See All Reviews',  product_product_reviews_path(@product), :method=>:get%>
+
+<%= link_to 'Edit', edit_product_path(@product) %>
+<%= link_to 'Back', products_path %>

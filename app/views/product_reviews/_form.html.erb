@@ -1,0 +1,44 @@
+
+<%= form_for([@product, @product_review]) do |f|%>
+
+  <% if @product_review.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= "#{pluralize(@product_review.errors.count, "error")} prohibited your review from being submitted:" %>
+      </h2>
+      <ul>
+      <% @product_review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :name, "Name" %>
+    <%= f.text_field :name%>
+    <input type="name" class="form-control" id="exampleInputName" placeholder="Name">
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, "Email Address" %>
+    <%= f.text_field :email%>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+  </div>
+
+  <div class="form-group">
+    <%=f.label :rating %>
+    <%=select :product_review, "rating", options_for_select([1, 2, 3, 4, 5])%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :content, "Your Review Content" %>
+    <%=f.text_area :content%>
+    <input type="text" class="form-control" placeholder="Text input">
+  </div>
+
+  <div class="actions">
+    <%=f.submit%>
+  </div>
+
+<% end %>
