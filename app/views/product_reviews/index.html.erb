@@ -1,23 +1,23 @@
 <p id="notice"><%= notice %></p>
 
-<h1>
-  <%= "All Customers' Comments for " + @product.name %>
-</h1>
+<h2>
+  Reviews on <%= link_to(@product.name, url_for(@product)) %>
+</h2>
 
 
 <div class="form-group">
   <button type="button" class="btn btn-default">Post Your Comment</button>
 </div>
 
-<a class="btn btn-default" src="<%= product_path(@product) %>" > Back To Product </a>
+<%= link_to("Post Review", url_for(new_product_product_review_path)) %>
 
 <div class="row">
-  <div class="col-md-4" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
     <% @product_reviews.each do |product_review| %>
+      <div class="col-md-4" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
         <blockquote>
           <%= product_review.content%>
           <footer> <%= product_review.name%></footer>
         </blockquote>
+      </div>
     <% end %>
-  </div>
 </div>
