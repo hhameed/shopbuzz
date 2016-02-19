@@ -1,0 +1,37 @@
+<h2><%=@product1.name%> vs <%=@product2.name%></h2>
+
+<table class="table table-bordered table-striped">
+  <tbody>
+  <tr>
+    <td></td>
+    <td style="text-align: center;"><%=@product1.image%></td>
+    <td style="text-align: center;"><%=@product2.image%></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td style="text-align: center;"><a href=""><%=@product1.name%></a></td>
+    <td style="text-align: center;"><a href=""><%=@product2.name%></a></td>
+  </tr>
+  <tr>
+    <td>Price</td>
+    <td style="text-align: center;"><%=@product1.price%></td>
+    <td style="text-align: center;"><%=@product2.price%></td>
+  </tr>
+
+
+  <%@finalhash.each do |key|%>
+      <%key.each do |key1, key2|%>
+          <tr>
+            <td><%= key1 %> </td>
+            <%key2.each do |key3|%>
+                <%key3.each do |key4,key5|%>
+                  <td style="text-align: center;"><%= key5 %> </td>
+                <%end%>
+            <%end%>
+          </tr>
+      <%end%>
+
+  <%end%>
+
+  </tbody>
+</table>
