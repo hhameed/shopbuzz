@@ -20,10 +20,14 @@
 
 
   <%@finalhash.each do |key|%>
-      <%key.each do |key1|%>
+      <%key.each do |key1, key2|%>
           <tr>
-            <td style="text-align: center;"><%= key1 %> </td>
-
+            <td><%= key1 %> </td>
+            <%key2.each do |key3|%>
+                <%key3.each do |key4,key5|%>
+                  <td style="text-align: center;"><%= key5 %> </td>
+                <%end%>
+            <%end%>
           </tr>
       <%end%>
 

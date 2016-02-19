@@ -21,8 +21,6 @@ class ComparesController < ApplicationController
       @specs2final << spec2.value
     end
     @prod2hash = Hash[@spec2name.zip @specs2final]
-    #h1=@prod1hash.reduce(&:merge)
-    # h2=@prod2hash.reduce(&:merge)
     @keys = [@prod1hash, @prod2hash].flat_map(&:keys).uniq
 
     @finalhash= @keys.map do |k|
