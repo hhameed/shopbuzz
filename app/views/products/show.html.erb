@@ -57,8 +57,8 @@
 
    </table>
 
-<%= button_to 'Post Your Comment', new_product_product_review_path(@product), :method=>:get%>
-<%= button_to 'See All Comments',  product_product_reviews_path(@product), :method=>:get%>
+<a class="btn btn-default" href= <%=url_for(new_product_product_review_path(@product))%> role="button">Post Your Comments</a>
+<a class="btn btn-default" href= <%=url_for(product_product_reviews_path(@product))%> role="button">See All Comments</a>
 
 <%= link_to 'Edit', edit_product_path(@product) %>
 <%= link_to 'Back', products_path %>
