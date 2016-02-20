@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'selenium-webdriver'
+
 ## Gemfile for Rails 3+, Sinatra, and Merb
 gem 'will_paginate', '~> 3.0.6'
 
@@ -39,7 +41,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
   gem 'capybara'
