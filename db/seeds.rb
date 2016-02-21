@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-<<<<<<< HEAD
+
 products=[{:id=>1, :rating=>4.0, :review_count=>1, :views=>1, :name=>'Samsung Galaxy Note II N7100 16GB', :price=>34999, :image=>'N7100.JPG', :brand_id=>1, :category_id=>4},
                     {:id=>2, :rating=>5.0, :review_count=>1, :views=>1, :name=>'Sony DSC-TX30', :price=>33499, :image=>'TX30.JPG', :brand_id=>2, :category_id=>1},
                     {:id=>3, :rating=>3.0, :review_count=>1, :views=>1, :name=>'Nikon D4S', :price=>474999, :image=>'Nikon D4S.JPG', :brand_id=>3, :category_id=>2},
@@ -16,8 +16,6 @@ products=[{:id=>1, :rating=>4.0, :review_count=>1, :views=>1, :name=>'Samsung Ga
 products.each do |product|
     Product.create!(product)
   end
-=======
-
 
 categories = [{:id=>1, :code=>'digital-cameras', :name=>'Digital Cameras'},
               {:id=>2, :code=>'dslr-cameras', :name=>'DSLR Cameras'},
@@ -105,4 +103,3 @@ product_specifications=[{:id=>1, :product_id=>1, :specification_id=>1, :value=>'
 product_specifications.each do |product_specification|
   ProductSpecification.create!(product_specification)
 end
->>>>>>> master

@@ -40,13 +40,10 @@
   </div>
   <div class="col-md-9">
     <div class="row">
-        <div class="col-md-4" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
-        <%= render @products %>
-        </div>
-      <div class="col-md-12">
-        <%= will_paginate @products %>
-      </div>
-
-      </div>
+      <%= render partial: "products/product", collection: @products, layout: "product_wrapper_layout" %>
+    </div>
+    <div class="row">
+      <center><%= will_paginate @products %></center>
+    </div>
   </div>
 </div>
