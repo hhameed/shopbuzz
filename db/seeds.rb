@@ -40,14 +40,14 @@ brands.each do |brand|
   Brand.create!(brand)
 end
 
-products=[{:id=>1, :rating=>4.0, :review_count=>1, :views=>1, :name=>'Samsung Galaxy Note II N7100 16GB', :price=>34999, :image=>'N7100.JPG', :brand_id=>1, :category_id=>4},
-          {:id=>2, :rating=>5.0, :review_count=>1, :views=>1, :name=>'Sony DSC-TX30', :price=>33499, :image=>'TX30.JPG', :brand_id=>2, :category_id=>1},
-          {:id=>3, :rating=>3.0, :review_count=>1, :views=>1, :name=>'Nikon D4S', :price=>474999, :image=>'Nikon D4S.JPG', :brand_id=>3, :category_id=>2},
-          {:id=>4, :rating=>4.0, :review_count=>1, :views=>1, :name=>'DSLR NEX-VG30EH', :price=>245999, :image=>'VG30EH.JPG', :brand_id=>4, :category_id=>3},
-          {:id=>5, :rating=>5.0, :review_count=>1, :views=>1, :name=>'Lenovo Yoga 900', :price=>163999, :image=>'Yoga.JPG', :brand_id=>5, :category_id=>5},
-          {:id=>6, :rating=>3.0, :review_count=>1, :views=>1, :name=>'Huawei Media Pad T1 8.0', :price=>18999, :image=>'T1.JPG', :brand_id=>6, :category_id=>6},
-          {:id=>7, :rating=>4.4, :review_count=>1, :views=>1, :name=>'Samsung Galaxy ABC', :price=>6473, :image=>'N7100.JPG', :brand_id=>1, :category_id=>4},
-          {:id=>8, :rating=>4.4, :review_count=>1, :views=>1, :name=>'Samsung Galaxy B', :price=>6423, :image=>'N7100.JPG', :brand_id=>1, :category_id=>4}
+products=[{:id=>1, :rating=>4.0, :review_count=>1, :views=>1, :name=>'Samsung Galaxy Note II N7100 16GB', :price=>34999, :image=>'http://shopbuzz.pk/images/products/profile/143-samsung-galaxy-note-ii-n7100-16gb-price-in-pakistan.jpg', :brand_id=>1, :category_id=>4},
+          {:id=>2, :rating=>5.0, :review_count=>1, :views=>1, :name=>'Sony DSC-TX30', :price=>33499, :image=>'http://shopbuzz.pk/images/products/profile/2052-sony-dsc-tx30-price-in-pakistan.jpg', :brand_id=>2, :category_id=>1},
+          {:id=>3, :rating=>3.0, :review_count=>1, :views=>1, :name=>'Nikon D4S', :price=>474999, :image=>'http://shopbuzz.pk/images/products/profile/1911-nikon-d4s-price-in-pakistan.jpg', :brand_id=>3, :category_id=>2},
+          {:id=>4, :rating=>4.0, :review_count=>1, :views=>1, :name=>'DSLR NEX-VG30EH', :price=>245999, :image=>'http://shopbuzz.pk/images/products/profile/953-dslr-nex-vg30eh-price-in-pakistan.jpg', :brand_id=>4, :category_id=>3},
+          {:id=>5, :rating=>5.0, :review_count=>1, :views=>1, :name=>'Lenovo Yoga 900', :price=>163999, :image=>'http://shopbuzz.pk/images/products/profile/2212-lenovo-yoga-900-price-in-pakistan.jpg', :brand_id=>5, :category_id=>5},
+          {:id=>6, :rating=>3.0, :review_count=>1, :views=>1, :name=>'Huawei Media Pad T1 8.0', :price=>18999, :image=>'http://shopbuzz.pk/images/products/profile/2183-huawei-media-pad-t1-8.0-price-in-pakistan.jpg', :brand_id=>6, :category_id=>6},
+          {:id=>7, :rating=>4.4, :review_count=>1, :views=>1, :name=>'Samsung Galaxy ABC', :price=>6473, :image=>'http://shopbuzz.pk/images/products/profile/143-samsung-galaxy-note-ii-n7100-16gb-price-in-pakistan.jpg', :brand_id=>1, :category_id=>4},
+          {:id=>8, :rating=>4.4, :review_count=>1, :views=>1, :name=>'Samsung Galaxy B', :price=>6423, :image=>'http://shopbuzz.pk/images/products/profile/143-samsung-galaxy-note-ii-n7100-16gb-price-in-pakistan.jpg', :brand_id=>1, :category_id=>4}
 ]
 
 products.each do |product|

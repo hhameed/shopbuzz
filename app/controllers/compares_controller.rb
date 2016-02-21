@@ -1,33 +1,20 @@
 class ComparesController < ApplicationController
 
   def compare
-    @product1 = Product.find(1)
-    @product2 = Product.find(7)
-
-    @prod1spec = @product1.product_specification
-    @prod2spec = @product2.product_specification
-    @spec1name = []
-    @specs1final = []
-    @spec2name = []
-    @specs2final = []
-    @prod1spec.each do |spec1|
-      @spec1name << spec1.specification.name
-      @specs1final << spec1.value
+    begin
+      @product1 = Product.find_by_id(1)
+      @product2 = Product.find_by_id(7)
+    if(@product1.nil? ||@product1==0 || @product2.nil? ||@product2==0)
+      raise "Invalid Request"
+    elsif(@product1.category_id!=@product2.category_id)
+      raise "Products should be of same category"
+    elsif(@product1==@product2)
+      raise "Same products cannot be compared"
+    else
+      @final_hash=Compare.create_spec_hash(@product1,@product2)
     end
-    @prod1hash = Hash[@spec1name.zip @specs1final]
-
-    @prod2spec.each do |spec2|
-      @spec2name << spec2.specification.name
-      @specs2final << spec2.value
+    rescue Exception => e
+      @error= e.message
     end
-    @prod2hash = Hash[@spec2name.zip @specs2final]
-    @keys = [@prod1hash, @prod2hash].flat_map(&:keys).uniq
-
-    @finalhash= @keys.map do |k|
-      @new = {k => [{value1: @prod1hash[k] || "0"},
-                    {value2: @prod2hash[k] || "0"}]}
-    end
-
   end
-
 end
