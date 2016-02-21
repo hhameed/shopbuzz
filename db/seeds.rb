@@ -104,7 +104,7 @@ product_specifications=[{:id=>1, :product_id=>1, :specification_id=>1, :value=>'
                         {:id=>10, :product_id=>6, :specification_id=>7, :value=>'210.6 x 127.7 x 7.9 mm'},
                         {:id=>11, :product_id=>7, :specification_id=>1, :value=>'183 g (6.46 oz)'},
                         {:id=>12, :product_id=>7, :specification_id=>2, :value=>'720 x 1280 pixels, 5.5 inches (~267 ppi pixel density)'},
-                        {:id=>13, :product_id=>8, :specification_id=>2, :value=>'720 x 1280 pixels, 5.5 inches (~267 ppi pixel density)'}
+                        {:id=>13, :product_id=>8, :specification_id=>2, :value=>'720 x 1280 pixels, 5.6 inches (~267 ppi pixel density)'}
 ]
 
 product_specifications.each do |product_specification|

@@ -4,6 +4,7 @@ class ComparesController < ApplicationController
     begin
       @product1 = Product.find_by_id(1)
       @product2 = Product.find_by_id(7)
+      #check extreme cases
     if(@product1.nil? ||@product1==0 || @product2.nil? ||@product2==0)
       raise "Invalid Request"
     elsif(@product1.category_id!=@product2.category_id)

@@ -18,7 +18,7 @@ class Compare < ActiveRecord::Base
     end
     prod2hash = Hash[spec2name.zip specs2final]
     keys = [prod1hash, prod2hash].flat_map(&:keys).uniq
-
+#sending this to request
     keys.map do |k|
       new = {k => [{value1: prod1hash[k] || "0"},
                     {value2: prod2hash[k] || "0"}]}
