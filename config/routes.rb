@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  #get 'products/index'
+  #root 'products#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -8,7 +11,7 @@ Rails.application.routes.draw do
   get 'compare' => 'compares#compare'
 
   root 'site#index'
-
+  get 'site/browse'
   get 'browse' => 'site#browse'
 
   # Example of regular route:
