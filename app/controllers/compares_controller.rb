@@ -1,7 +1,6 @@
 class ComparesController < ApplicationController
 
   def compare
-
     begin
       @product1 = Product.find_by_id(1)
       @product2 = Product.find_by_id(7)
