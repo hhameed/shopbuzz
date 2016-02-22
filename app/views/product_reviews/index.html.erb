@@ -5,11 +5,7 @@
 </h2>
 
 
-<div class="form-group">
-  <button type="button" class="btn btn-default">Post Your Comment</button>
-</div>
-
-<%= link_to("Post Review", url_for(new_product_product_review_path)) %>
+<a class="btn btn-default" href= <%=url_for(new_product_product_review_path)%> role="button">Post Your Comment</a>
 
 <div class="row">
     <% @product_reviews.each do |product_review| %>
@@ -21,3 +17,5 @@
       </div>
     <% end %>
 </div>
+
+<%= will_paginate @product_reviews %>
