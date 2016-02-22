@@ -4,14 +4,13 @@
   <p>ShopBuzz.pk is a price comparison website that lets you find which online store is selling your favorite mobile phone at lowest price. See price comparisons of all popular online stores in Pakistan. Buy and sell used mobile phones through ShopBuzz. Use the advance search feature to find the phone that precisely meets your needs. Compare phone specs and read valuable phone reviews to make the best phone purchase decision.</p>
 </div>
 
-<h3>Mobile Phone Prices in Pakistan</h3>
-
+<% Category.all.each do |category| %>
+<h3><%= category.name %> Prices in Pakistan</h3>
 <div class="row">
-  <% @products.each do |product| %>
+  <% Product.where(category_id: category.id).take(8).each do |product| %>
       <div class="col-md-3" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
         <%= render product %>
       </div>
   <% end %>
 </div>
-
-
+<% end %>
