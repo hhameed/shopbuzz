@@ -1,3 +1,5 @@
-<h1>Write Your Review</h1>
+<h1>
+  Write Your Comment on <%= link_to(@product.name, url_for(@product))%>
+</h1>
 
 <%= render 'form' %>

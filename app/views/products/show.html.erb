@@ -57,11 +57,16 @@
 
    </table>
 
+<a class="btn btn-default" href= <%=url_for(new_product_product_review_path(@product))%> role="button">Post Your Comments</a>
+<a class="btn btn-default" href= <%=url_for(product_product_reviews_path(@product))%> role="button">See All Comments</a>
 
-
-
-<%= button_to 'Add Review',new_product_product_review_path(@product)%>
-<%= button_to 'See All Reviews',  product_product_reviews_path(@product), :method=>:get%>
-
-<%= link_to 'Edit', edit_product_path(@product) %>
-<%= link_to 'Back', products_path %>
+<div class="row">
+  <% @product.product_review.each do |product_review| %>
+      <div class="col-md-4" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
+        <blockquote>
+          <%= product_review.content%>
+          <footer> <%= product_review.name%></footer>
+        </blockquote>
+      </div>
+  <% end %>
+</div>
