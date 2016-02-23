@@ -62,6 +62,6 @@ class ProductReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_review_params
-      params.require(:product_review).permit(:rating, :content, :name)
+      params.require(:product_review).permit(:rating, :content, :name, :email)
     end
 end
