@@ -4,6 +4,6 @@ class ProductReview < ActiveRecord::Base
   EMAIL_REGEX = /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
 
   validates :rating, :name, :content, presence: true
-  validates :email, :format => {:with => EMAIL_REGEX}, :uniqueness => {case_sensitive:false}
+  validates :email, :format => {:with => EMAIL_REGEX}, :uniqueness => {case_sensitive:false}, :allow_blank=>true
 
 end
