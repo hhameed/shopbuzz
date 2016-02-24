@@ -1,22 +1,40 @@
+<%= simple_form_for ([@product, @product_review]), defaults: { input_html: { class: 'form-control'} }  do |f| %>
 
-<%= simple_form_for ([@product, @product_review]), defaults: { input_html: { class: 'form-control' } }  do |f| %>
+
+
+    <div class = "form-group">
+      <div class="col-sm-4">
+        <%= f.input :name, label:'Name ', type:'text', error: 'Username is mandatory, please specify one', input_html: { maxlength: 20 } %>
+      </div>
+    </div>
 
     <div class="form-group">
-      <%= f.input :name, error: 'Username is mandatory, please specify one'%>
-    </div>
-
-    <div class="form-group" >
-      <%= f.input :email, placeholder: 'user@domain.com', error: 'Email address is invalid' %>
+      <div class="col-sm-4">
+        <%= f.input :email, label:'Email ', placeholder: 'user@domain.com', error: 'Email address is invalid' %>
+      </div>
     </div>
 
     <div class="form-group">
-      <%= f.input :rating, collection: 1..5, prompt: "Please rate this product", selected: 3 %>
+      <div class ="col-sm-4">
+        <%= f.input :rating, collection: 1..5, prompt: "Please rate this product", selected: 3 %>
+      </div>
     </div>
 
-    <%= f.input :content, as: :text, error: 'Content cannot be blank' %>
+    <div class="form-group">
+      <div class="col-sm-12">
+        <%= f.input :content, as: :text, error: 'Content cannot be blank', input_html: {rows: 6} %>
+      </div>
+    </div>
+
+    <div class ="col-sm-12">
+      <p class="help-block">Fields with <span class="required">*</span> are required.</p>
+    </div>
+
 
     <div class="form-actions">
+      <div class ="col-sm-12">
         <button type="submit" class="btn btn-default">Submit Your Comment</button>
+      </div>
     </div>
 
 <%end%>
