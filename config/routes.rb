@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+
+
+  get 'compare' => 'compares#compare'
+
   root 'site#index'
   get 'site/browse'
   get 'browse' => 'site#browse'

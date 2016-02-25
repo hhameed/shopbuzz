@@ -1,0 +1,43 @@
+<%if @error %>
+    <h2><b>Error</b></h2>
+    <%= @error %>
+
+<%else%>
+<h2><a href=""><%=@product1.name%></a> vs <a href=""><%=@product2.name%></a></h2>
+
+<table class="table table-bordered table-striped">
+  <tbody>
+  <tr>
+    <td></td>
+    <td style="text-align: center;"><img src=<%=@product1.image%> width="150px" itemprop="image" /></td>
+    <td style="text-align: center;"><img src=<%=@product2.image%> width="150px" itemprop="image" /></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td style="text-align: center;"><a href=""><%=@product1.name%></a></td>
+    <td style="text-align: center;"><a href=""><%=@product2.name%></a></td>
+  </tr>
+  <tr>
+    <td>Price</td>
+    <td style="text-align: center;"><%=@product1.price%></td>
+    <td style="text-align: center;"><%=@product2.price%></td>
+  </tr>
+
+
+
+  <%@final_hash.each do |key|%>
+      <%key.each do |key1, value|%>
+          <tr>
+            <td><%= key1 %> </td>
+            <%value.each do |value1|%>
+                <%value1.each do |value2,value3|%>
+                  <td style="text-align: center;"><%= value3 %> </td>
+                <%end%>
+            <%end%>
+          </tr>
+      <%end%>
+  <%end%>
+
+  </tbody>
+</table>
+<% end %>

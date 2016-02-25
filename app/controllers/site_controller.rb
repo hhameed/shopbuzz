@@ -5,7 +5,8 @@ class SiteController < ApplicationController
   end
 
   def browse
-    @products = Product.(page: params[:page], per_page: 5)
+    #@products = Product.(page: params[:page], per_page: 5)
+    @products = Product.where(params.permit(:category_id)).paginate(page: params[:page], per_page: 5)
   end
 
 end

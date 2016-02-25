@@ -7,7 +7,7 @@ class ProductReviewsController < ApplicationController
   # GET /product_reviews.json
 
   def index
-    @product_reviews = ProductReview.where(product_id: @product.id)
+    @product_reviews = ProductReview.where(product_id: @product.id).paginate(:page => params[:page], :per_page => 30)
   end
 
   # GET /product_reviews/1
