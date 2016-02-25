@@ -31,6 +31,12 @@ class ProductReviewsController < ApplicationController
     @product_review = ProductReview.new(product_review_params)
     @product_review.product_id=@product.id
 
+    if verify_recaptcha
+      render 'show'
+    else
+      flash[:notice] = "Please verify the recaptcha"
+    end
+
     respond_to do |format|
       if @product_review.save
         format.html { redirect_to product_product_reviews_url, notice: 'Product review was successfully created.' }

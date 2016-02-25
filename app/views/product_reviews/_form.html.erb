@@ -1,4 +1,3 @@
-<script src='https://www.google.com/recaptcha/api.js'></script>
 <%= simple_form_for ([@product, @product_review]), defaults: { input_html: { class: 'form-control' } }  do |f| %>
 
     <div class="form-group">
@@ -15,7 +14,7 @@
 
     <%= f.input :content, as: :text, error: 'Content cannot be blank' %>
     <br>
-    <div class="g-recaptcha" data-sitekey="6LfoORkTAAAAAEVxKh884bD5PWpE0LAKWa58dj3_"></div>
+    <%= recaptcha_tags %>
     <br>
     <div class="form-actions">
         <button type="submit" class="btn btn-default">Submit Your Comment</button>

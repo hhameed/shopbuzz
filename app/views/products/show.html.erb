@@ -6,7 +6,11 @@
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+</script>
+<% content_for(:body_attributes) do %>
+    data-no-turbolink="true"
+<% end %>
  <div itemscope itemtype="http://schema.org/Product">
    <div class="row">
       <div class ="col-md-2">
