@@ -12,6 +12,8 @@
         <button type="submit" class="btn btn-default">Submit</button>
         </div>
     </div>
+
+
     <div class="thumbnail" style="margin-top:10px;">
       <div style="margin-left: 10px">
         <h4>Brands:</h4>
@@ -37,6 +39,24 @@
         </div>
       </div>
     </div>
+
+
+    <div class="thumbnail" style="margin-top:10px;">
+      <div style="margin-left: 10px">
+        <h4>Brands:</h4>
+        <% Brand.all.each do |brand| %>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> <%= brand.name %>
+          </label>
+        </div>
+        <% end %>
+      </div>
+    </div>
+
+
+
+
   </div>
   <div class="col-md-9">
     <%= page_entries_info @products %>
