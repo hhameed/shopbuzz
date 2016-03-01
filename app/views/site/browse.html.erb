@@ -47,7 +47,8 @@
         <% Brand.all.each do |brand| %>
         <div class="checkbox">
           <label>
-            <input type="checkbox"> <%= brand.name %>
+            <%= check_box_tag "brand_ids[]", brand.id,false,class: 'ckbox'  %>
+            <%= brand.name%>
           </label>
         </div>
         <% end %>

@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   root 'site#index'
 
   get 'site/browse'
+
+  get 'site/site/browse' => 'site#browse'
   #get 'browse' => 'site#browse'
 
   # Example of regular route:

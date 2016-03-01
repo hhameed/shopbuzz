@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 products=[{:id=>1, :rating=>4.0, :review_count=>1, :views=>1, :name=>'Samsung Galaxy Note II N7100 16GB', :price=>34999, :image=>'http://shopbuzz.pk/images/products/profile/143-samsung-galaxy-note-ii-n7100-16gb-price-in-pakistan.jpg', :brand_id=>1, :category_id=>4},
+          {:id=>65, :rating=>4.0, :review_count=>1, :views=>1, :name=>'Samsung Galaxy Note II N7100 32GB', :price=>349931239, :image=>'http://shopbuzz.pk/images/products/profile/143-samsung-galaxy-note-ii-n7100-16gb-price-in-pakistan.jpg', :brand_id=>2, :category_id=>4},
           {:id=>2, :rating=>5.0, :review_count=>1, :views=>1, :name=>'Sony DSC-TX30', :price=>33499, :image=>'http://shopbuzz.pk/images/products/profile/2052-sony-dsc-tx30-price-in-pakistan.jpg', :brand_id=>2, :category_id=>1},
           {:id=>3, :rating=>3.0, :review_count=>1, :views=>1, :name=>'Nikon D4S', :price=>474999, :image=>'http://shopbuzz.pk/images/products/profile/1911-nikon-d4s-price-in-pakistan.jpg', :brand_id=>3, :category_id=>2},
           {:id=>4, :rating=>4.0, :review_count=>1, :views=>1, :name=>'DSLR NEX-VG30EH', :price=>245999, :image=>'http://shopbuzz.pk/images/products/profile/953-dslr-nex-vg30eh-price-in-pakistan.jpg', :brand_id=>4, :category_id=>3},
