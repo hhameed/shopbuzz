@@ -44,6 +44,12 @@
       </div>
    </div>
  </div>
+<h3><b>Related <%= @product.category.name%></b></h3>
+    <% Product.where(category_id: @product.category_id).take(8).each do |product| %>
+        <div class="col-md-3" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
+          <%= render partial: product, locals:{obj:"related"} %>
+        </div>
+    <% end %>
    <h3>Specifications</h3>
    <table class="items table table-striped table-bordered" >
 
