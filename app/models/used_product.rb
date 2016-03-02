@@ -1,6 +1,5 @@
 class UsedProduct < ActiveRecord::Base
   belongs_to :city
-  belongs_to :province
   belongs_to :product
 
   PRICE_REGEX = /\A\d+\z/

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160302005908) do
+ActiveRecord::Schema.define(version: 20160302023517) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "code"
@@ -39,10 +39,12 @@ ActiveRecord::Schema.define(version: 20160302005908) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
-    t.integer  "province_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "province_id"
   end
+
+  add_index "cities", ["province_id"], name: "index_cities_on_province_id"
 
   create_table "product_reviews", force: :cascade do |t|
     t.string   "name"
@@ -105,14 +107,13 @@ ActiveRecord::Schema.define(version: 20160302005908) do
     t.string   "usage_duration"
     t.string   "contact_number"
     t.string   "email"
-    t.integer  "location_id"
     t.integer  "product_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "city_id"
   end
 
-  add_index "used_products", ["location_id"], name: "index_used_products_on_location_id"
+  add_index "used_products", ["city_id"], name: "index_used_products_on_city_id"
   add_index "used_products", ["product_id"], name: "index_used_products_on_product_id"
 
 end

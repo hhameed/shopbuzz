@@ -1,5 +1,5 @@
 class RemoveLocationIdFromUsedProducts < ActiveRecord::Migration
   def change
-    remove_column :used_products, :Location_id, :integer
+    remove_column :used_products, :location_id, :integer
   end
 end
