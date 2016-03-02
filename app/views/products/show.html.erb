@@ -44,7 +44,13 @@
       </div>
    </div>
  </div>
-   <h3>Specifications</h3>
+
+   <h3>Used <%=@product.name%>  </h3>
+
+<a class="btn btn-default" href= <%=url_for(new_product_used_product_path(@product))%> role="button">Sell Your Used <%=@product.name%>  </a>
+<a class="btn btn-default" href= <%=url_for(product_used_products_path(@product))%> role="button">View All Used <%=@product.name%> </a>
+
+<h3>Specifications</h3>
    <table class="items table table-striped table-bordered" >
 
            <%@product.product_specification.each do |spec| %>
