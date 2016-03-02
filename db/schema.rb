@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213224152) do
+ActiveRecord::Schema.define(version: 20160226142249) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "code"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 20160213224152) do
 
   add_index "category_specifications", ["category_id"], name: "index_category_specifications_on_category_id"
   add_index "category_specifications", ["specification_id"], name: "index_category_specifications_on_specification_id"
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "level"
+    t.integer  "location_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "locations", ["location_id"], name: "index_locations_on_location_id"
 
   create_table "product_reviews", force: :cascade do |t|
     t.string   "name"
@@ -82,5 +92,25 @@ ActiveRecord::Schema.define(version: 20160213224152) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "used_products", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "condition_ex"
+    t.integer  "price"
+    t.text     "additional_info"
+    t.string   "warranty"
+    t.string   "usage_duration"
+    t.string   "contact_number"
+    t.string   "city_name"
+    t.string   "province_name"
+    t.string   "email"
+    t.integer  "location_id"
+    t.integer  "product_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "used_products", ["location_id"], name: "index_used_products_on_location_id"
+  add_index "used_products", ["product_id"], name: "index_used_products_on_product_id"
 
 end
