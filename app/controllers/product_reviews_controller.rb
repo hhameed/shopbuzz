@@ -28,14 +28,14 @@ class ProductReviewsController < ApplicationController
   # POST /product_reviews
   # POST /product_reviews.json
   def create
+    respond_to do |format|
+    if !verify_recaptcha
+      format.html { render :'product_reviews/new' }
+    end
+    end
+
     @product_review = ProductReview.new(product_review_params)
     @product_review.product_id=@product.id
-
-    if verify_recaptcha
-      render 'show'
-    else
-      flash[:notice] = "Please verify the recaptcha"
-    end
 
     respond_to do |format|
       if @product_review.save
