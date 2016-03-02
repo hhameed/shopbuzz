@@ -7,11 +7,15 @@
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
+
  <div itemscope itemtype="http://schema.org/Product">
+
    <div class="row">
+
       <div class ="col-md-2">
         <img src=<%=@product.image%> width="140px" itemprop="image" style="vertical-align: middle"/>
       </div>
+
       <div class ="col-md-6">
         <h2>
           <span itemprop="name"><%=@product.name%></span>
