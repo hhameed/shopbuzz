@@ -1,0 +1,29 @@
+
+  <h1>Contact Us</h1>
+  <p>If you have business inquiries or other questions, please fill out the following form to contact us. Thank you</p>
+  <p class="note"> Fields with <span class="required">*</span> are required </p>
+  <%= simple_form_for @contact, defaults: { input_html: { class: 'form-control' } } do |f| %>
+      <div class="col-xs-3">
+      <div class="form-group">
+
+      <%= f.input :name, size: "10x10",placeholder: "FirstName, LastName", :required => true, error: 'Name is mandatory, please specify one' %>
+
+      </div>
+      </div>
+      <div class ="col-md-10">
+
+      <div class="form-group">
+      <%= f.input :email, :required => true, error: 'Email is mandatory, please specify one' %>
+      </div>
+      </div>
+
+      <div class ="col-md-10">
+      <div class="form-group">
+      <%= f.input :message, :as => :text, :required => true, error: 'Message is mandatory, please specify one'%>
+        </div>
+      <div>
+        </div>
+        </br>
+        <%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
+      </div>
+  <% end %>
