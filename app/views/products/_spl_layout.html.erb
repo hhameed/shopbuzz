@@ -1,0 +1,12 @@
+<table class="items table table-bordered">
+  <thead>
+  <tr>
+    <th>Seller Name</th>
+    <th>Additional Information</th>
+    <th>Price</th>
+  </tr>
+  </thead>
+  <tbody>
+  <%= render partial: 'spl', collection: @product.seller_product_links %>
+  </tbody>
+</table>

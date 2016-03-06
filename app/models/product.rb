@@ -5,4 +5,5 @@ class Product < ActiveRecord::Base
   has_many :specification, through: :product_specification
   has_many :product_review
   has_many :used_products
+  has_many :seller_product_links
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226142249) do
+ActiveRecord::Schema.define(version: 20160305200038) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "code"
@@ -85,6 +85,41 @@ ActiveRecord::Schema.define(version: 20160226142249) do
 
   add_index "products", ["brand_id"], name: "index_products_on_brand_id"
   add_index "products", ["category_id"], name: "index_products_on_category_id"
+
+  create_table "seller_product_link_views", force: :cascade do |t|
+    t.string   "ip"
+    t.datetime "accessed"
+    t.integer  "seller_product_link_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "seller_product_link_views", ["seller_product_link_id"], name: "index_seller_product_link_views_on_seller_product_link_id"
+
+  create_table "seller_product_links", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.string   "url"
+    t.string   "info"
+    t.datetime "not_found"
+    t.integer  "product_id"
+    t.integer  "category_id"
+    t.integer  "seller_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "seller_product_links", ["category_id"], name: "index_seller_product_links_on_category_id"
+  add_index "seller_product_links", ["product_id"], name: "index_seller_product_links_on_product_id"
+  add_index "seller_product_links", ["seller_id"], name: "index_seller_product_links_on_seller_id"
+
+  create_table "sellers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "logo"
+    t.string   "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "specifications", force: :cascade do |t|
     t.string   "code"

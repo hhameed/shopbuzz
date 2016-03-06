@@ -179,7 +179,6 @@ locations.each do |location|
   Location.create!(location)
 end
 
-
 used_products = [
     {id: 1, name: 'Haider', condition_ex: 5, price: 20000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
      city_name: 'City 1', province_name: 'Province 1', email: 'haider@gmail.com', location_id: 4, product_id: 1},
@@ -188,3 +187,28 @@ used_products = [
 used_products.each do |up|
   UsedProduct.create!(up)
 end
+
+sellers = [
+    {id: 1, name: 'Shophive', logo:'shophive.png', website:'shophive.com'},
+    {id: 2, name: 'Mega', logo:'megapk.png', website:'mega.pk'},
+    {id: 3, name: 'Homeshopping', logo:'homeshopping.png', website:'homeshopping.com'},
+]
+
+sellers.each do |seller|
+  Seller.create!(seller)
+end
+
+seller_product_links = [
+    {id: 1, name: 'Samsung Galaxy Note II', price: 20000, info: '', not_found: nil, product_id: 1, category_id: 4, seller_id: 1, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
+    {id: 2, name: 'Samsung Galaxy Note II', price: 18000, info: '', not_found: nil, product_id: 1, category_id: 4, seller_id: 2, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
+    {id: 3, name: 'Samsung Galaxy Note II', price: 21000, info: '', not_found: '2015-10-21 03:23:45', product_id: 1, category_id: 4, seller_id: 3, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
+    {id: 4, name: 'Sony DSC-TX30', price: 20000, info: '', not_found: nil, product_id: 2, category_id: 1, seller_id: 1, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
+    {id: 5, name: 'Nikon D4S', price: 18000, info: '', not_found: nil, product_id: 3, category_id: 2, seller_id: 2, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
+    {id: 6, name: 'Nikon D4S', price: 21000, info: '', not_found: nil, product_id: 3, category_id: 2, seller_id: 3, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
+]
+
+seller_product_links.each do |spl|
+  SellerProductLink.create!(spl)
+end
+
+
