@@ -62,8 +62,12 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
+  resources :products do
+    get :autocomplete_product_name, on: :collection
+  end
   resources :products do
     resources :product_reviews
   end
+
+
 end

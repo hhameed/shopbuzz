@@ -15,4 +15,5 @@
  *= require navbar-static-top
  *= require_tree .
  *= require_self
+ *= require jquery-ui
  */
