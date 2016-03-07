@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   get 'site/browse'
 
-  get 'site/site/browse' => 'site#browse'
+  post 'site/browse' => 'site#browse', :as =>:site_browse_post
   #get 'browse' => 'site#browse'
 
   # Example of regular route:
