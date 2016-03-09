@@ -14,7 +14,6 @@ class SiteController < ApplicationController
 
     if params[:brand_ids].blank? && params[:textmin].blank? && params[:textmax].blank?&&params[:sortid].blank?
       @products = Product.where(params.permit(:category_id)).paginate(page: params[:page], per_page: 10)
-      print ".................."
     end
 
     #only brand
