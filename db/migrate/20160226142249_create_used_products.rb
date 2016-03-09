@@ -8,10 +8,9 @@ class CreateUsedProducts < ActiveRecord::Migration
       t.string :warranty
       t.string :usage_duration
       t.string :contact_number
-      t.string :city_name
       t.string :province_name
       t.string :email
-      t.references :location, index: true, foreign_key: true
+      t.references :city, index: true, foreign_key: true
       t.references :product, index: true, foreign_key: true
 
       t.timestamps null: false

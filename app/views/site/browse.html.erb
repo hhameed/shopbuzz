@@ -1,11 +1,8 @@
 <div class="row">
   <form id="formid" action="<%= url_for controller: 'site', action: 'browse', category_id: @category.id %>" method="post">
-    <div style="margin-right: 10px;">
-    <%= select_tag(:sortid,options_for_select([['Sort Price Min-Max', 1], ['Sort Price Max-Min', 2]],@sortvalue),class:"form-control") %>
-  </div>
       <div class="col-md-3">
       <div class="thumbnail">
-      <div style="margin-left: 10px; margin-bottom: 5px;">
+      <div style="margin-left: 10px; margin-bottom: 5px; ">
         <h4>Price Range:</h4>
         <div class="form-group">
           <%= text_field_tag('textmin',@textminvalue, placeholder:"Min Price",class:"form-control",style:"width: 80%") %>
@@ -32,10 +29,16 @@
       </div>
     </div>
   </div>
-  </form>
 
   <div class="col-md-9">
-    <%= page_entries_info @products %>
+    <div style="margin-bottom: 40px;">
+    <div style="margin-right: 10px;width: 200px; float:right; ">
+      <%= select_tag(:sortid,options_for_select([['Sort Price Min-Max', 1], ['Sort Price Max-Min', 2]],@sortvalue),class:"form-control") %>
+    </div>
+    <div style="margin-right: 10px;width: 50%; float:right; ">
+      <%= page_entries_info @products %>
+    </div>
+    </div>
     <div class="row">
       <%= render partial: "products/product", collection: @products, layout: "product_wrapper_layout",:locals => {:size => "col-md-4"} %>
     </div>
@@ -43,5 +46,5 @@
       <center><%= will_paginate @products,:params=>{:category_id=>@category.id,:sortid=>@sortvalue, :textmin=>@textminvalue, :textmax=>@textmaxvalue, :brand_ids=>@selected_brands }%></center>
     </div>
   </div>
-
+  </form>
 </div>
