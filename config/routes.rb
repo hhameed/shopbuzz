@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   get 'compare' => 'compares#compare'
 
   root 'site#index'
-  get 'site/browse'
   get 'browse' => 'site#browse'
 
   # Example of regular route:

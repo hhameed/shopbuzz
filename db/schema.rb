@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160226142249) do
+ActiveRecord::Schema.define(version: 20160305200038) do
 
   create_table "brands", force: :cascade do |t|
     t.string   "code"
@@ -37,15 +37,27 @@ ActiveRecord::Schema.define(version: 20160226142249) do
   add_index "category_specifications", ["category_id"], name: "index_category_specifications_on_category_id"
   add_index "category_specifications", ["specification_id"], name: "index_category_specifications_on_specification_id"
 
-  create_table "locations", force: :cascade do |t|
+  create_table "cities", force: :cascade do |t|
     t.string   "name"
-    t.integer  "level"
-    t.integer  "location_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "province_id"
   end
 
-  add_index "locations", ["location_id"], name: "index_locations_on_location_id"
+  add_index "cities", ["province_id"], name: "index_cities_on_province_id"
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "product_reviews", force: :cascade do |t|
     t.string   "name"
@@ -81,10 +93,52 @@ ActiveRecord::Schema.define(version: 20160226142249) do
     t.integer  "category_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "slug"
   end
 
   add_index "products", ["brand_id"], name: "index_products_on_brand_id"
   add_index "products", ["category_id"], name: "index_products_on_category_id"
+
+  create_table "provinces", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "seller_product_link_views", force: :cascade do |t|
+    t.string   "ip"
+    t.datetime "accessed"
+    t.integer  "seller_product_link_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "seller_product_link_views", ["seller_product_link_id"], name: "index_seller_product_link_views_on_seller_product_link_id"
+
+  create_table "seller_product_links", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.string   "url"
+    t.string   "info"
+    t.datetime "not_found"
+    t.integer  "product_id"
+    t.integer  "category_id"
+    t.integer  "seller_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "seller_product_links", ["category_id"], name: "index_seller_product_links_on_category_id"
+  add_index "seller_product_links", ["product_id"], name: "index_seller_product_links_on_product_id"
+  add_index "seller_product_links", ["seller_id"], name: "index_seller_product_links_on_seller_id"
+
+  create_table "sellers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "logo"
+    t.string   "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "specifications", force: :cascade do |t|
     t.string   "code"
@@ -101,16 +155,14 @@ ActiveRecord::Schema.define(version: 20160226142249) do
     t.string   "warranty"
     t.string   "usage_duration"
     t.string   "contact_number"
-    t.string   "city_name"
-    t.string   "province_name"
     t.string   "email"
-    t.integer  "location_id"
     t.integer  "product_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "city_id"
   end
 
-  add_index "used_products", ["location_id"], name: "index_used_products_on_location_id"
+  add_index "used_products", ["city_id"], name: "index_used_products_on_city_id"
   add_index "used_products", ["product_id"], name: "index_used_products_on_product_id"
 
 end

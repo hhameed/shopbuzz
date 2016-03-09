@@ -4,9 +4,12 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products1 = Product.search(params[:search])
+    if params[:search].blank?
+      redirect_to root_path
+    else
+      @products1 = Product.search(params[:search])
+    end
   end
-
   def show
     @products = Product.all
   end

@@ -40,10 +40,14 @@
   </div>
   <div class="col-md-9">
     <div class="row">
-      <% @products1.each do |product| %>
-          <div class="col-md-4" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
-            <%= render partial: product %>
-          </div>
+      <% if (@products1.empty?) %>
+          <h2><b>No product found.</b></h2>
+      <% else %>
+          <% @products1.each do |product| %>
+              <div class="col-md-4" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
+                <%= render partial: product %>
+              </div>
+          <% end %>
       <% end %>
     </div>
   </div>
