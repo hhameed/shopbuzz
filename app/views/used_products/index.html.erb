@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  Used <%= link_to(@product.name, url_for(@product)) %>
+</h1>
+
+<a class="btn btn-default" href= <%=url_for(new_product_used_product_path(@product))%> role="button">Sell Your Used <%=@product.name%>  </a>
+
+<table class="table table-bordered" >
+
+  <tr>
+    <td width="10%"> Seller Name</td>
+    <td width="8%"> Condition </td>
+    <td width="25%"> Description </td>
+    <td width="15%"> Usage Duration </td>
+    <td width="10%"> Warranty </td>
+    <td width="10%"> Location </td>
+    <td width="15%"> Contact Number </td>
+    <td width="10%"> Price </td>
+  </tr>
+
+  <%@product.used_products.each do |used| %>
+      <tr>
+        <td width="10%"> <%=used.name %></td>
+        <td width="10%"> <%=used.condition_ex %> </td>
+        <td width="25%"> <%=used.additional_info%></td>
+        <td width="10%"> <%=used.usage_duration%></td>
+        <td width="10%"> <%=used.warranty%></td>
+        <td width="10%"> <%=City.find(used.city_id).name%></td>
+        <td width="15%"> <%=used.contact_number%></td>
+        <td width="10%"> <%=used.price%>
+      </tr>
+  <% end %>
+
+</table>
