@@ -46,6 +46,11 @@ ActiveRecord::Schema.define(version: 20160305200038) do
 
   add_index "cities", ["province_id"], name: "index_cities_on_province_id"
 
+  create_table "contactmailers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "product_reviews", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
