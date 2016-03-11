@@ -1,10 +1,16 @@
-<p id="notice"><%= notice %></p>
+<% if flash[:notice] -%>
+    <div class = "alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+
 
 <h1>
   Used <%= link_to(@product.name, url_for(@product)) %>
 </h1>
 
 <a class="btn btn-default" href= <%=url_for(new_product_used_product_path(@product))%> role="button">Sell Your Used <%=@product.name%>  </a>
+
+<br>
+<br>
 
 <table class="table table-bordered" >
 

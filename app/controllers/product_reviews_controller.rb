@@ -25,7 +25,7 @@ class ProductReviewsController < ApplicationController
 
     respond_to do |format|
       if @product_review.save
-        format.html { redirect_to product_product_reviews_url, notice: 'Product review was successfully created.' }
+        format.html { redirect_to product_product_reviews_url, :flash=>{notice: 'Product review was successfully created.'}}
       else
          format.html { render :new }
       end
