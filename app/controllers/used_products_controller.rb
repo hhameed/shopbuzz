@@ -28,7 +28,7 @@ class UsedProductsController < ApplicationController
 
     respond_to do |format|
       if @used_product.save
-        format.html { redirect_to product_used_products_url, notice: 'Used product was successfully created.' }
+        format.html { redirect_to product_used_products_url, :flash=>{notice: 'Used product was successfully created.'}}
       else
         format.html { render :new }
       end

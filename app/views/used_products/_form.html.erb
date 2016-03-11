@@ -46,7 +46,7 @@
 
     <div class="form-group form-group-sm">
       <div class="col-sm-5">
-        <%= f.input :city_id, label: 'Location', collection: Province.all, as: :grouped_select, group_method: :cities, prompt: "Select One" %>
+        <%= f.input :city_id, label: 'Location', collection: Province.all, as: :grouped_select, group_method: :cities, prompt: "Select One", error: "Location can't be blank" %>
         </div>
     </div>
 
@@ -57,7 +57,7 @@
     </div>
 
     <div class ="col-sm-12">
-      <p class="help-block", style="color:red">Fields with <span class="required", style="color:black">*</span> are required.</p>
+      <p class="help-block", style="color: #dd0000;">Fields with <span class="required", style="color:black">*</span> are required.</p>
     </div>
 
     <div class="form-actions">
