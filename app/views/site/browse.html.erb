@@ -41,6 +41,7 @@
   <div class="col-md-9">
     <div class="row">
       <%= render partial: @products, layout: "product_wrapper_layout" %>
+      <%= render partial: "products/product", collection: @products, layout: "product_wrapper_layout", locals:{obj:"browse"} %>
     </div>
     <div class="row">
       <center><%= will_paginate @products %></center>

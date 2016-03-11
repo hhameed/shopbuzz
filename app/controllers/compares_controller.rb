@@ -2,8 +2,8 @@ class ComparesController < ApplicationController
 
   def compare
     begin
-      @product1 = Product.find_by_id(1)
-      @product2 = Product.find_by_id(7)
+      @product1 = Product.find_by_id(params[:product1])
+      @product2 = Product.find_by_id(params[:product2])
       #check extreme cases
     if(@product1.nil? ||@product1==0 || @product2.nil? ||@product2==0)
       raise "Invalid Request"

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
 
 
-  get 'compare' => 'compares#compare'
+  #
 
   root 'site#index'
   get 'site/browse'
@@ -62,11 +62,9 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
+  get 'compare' => 'compares#compare'
   resources :products do
     resources :product_reviews
     resources :used_products
   end
-
-
 end

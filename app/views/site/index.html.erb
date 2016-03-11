@@ -9,7 +9,7 @@
 <div class="row">
   <% Product.where(category_id: category.id).take(8).each do |product| %>
       <div class="col-md-3" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
-        <%= render product %>
+        <%= render partial: product, locals:{obj:"product"} %>
       </div>
   <% end %>
 </div>
