@@ -11,8 +11,8 @@ class ContactsController < ApplicationController
    if @contact.deliver
      flash[:notice] = 'Thank you for your Message We will get back soon'
    else
-     flash[:notice] ='Cannot send message'
      render :new
+     flash[:notice] ='Cannot send message'
    end
  end
 
