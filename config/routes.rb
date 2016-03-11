@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   get 'site/browse'
   #get 'browse' => 'site#browse'
 
+  match '/contacts', to: 'contacts#new', via: 'get'
+  resources "contacts", only: [:new, :create]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

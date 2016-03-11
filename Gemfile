@@ -27,6 +27,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'selenium-webdriver'
 
 gem 'rmagick'
+
+gem 'mail'
+
+gem 'mail_form'
+
 ## Gemfile for Rails 3+, Sinatra, and Merb
 gem 'dotenv-rails', :groups => [:development, :test]
 
