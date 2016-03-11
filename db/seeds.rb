@@ -218,5 +218,3 @@ seller_product_links = [
 seller_product_links.each do |spl|
   SellerProductLink.create!(spl)
 end
-
-
