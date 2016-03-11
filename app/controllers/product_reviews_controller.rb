@@ -28,17 +28,12 @@ class ProductReviewsController < ApplicationController
   # POST /product_reviews
   # POST /product_reviews.json
   def create
-    respond_to do |format|
-    if !verify_recaptcha
-      format.html { render :'product_reviews/new' }
-    end
-    end
 
     @product_review = ProductReview.new(product_review_params)
     @product_review.product_id=@product.id
 
     respond_to do |format|
-      if @product_review.save
+      if verify_recaptcha(model:@product_review)&& @product_review.save
         format.html { redirect_to product_product_reviews_url, notice: 'Product review was successfully created.' }
         format.json { render :show, status: :created, location: @product_review }
       else
