@@ -8,14 +8,11 @@ class ContactsController < ApplicationController
    @contact = Contact.new(params[:contact])
    @contact.request = request
 
-   if @contact.deliver
-     flash[:notice] = 'Thank you for your Message We will get back soon'
-   else
-     render :new
-     flash[:notice] ='Cannot send message'
+   if verify_recaptcha(model:@contact)&& @contact.deliver
+      render :create
+      else
+      render :new
    end
  end
-
-
 
 end

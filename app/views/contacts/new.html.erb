@@ -15,13 +15,17 @@
       </div>
       <div class="form-group">
         <div class ="col-md-10">
-          <%= f.input :message, :as => :text, :required => true, error: 'Message is mandatory, please specify one'%>
+          <%= f.input :message, :as => :text, :required => true, error: 'Message is mandatory, please specify one',input_html: {rows: 6}%>
           <br>
         </div>
       </div>
+       <div class ="col-md-8">
+         <%= recaptcha_tags %>
+        <br>
+       </div>
       <div class="form-group">
-        <div class ="col-md-10">
-          <%= f.button :submit, 'Send message', :class=> "btn btn-primary" %>
+        <div class ="col-md-12">
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
       </div>
 
