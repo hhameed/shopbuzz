@@ -18,7 +18,7 @@
           <strong>Comments:</strong> <%= product.review_count %><br />
           <%if obj=="related"%>
               <h4 align=center style="font-size: 14px" itemprop="name">
-                <%=link_to "Compare with this",compare_path(product1:@product.id,product2:product.id)%>
+                <%=link_to "(Compare with this)",compare_path(product1:@product.id,product2:product.id)%>
               </h4>
           <%end%>
 

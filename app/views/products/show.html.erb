@@ -61,15 +61,8 @@
 <a class="btn btn-default" href= <%=url_for(product_used_products_path(@product))%> role="button">View All Used <%=@product.name%> </a>
 <br>
 <br>
-<h3>Specifications</h3>
 
-<h3><b>Related <%= @product.category.name%></b></h3>
-    <% Product.where(['category_id = ? AND id <> ?', @product.category_id, @product.id]).take(8).each do |product1| %>
-        <div class="col-md-3" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
-          <%= render partial: product1, locals:{obj:"related"} %>
-        </div>
-    <% end %>
-   <h3>Specifications</h3>
+<h3>Specifications</h3>
    <table class="items table table-striped table-bordered" >
 
      <%@product.product_specification.each do |spec| %>
@@ -82,6 +75,16 @@
 
    </table>
 
+<br>
+<br>
+<h3>Related <%= @product.category.name%></h3>
+<div class="row">
+    <% Product.where(['category_id = ? AND id <> ?', @product.category_id, @product.id]).take(8).each do |product1| %>
+        <div class="col-md-3" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
+          <%= render partial: product1, locals:{obj:"related"} %>
+        </div>
+    <% end %>
+</div>
 <br>
 <br>
 <a class="btn btn-default" href= <%=url_for(new_product_product_review_path(@product))%> role="button">Post Your Comments</a>
