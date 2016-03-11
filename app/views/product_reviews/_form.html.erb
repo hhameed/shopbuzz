@@ -6,6 +6,7 @@
       </div>
     </div>
 
+
     <div class="form-group">
       <div class="col-sm-5">
         <%= f.input :email, label:'Email ', placeholder: 'John_snow@example.com', error: 'Email address is invalid' %>
@@ -27,6 +28,10 @@
     <div class ="col-sm-12">
       <p class="help-block", style="color:red">Fields with <span class="required", style="color:black">*</span> are required.</p>
     </div>
+
+    <br>
+    <%= recaptcha_tags %>
+    <br>
 
     <div class="form-actions">
       <div class ="col-sm-12">
