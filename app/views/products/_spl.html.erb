@@ -1,0 +1,20 @@
+<tr>
+  <td>
+    <img src="<%= image_url "sellers/#{spl.seller.logo}" %>" alt="" />
+  </td>
+  <td><%= spl.name %></td>
+  <td>
+    <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+      <span itemprop="priceCurrency" content="PKR">Rs.</span>
+      <span itemprop="price" content="28490"><%= price_format(spl.price) %></span>/-<br>
+      <a target="_blank" href="<%= spl.url %>" nofollow>Go to Seller</a><br>
+      <% if spl.not_found.nil? %>
+        <link itemprop="availability" href="http://schema.org/InStock" />
+        <span class="label label-success">In Stock</span>
+      <% else %>
+          <link itemprop="availability" href="http://schema.org/OutOfStock" />
+          <span class="label label-danger">Out of Stock</span>
+      <% end %>
+    </div>
+  </td>
+</tr>

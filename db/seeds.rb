@@ -156,35 +156,67 @@ product_specifications.each do |product_specification|
   ProductSpecification.create!(product_specification)
 end
 
-locations = [{id: 1, name: 'Province 1', level: :province, location_id: nil},
-             {id: 2, name: 'Province 2', level: :province, location_id: nil},
-             {id: 3, name: 'Province 3', level: :province, location_id: nil},
-             {id: 4, name: 'City 1', level: :city, location_id: 1},
-             {id: 5, name: 'City 2', level: :city, location_id: 1},
-             {id: 6, name: 'City 3', level: :city, location_id: 1},
-             {id: 7, name: 'City 4', level: :city, location_id: 1},
-             {id: 8, name: 'City 5', level: :city, location_id: 2},
-             {id: 9, name: 'City 6', level: :city, location_id: 2},
-             {id: 10, name: 'City 7', level: :city, location_id: 2},
-             {id: 11, name: 'City 8', level: :city, location_id: 2},
-             {id: 12, name: 'City 9', level: :city, location_id: 2},
-             {id: 13, name: 'City 10', level: :city, location_id: 3},
-             {id: 14, name: 'City 11', level: :city, location_id: 3},
-             {id: 15, name: 'City 12', level: :city, location_id: 3},
-             {id: 16, name: 'City 13', level: :city, location_id: 3},
-             {id: 17, name: 'City 14', level: :city, location_id: 3},
+
+provinces = [{id: 1, name: 'Province 1'},
+             {id: 2, name: 'Province 2'},
+             {id: 3, name: 'Province 3'},
 ]
 
-locations.each do |location|
-  Location.create!(location)
+provinces.each do |province|
+  Province.create!(province)
 end
 
+cities = [
+             {id: 1, name: 'City 1', province_id: 1},
+             {id: 2, name: 'City 2', province_id: 1},
+             {id: 3, name: 'City 3', province_id: 1},
+             {id: 4, name: 'City 4', province_id: 1},
+             {id: 5, name: 'City 5', province_id: 2},
+             {id: 6, name: 'City 6', province_id: 2},
+             {id: 7, name: 'City 7', province_id: 2},
+             {id: 8, name: 'City 8', province_id: 2},
+             {id: 9, name: 'City 9', province_id: 2},
+             {id: 10, name: 'City 10', province_id: 3},
+             {id: 11, name: 'City 11', province_id: 3},
+             {id: 12, name: 'City 12', province_id: 3},
+             {id: 13, name: 'City 13', province_id: 3},
+             {id: 14, name: 'City 14', province_id: 3},
+]
+
+cities.each do |city|
+  City.create!(city)
+end
 
 used_products = [
     {id: 1, name: 'Haider', condition_ex: 5, price: 20000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
-     city_name: 'City 1', province_name: 'Province 1', email: 'haider@gmail.com', location_id: 4, product_id: 1},
+     city_id: 1, email: 'haider@gmail.com', product_id: 1},
 ]
 
 used_products.each do |up|
   UsedProduct.create!(up)
 end
+
+sellers = [
+    {id: 1, name: 'Shophive', logo:'shophive.png', website:'shophive.com'},
+    {id: 2, name: 'Mega', logo:'megapk.png', website:'mega.pk'},
+    {id: 3, name: 'Homeshopping', logo:'homeshopping.png', website:'homeshopping.com'},
+]
+
+sellers.each do |seller|
+  Seller.create!(seller)
+end
+
+seller_product_links = [
+    {id: 1, name: 'Samsung Galaxy Note II', price: 20000, info: '', not_found: nil, product_id: 1, category_id: 4, seller_id: 1, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
+    {id: 2, name: 'Samsung Galaxy Note II', price: 18000, info: '', not_found: nil, product_id: 1, category_id: 4, seller_id: 2, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
+    {id: 3, name: 'Samsung Galaxy Note II', price: 21000, info: '', not_found: '2015-10-21 03:23:45', product_id: 1, category_id: 4, seller_id: 3, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
+    {id: 4, name: 'Sony DSC-TX30', price: 20000, info: '', not_found: nil, product_id: 2, category_id: 1, seller_id: 1, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
+    {id: 5, name: 'Nikon D4S', price: 18000, info: '', not_found: nil, product_id: 3, category_id: 2, seller_id: 2, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
+    {id: 6, name: 'Nikon D4S', price: 21000, info: '', not_found: nil, product_id: 3, category_id: 2, seller_id: 3, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
+]
+
+seller_product_links.each do |spl|
+  SellerProductLink.create!(spl)
+end
+
+

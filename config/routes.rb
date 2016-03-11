@@ -65,5 +65,8 @@ Rails.application.routes.draw do
 
   resources :products do
     resources :product_reviews
+    resources :used_products
   end
+
+
 end
