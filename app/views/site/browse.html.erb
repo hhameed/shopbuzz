@@ -61,7 +61,7 @@
   <div class="col-md-9">
     <%= page_entries_info @products %>
     <div class="row">
-      <%= render partial: @products, layout: "product_wrapper_layout", :locals => {:size => "col-md-4"} %>
+      <%= render partial: @products, layout: "product_wrapper_layout", :locals => {size: "col-md-4", obj:"browse"} %>
     </div>
     <div class="row">
       <center><%= will_paginate @products %></center>
