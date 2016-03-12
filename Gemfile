@@ -26,8 +26,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'selenium-webdriver'
 
-gem 'rmagick'
-
 gem 'mail'
 
 gem 'mail_form'
