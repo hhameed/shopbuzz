@@ -28,9 +28,16 @@ gem 'jquery-turbolinks'
 
 gem 'selenium-webdriver'
 
-## Gemfile for Rails 3+, Sinatra, and Merb
-gem 'will_paginate', '~> 3.0.6'
+gem 'mail'
 
+gem 'mail_form'
+
+## Gemfile for Rails 3+, Sinatra, and Merb
+gem 'dotenv-rails', :groups => [:development, :test]
+
+gem "recaptcha", require: "recaptcha/rails"
+
+gem 'will_paginate', '~> 3.0.6'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]

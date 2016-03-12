@@ -6,8 +6,11 @@
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
+}(document, 'script', 'facebook-jssdk'));
+</script>
+<% content_for(:body_attributes) do %>
+    data-no-turbolink="true"
+<% end %>
  <div itemscope itemtype="http://schema.org/Product">
 
    <div class="row">
@@ -48,7 +51,6 @@
       </div>
    </div>
  </div>
-
 <br>
 <br>
 <div>
@@ -62,19 +64,30 @@
 <a class="btn btn-default" href= <%=url_for(product_used_products_path(@product))%> role="button">View All Used <%=@product.name%> </a>
 <br>
 <br>
+
 <h3>Specifications</h3>
    <table class="items table table-striped table-bordered" >
 
-           <%@product.product_specification.each do |spec| %>
-             <tr>
-                  <td width="50%"> <%=spec.specification.name %></td>
-                  <% puts spec.specification.name %>
-                  <td width="50%" align="center"> <%=spec.value %> </td>
-            </tr>
-         <% end %>
+     <%@product.product_specification.each do |spec| %>
+         <tr>
+           <td width="50%"> <%=spec.specification.name %></td>
+           <% puts spec.specification.name %>
+           <td width="50%" align="center"> <%=spec.value %> </td>
+         </tr>
+     <% end %>
 
    </table>
 
+<br>
+<br>
+<h3>Related <%= @product.category.name%></h3>
+<div class="row">
+    <% Product.where(['category_id = ? AND id <> ?', @product.category_id, @product.id]).take(8).each do |product1| %>
+        <div class="col-md-3" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
+          <%= render partial: product1, locals:{obj:"related"} %>
+        </div>
+    <% end %>
+</div>
 <br>
 <br>
 <a class="btn btn-default" href= <%=url_for(new_product_product_review_path(@product))%> role="button">Post Your Comments</a>

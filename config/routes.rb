@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
 
 
-  get 'compare' => 'compares#compare'
+  #
 
   root 'site#index'
 
@@ -16,6 +16,9 @@ Rails.application.routes.draw do
 
   post 'site/browse' => 'site#browse', :as =>:site_browse_post
   #get 'browse' => 'site#browse'
+
+  match '/contacts', to: 'contacts#new', via: 'get'
+  resources "contacts", only: [:new, :create]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -65,11 +68,9 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-
+  get 'compare' => 'compares#compare'
   resources :products do
     resources :product_reviews
     resources :used_products
   end
-
-
 end

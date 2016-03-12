@@ -222,7 +222,7 @@ class SiteController < ApplicationController
      order = 'products.id asc'
      order = 'products.price asc' if params[:sort_id]=="1"
      order = 'products.price desc' if params[:sort_id]=="2"
-      @products = @products.paginate(page: params[:page], per_page: 10, order: order)
+     @products = @products.paginate(page: params[:page], per_page: 10)
 
 
 

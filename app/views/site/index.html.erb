@@ -8,7 +8,7 @@
 <h3><%= category.name %> Prices in Pakistan</h3>
 <div class="row">
   <% Product.where(category_id: category.id).take(8).each do |product| %>
-        <%= render partial: product, layout: "product_wrapper_layout", :locals => {:size => "col-md-3"} %>
+        <%= render partial: product, layout: "product_wrapper_layout", :locals => {size: "col-md-3", obj:"product"} %>
   <% end %>
 </div>
 <% end %>

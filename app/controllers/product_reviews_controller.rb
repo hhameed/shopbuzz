@@ -20,11 +20,12 @@ class ProductReviewsController < ApplicationController
   # end
 
   def create
+
     @product_review = ProductReview.new(product_review_params)
     @product_review.product_id=@product.id
 
     respond_to do |format|
-      if @product_review.save
+      if verify_recaptcha(model:@product_review)&& @product_review.save
         format.html { redirect_to product_product_reviews_url, notice: 'Product review was successfully created.' }
       else
          format.html { render :new }

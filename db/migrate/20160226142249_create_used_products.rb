@@ -10,7 +10,6 @@ class CreateUsedProducts < ActiveRecord::Migration
       t.string :contact_number
       t.string :province_name
       t.string :email
-      t.references :city, index: true, foreign_key: true
       t.references :product, index: true, foreign_key: true
 
       t.timestamps null: false
