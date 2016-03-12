@@ -11,9 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap.min
 //= require ie-emulation-modes-warning
 //= require ie10-viewport-bug-workaround
+//= require turbolinks
 //= require_tree .
