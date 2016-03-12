@@ -33,7 +33,6 @@ class ProductReviewsController < ApplicationController
     end
   end
 
-
   # def update
   #  respond_to do |format|
   #    if @product_review.update(product_review_params)
