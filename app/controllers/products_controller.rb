@@ -24,19 +24,19 @@ class ProductsController < ApplicationController
 
   # POST /products
   # POST /products.json
-  def create
-    @product = Product.new(product_params)
-
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-
-      else
-        format.html { render :new }
-
-      end
-    end
-  end
+  # def create
+  #   @product = Product.new(product_params)
+  #
+  #   respond_to do |format|
+  #     if @product.save
+  #       format.html { redirect_to @product, notice: 'Product was successfully created.' }
+  #
+  #     else
+  #       format.html { render :new }
+  #
+  #     end
+  #   end
+  # end
 
   # # PATCH/PUT /products/1
   # # PATCH/PUT /products/1.json
