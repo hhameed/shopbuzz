@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'jquery-turbolinks'
+
 gem 'selenium-webdriver'
 
 gem 'mail'
@@ -55,12 +57,14 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'rspec-activemodel-mocks'
+  gem "factory_girl_rails", "~> 4.4.1"
 end
 
 group :test do
   gem 'rspec-expectations'
   gem 'cucumber-rails', :require => false
   gem 'simplecov', :require => false
+  gem "faker", "~> 1.4.3"
 end
 
 group :development do

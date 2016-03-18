@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   root 'site#index'
 
   get 'site/browse'
+
+  post 'site/browse' => 'site#browse', :as =>:site_browse_post
   #get 'browse' => 'site#browse'
 
   match '/contacts', to: 'contacts#new', via: 'get'
