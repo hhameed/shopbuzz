@@ -13,8 +13,8 @@ class Product < ActiveRecord::Base
   scope :maxprice, -> (max) { where("price <= ?", max)}
   scope :category, -> (cat_id) { where category_id: cat_id }
   scope :brands, -> (x) { where "brand_id IN (?)",x }
-  #named_scope :asc,  :order => ("products.price ASC")
-  #scope :desc, order ('products.price DESC')
+  scope :asc, -> () {reorder('price ASC')}
+  scope :desc, -> () {reorder('price DESC')}
 
 
 end
