@@ -1,6 +1,7 @@
 <div class="row">
   <form id="formid" action="<%= url_for controller: 'site', action: 'browse', category_id: @category.id %>" method="post">
-      <div class="col-md-3">
+    <div class="col-md-3">
+      <div style="margin-bottom: 60px;">
       <div class="thumbnail">
       <div style="margin-left: 10px; margin-bottom: 5px; ">
         <h4>Price Range:</h4>
@@ -28,15 +29,16 @@
         <% end %>
       </div>
     </div>
+    </div>
   </div>
 
   <div class="col-md-9">
-    <div style="margin-bottom: 40px;">
+    <div style="margin-bottom: 60px;">
     <div style="margin-right: 10px;width: 200px; float:right; ">
       <%= select_tag(:sortid,options_for_select([['Sort Price Min-Max', 1], ['Sort Price Max-Min', 2]],@sortvalue),class:"form-control") %>
-    </div>
-    <div style="margin-right: 10px;width: 50%; float:right; ">
-      <%= page_entries_info @products %>
+      <div style="width: 245px; float:right;margin-top:5px; ">
+        <%= page_entries_info @products %>
+      </div>
     </div>
     </div>
     <div class="row">
