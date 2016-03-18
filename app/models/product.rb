@@ -6,4 +6,15 @@ class Product < ActiveRecord::Base
   has_many :product_review
   has_many :used_products
   has_many :seller_product_links
+
+
+
+  scope :minprice, -> (min) { where("price >= ?", "#{min}")}
+  scope :maxprice, -> (max) { where("price <= ?", max)}
+  scope :category, -> (cat_id) { where category_id: cat_id }
+  scope :brands, -> (x) { where "brand_id IN (?)",x }
+  scope :asc, -> () {reorder('price ASC')}
+  scope :desc, -> () {reorder('price DESC')}
+
+
 end
