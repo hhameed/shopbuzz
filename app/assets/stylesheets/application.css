@@ -17,6 +17,36 @@
  *= require_self
  */
 
+body {
+    padding-top: 60px;
+}
+
+.footer {
+    padding: 70px 0;
+    margin-top: 70px;
+    border-top: 1px solid #e5e5e5;
+    background-color: #f5f5f5;
+}
+
+.footer p {
+    margin-bottom: 0;
+    color: #777;
+}
+
+.footer-links {
+    margin: 10px 0;
+    padding: 0;
+}
+
+.footer-links li {
+    display: inline;
+    padding: 0 2px;
+}
+
+.footer-links li:first-child {
+    padding-left: 0;
+}
+
 
 .simple_form label {
     float: left;
@@ -58,9 +88,5 @@
     color: #555;
     display: block;
     font-style: italic;
-<<<<<<< HEAD
 }
 
-=======
-}
->>>>>>> aa6b9d9d002343a25e88446c4c5495483add56f1
