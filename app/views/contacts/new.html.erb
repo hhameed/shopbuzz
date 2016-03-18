@@ -1,5 +1,7 @@
-
-  <h1>Contact Us</h1>
+<% if flash[:notice] -%>
+    <div class = "alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+<h1>Contact Us</h1>
   <p>If you have business inquiries or other questions, please fill out the following form to contact us. Thank you</p>
   <p class="note"> Fields with <span class="required">*</span> are required </p>
   <%= simple_form_for @contact, defaults: { input_html: { class: 'form-control' } } do |f| %>
