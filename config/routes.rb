@@ -12,13 +12,14 @@ Rails.application.routes.draw do
 
   root 'site#index'
 
-  get 'site/browse'
-
   post 'site/browse' => 'site#browse', :as =>:site_browse_post
   #get 'browse' => 'site#browse'
 
   match '/contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
+
+  get 'browse' => 'site#browse'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -68,9 +69,17 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
   get 'compare' => 'compares#compare'
+
+  resources :products do
+    get :autocomplete_product_name, on: :collection
+  end
+
   resources :products do
     resources :product_reviews
     resources :used_products
   end
+
+
 end

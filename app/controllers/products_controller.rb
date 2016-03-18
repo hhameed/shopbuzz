@@ -1,13 +1,15 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  # GET /products
-  # GET /products.json
-  # def index
-  #   @products = Product.all
-  # end
+  autocomplete :product, :name
 
-  # GET /products/1
-  # GET /products/1.json
+  def index
+    if params[:search].blank?
+      redirect_to root_path
+    else
+      @products1 = Product.search(params[:search])
+    end
+  end
+
   def show
     @products = Product.all
   end
@@ -72,4 +74,6 @@ class ProductsController < ApplicationController
     def product_params
       params[:product]
     end
+
+
 end

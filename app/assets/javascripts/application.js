@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery-ui
+//= require autocomplete-rails
+//= require turbolinks
 //= require bootstrap.min
 //= require ie-emulation-modes-warning
 //= require ie10-viewport-bug-workaround
