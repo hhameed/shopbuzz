@@ -14,7 +14,3 @@ Feature: Filter and sort the products
   Scenario: To filter the products based on brand
     Given I am on the browse page
     When I click on Brand Samsung
-   #Then I should go to the new review page
-   #When I fill in the form with with name dengkliu rating 3 and content a and click save
-   #Then I should be redirected to the review index page
-   #Then I should see only the brand "samsung galaxy S6"
