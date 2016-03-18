@@ -1,7 +1,7 @@
 class SiteController < ApplicationController
 
   def index
-    @products = Product.take(8)
+    #@products = Product.take(8)
   end
 
   def browse

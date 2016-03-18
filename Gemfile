@@ -57,12 +57,14 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec-rails'
   gem 'rspec-activemodel-mocks'
+  gem "factory_girl_rails", "~> 4.4.1"
 end
 
 group :test do
   gem 'rspec-expectations'
   gem 'cucumber-rails', :require => false
   gem 'simplecov', :require => false
+  gem "faker", "~> 1.4.3"
 end
 
 group :development do
