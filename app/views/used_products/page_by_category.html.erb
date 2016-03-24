@@ -1,0 +1,76 @@
+<div class="container">
+  <h2>Used <%=@used_products.first.category.name%>  </h2>
+
+  <style type="text/css">
+    /* Adjust feedback icon position */
+    #movieForm .form-control-feedback {
+      right: 15px;
+    }
+    #movieForm .selectContainer .form-control-feedback {
+      right: 25px;
+    }
+  </style>
+
+  <form id="filterform" action="<%= url_for controller: 'used_products', action: 'page_by_category'%>" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-6">
+          <label class="control-label">Product Name</label>
+          <%= text_field_tag('pname',@pname, placeholder:"Product Name",class:"form-control") %>
+        </div>
+
+        <div class="col-xs-6 selectContainer">
+          <label class="control-label">Condition</label>
+          <%= select_tag(:conditionid,options_for_select([['1 (Poor)', 1],['2', 2],['3', 3],['4', 4], ['5 (Good)', 5]],@sortvalue),class:"form-control") %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 selectContainer">
+          <label class="control-label">Condition</label>
+          <%= select_tag(:warranty,options_for_select([['1 (Poor)', 1],['2', 2],['3', 3],['4', 4], ['5 (Good)', 5]],@sortvalue),class:"form-control") %>
+        </div>
+
+        <div class="col-xs-6 selectContainer">
+          <label class="control-label">Condition</label>
+          <%= select_tag(:duration,options_for_select([['1 (Poor)', 1],['2', 2],['3', 3],['4', 4], ['5 (Good)', 5]],@sortvalue),class:"form-control") %>
+        </div>
+      </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-default">Filter</button>
+  </form>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Seller name</th>
+      <th>Condition</th>
+      <th>Addtional Information</th>
+      <th>Usage Duration</th>
+      <th>Warranty</th>
+      <th>Location</th>
+      <th>Contact Number</th>
+      <th>Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @used_products.each do |products|%>
+    <tr>
+      <td><%=products.product.name%></td>
+      <td><%=products.name%></td>
+      <td><%=products.condition_ex%></td>
+      <td><%=products.additional_info%></td>
+      <td><%=products.usage_duration%></td>
+      <td><%=products.warranty%></td>
+      <td><%=products.city.name%></td>
+      <td><%=products.contact_number%></td>
+      <td><%=products.price%></td>
+    </tr>
+    <%end%>
+    </tbody>
+  </table>
+</div>

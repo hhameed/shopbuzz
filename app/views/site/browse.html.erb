@@ -1,5 +1,5 @@
 <div class="row">
-  <form id="formid" action="<%= url_for controller: 'site', action: 'browse', category_id: @category.id %>" method="post">
+  <form id="formid" action=" <%if @category.present?%> <%=  url_for controller: 'site', action: 'browse', category_id: @category.id %> <%else%> <%= url_for controller: 'site', action: 'browse'%> <% end %>" method="post">
     <div class="col-md-3">
       <div style="margin-bottom: 60px;">
       <div class="thumbnail">
@@ -45,7 +45,7 @@
       <%= render partial: "products/product", collection: @products, layout: "product_wrapper_layout",:locals => {:size => "col-md-4",obj:"browse"} %>
     </div>
     <div class="row">
-      <center><%= will_paginate @products,:params=>{:category_id=>@category.id,:sortid=>@sortvalue, :textmin=>@textminvalue, :textmax=>@textmaxvalue, :brand_ids=>@selected_brands }%></center>
+      <center><%= will_paginate @products,:params=>{:sortid=>@sortvalue, :textmin=>@textminvalue, :textmax=>@textmaxvalue, :brand_ids=>@selected_brands }%></center>
     </div>
   </div>
   </form>

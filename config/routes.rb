@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   match '/contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
 
+  get 'used_products/page_by_category'
+  post 'used_products/page_by_category' => 'used_products#page_by_category', :as =>:used_products_pagebycategory_post
+
 
 
 

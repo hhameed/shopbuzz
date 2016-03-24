@@ -1,11 +1,17 @@
 class UsedProductsController < ApplicationController
 
   before_action :set_used_product, only: [:show, :edit, :update, :destroy]
-  before_action :set_product
+  before_action :set_product, only: [:new, :create]
 
   # GET /used_products
   def index
     @used_products = UsedProduct.all
+  end
+
+
+  def page_by_category
+    @used_products = UsedProduct.where("category_id = ?",params[:category_id])
+
   end
 
   # GET /used_products/1
