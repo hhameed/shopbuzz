@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   root 'site#index'
 
   get 'site/browse'
+  get 'used_products/index'
 
   post 'site/browse' => 'site#browse', :as =>:site_browse_post
   #get 'browse' => 'site#browse'
