@@ -13,7 +13,7 @@ Given(/^I am on the browse page$/) do
   visit site_browse_path(:category_id=>4);
 end
 
-When(/^I click on Brand Samsung$/) do
+When(/^I fill the min value$/) do
   find('#textmin').fill_in 'textmin', with: '500'
   click_button 'Submit'
 end
