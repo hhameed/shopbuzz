@@ -191,10 +191,12 @@ end
 used_products = [
     {id: 1, name: 'Haider', condition_ex: 5, price: 20000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
      city_id: 1, email: 'haider@gmail.com', product_id: 1, category_id: 1},
-    {id: 2, name: 'Hider', condition_ex: 5, price: 20000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
+    {id: 2, name: 'Balaji', condition_ex: 5, price: 20000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
      city_id: 1, email: 'haider1@gmail.com', product_id: 2, category_id: 1},
-    {id: 3, name: 'Haier', condition_ex: 5, price: 20000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
-     city_id: 1, email: 'haide2r@gmail.com', product_id:1 , category_id: 2},
+    {id: 3, name: 'Rishabh', condition_ex: 5, price: 20000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
+     city_id: 1, email: 'rishabh@gmail.com', product_id:1 , category_id: 2},
+    {id: 4, name: 'Tony', condition_ex: 5, price: 20000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
+     city_id: 1, email: 'tony@gmail.com', product_id:1 , category_id: 2},
 ]
 
 used_products.each do |up|
