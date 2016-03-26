@@ -11,8 +11,8 @@ class UsedProductsController < ApplicationController
 
   def page_by_category
     @used_products = UsedProduct.where("category_id = ?",params[:category_id])
-
   end
+
 
   # GET /used_products/1
   # def show

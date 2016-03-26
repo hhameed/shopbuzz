@@ -43,14 +43,23 @@
             min: 0,
             max: 500,
             values: [ 75, 250 ],
-            slide: function( event, ui ) {
+            change: function( event, ui ) {
+                $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                console.log(slider.slider("values"));
+                $("#data1").val(slider.slider("values"));
+            },
+            slide: function(event,ui){
                 $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
                 console.log(slider.slider("values"));
                 $("#data1").val(slider.slider("values"));
             }
 
+
         });
+
+
         $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
             " - $" + $( "#slider-range" ).slider( "values", 1 ) );
 
     });
+
