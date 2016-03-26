@@ -11,6 +11,7 @@
         <div class="form-group">
           <%= text_field_tag('textmax',@textmaxvalue,placeholder:"Max Price",class:"form-control",style:"width: 80%") %>
         </div>
+        <%= hidden_field_tag 'param1',@searchparam  %>
         <button type="submit" class="btn btn-default">Submit</button>
         </div>
     </div>

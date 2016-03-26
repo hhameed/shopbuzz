@@ -2,7 +2,6 @@ class UsedProductsController < ApplicationController
 
   before_action :set_used_product, only: [:show, :edit, :update, :destroy]
   before_action :set_product, only: [:new, :create]
-
   # GET /used_products
   def index
     @used_products = UsedProduct.all
@@ -10,7 +9,18 @@ class UsedProductsController < ApplicationController
 
 
   def page_by_category
-    @used_products = UsedProduct.where("category_id = ?",params[:category_id])
+    @category=Category.find(params[:category_id])
+    @used_products= UsedProduct.where(nil)
+    @used_products = @used_products.where("category_id = ?",params[:category_id]) if params[:category_id].present?
+    @used_products = @used_products.search(params[:pname]) if params[:pname].present?
+    @used_products = @used_products.condition(params[:conditionid]) if params[:conditionid].present?
+    @used_products = @used_products.city(params[:city]) if params[:city].present?
+    str= params[:data1]
+    arr=str.try(:split, ",")
+    print '*************'
+    @min=arr[0].to_i if params[:data1].present?
+    @max=arr[1].to_i if params[:data1].present?
+    @used_products = @used_products.slide(@min,@max) if params[:data1].present?
   end
 
 
