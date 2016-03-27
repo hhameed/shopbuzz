@@ -17,7 +17,6 @@ class UsedProductsController < ApplicationController
     @used_products = @used_products.city(params[:city]) if params[:city].present?
     str= params[:data1]
     arr=str.try(:split, ",")
-    print '*************'
     @min=arr[0].to_i if params[:data1].present?
     @max=arr[1].to_i if params[:data1].present?
     @used_products = @used_products.slide(@min,@max) if params[:data1].present?
