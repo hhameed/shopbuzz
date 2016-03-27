@@ -93,9 +93,9 @@
 <a class="btn btn-default" href= <%=url_for(new_product_product_review_path(@product))%> role="button">Post Your Comments</a>
 <a class="btn btn-default" href= <%=url_for(product_product_reviews_path(@product))%> role="button">See All Comments</a>
 
-<div class="row">
+<div class="row grid">
   <% @product.product_review.each do |product_review| %>
-      <div class="col-md-4" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
+      <div class="col-md-4 grid-item" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
         <blockquote>
           <%= product_review.content%>
           <footer> <%= product_review.name%></footer>

@@ -14,10 +14,6 @@
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-
 
 </head>
 <body
@@ -84,6 +80,15 @@
     </div>
   </footer>
 </div> <!-- /container -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.2.0/imagesloaded.pkgd.min.js"></script>
+
+<script>
+  $('.grid').masonry({
+    itemSelector: '.grid-item'
+  });
+</script>
 
 </body>
 </html>
