@@ -1,6 +1,7 @@
 <div class="container">
-  <h2>Used   </h2>
-
+  <h2>Used <%= @category.name%>  </h2>
+  <a class="btn btn-default" href= <%=url_for()%> role="button">Sell Your Used <%= @category.name%>  </a>
+  <a class="btn btn-default" href= <%=url_for()%> role="button">Filter Results</a>
   <style type="text/css">
     /* Adjust feedback icon position */
     #movieForm .form-control-feedback {
@@ -33,12 +34,12 @@
         <div class="col-xs-6 selectContainer">
           <label class="control-label">Warranty</label>
 
-          <%= select_tag(:warranty,options_for_select([['1-3 Months Warranty', 1],['4-6 Months Warranty', 2],['7-12 Months Warranty', 3],['12+ Months Warranty', 4]],@sortvalue),class:"form-control",style:"width: 80%",prompt:"Select Warranty") %>
+          <%= select_tag(:warranty,options_for_select([['No Warranty'],['1-3 Months Warranty', 1],['4-6 Months Warranty', 2],['7-12 Months Warranty', 3],['12+ Months Warranty', 4]],@sortvalue),class:"form-control",style:"width: 80%",prompt:"Select Warranty") %>
         </div>
 
         <div class="col-xs-6 selectContainer">
           <label class="control-label">Used Duration</label>
-          <%= select_tag(:duration,options_for_select([['1-3 Months Used', 1],['4-12 Months Used', 2],['1-2 Years Used', 3],['2+ Years Used', 4]],@sortvalue),class:"form-control",style:"width: 80%",prompt:"Select Duration") %>
+          <%= select_tag(:duration,options_for_select([['Brand New'],['1-3 Months Used', 1],['4-12 Months Used', 2],['1-2 Years Used', 3],['2+ Years Used', 4]],@sortvalue),class:"form-control",style:"width: 80%",prompt:"Select Duration") %>
         </div>
       </div>
 
@@ -64,14 +65,16 @@
 
         <div class="col-xs-6">
       <button type="submit" class="btn btn-default btn-primary" style="width:100px; margin-top:20px">Apply Filters</button>
+
         </div>
         </div>
+
     </div>
 
 
   </form>
-
-  <table class="table table-hover">
+<div class="grid-view">
+  <table class="items table table-bordered">
     <thead>
     <tr>
       <th>Name</th>
@@ -85,10 +88,10 @@
       <th>Price</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody >
     <% @used_products.each do |products|%>
-    <tr>
-      <td><%=products.product.name%></td>
+    <tr class="odd">
+      <td> <a href= <%=url_for()%>><%=products.product.name%></a></td>
       <td><%=products.name%></td>
       <td><%=products.condition_ex%></td>
       <td><%=products.additional_info%></td>
@@ -101,4 +104,5 @@
     <%end%>
     </tbody>
   </table>
+</div>
 </div>

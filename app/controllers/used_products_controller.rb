@@ -12,8 +12,10 @@ class UsedProductsController < ApplicationController
     @category=Category.find(params[:category_id])
     @used_products= UsedProduct.where(nil)
     @used_products = @used_products.where("category_id = ?",params[:category_id]) if params[:category_id].present?
-    @used_products = @used_products.search(params[:pname]) if params[:pname].present?
+    #@used_products = UsedProduct.joins('LEFT OUTER JOIN products ON products.id = used_products.product_id').find_by_name(params[:pname]) if params[:pname].present?
     @used_products = @used_products.condition(params[:conditionid]) if params[:conditionid].present?
+    @used_products = @used_products.duration(params[:duration]) if params[:duration].present?
+    @used_products = @used_products.warranty(params[:warranty]) if params[:warranty].present?
     @used_products = @used_products.city(params[:city]) if params[:city].present?
     str= params[:data1]
     arr=str.try(:split, ",")

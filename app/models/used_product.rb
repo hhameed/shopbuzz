@@ -22,11 +22,9 @@ class UsedProduct < ActiveRecord::Base
   scope :city, -> (city) { where("city_id = ?", city)}
   scope :category, -> (cat_id) { where category_id: cat_id }
   scope :brands, -> (x) { where "brand_id IN (?)",x }
+  scope :duration, -> (duration) { where("usage_duration= ?", duration)}
+  scope :warranty, -> (warranty) { where("warranty= ?", warranty)}
 
-  def self.search(search)
-    if search
-      where(' LIKE ?', "%#{search}%")
-    end
-  end
+
 
 end

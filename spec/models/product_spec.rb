@@ -84,14 +84,9 @@ RSpec.describe Product, type: :model do
 
   end
   it "returns searched products for correct input" do
-    product1= Product.create(
-        id: "1",
-        rating: "4",
-        name: "Samsung Galaxy Ace",
-        category_id: "4"
-    )
+
     product2= Product.create(
-        id: "2",
+        id: "8",
         rating: "4",
         name: "Samsung Galaxy Y",
         category_id: "4"
@@ -102,19 +97,19 @@ RSpec.describe Product, type: :model do
         name: "Apple iphone",
         category_id: "4"
     )
-    expect(Product.search("Sam")).to eq [product1,product2]
+    expect(Product.search("Sam")).to eq [product2]
   end
   it "returns searched products for empty input" do
     product1= Product.create(
-        id: "1",
+        id: "6",
         rating: "4",
-        name: "Samsung Galaxy Ace",
+        name: "Samsung Galaxy Ace II",
         category_id: "4"
     )
     product2= Product.create(
-        id: "2",
-        rating: "4",
-        name: "Samsung Galaxy Ace",
+        id: "7",
+        rating: "5",
+        name: "Samsung Galaxy ABC",
         category_id: "4"
     )
     product3= Product.create(
@@ -123,7 +118,7 @@ RSpec.describe Product, type: :model do
         name: "Apple iphone",
         category_id: "4"
     )
-    expect(Product.search("")).to eq [product1,product2,product3]
+    expect(Product.search("")).to eq [@samsung,@apple,product3,product1,product2]
   end
 
 end
