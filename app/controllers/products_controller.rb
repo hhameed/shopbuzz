@@ -6,7 +6,8 @@ class ProductsController < ApplicationController
     if params[:search].blank?
       redirect_to root_path
     else
-      @products1 = Product.search(params[:search])
+      @products = Product.search(params[:search]).paginate(page: params[:page], per_page: 10)
+      redirect_to url_for(:controller => :site, :action => :browse , param1: params[:search])
     end
   end
 

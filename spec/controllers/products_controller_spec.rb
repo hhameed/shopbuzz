@@ -43,7 +43,7 @@ RSpec.describe ProductsController, type: :controller do
     context 'with params[:search]' do
       it 'renders :index template'do
         get :index,search: 'iphone'
-        expect(response).to render_template :index
+        expect(response).to redirect_to('http://test.host/site/browse?param1=iphone')
       end
     end
     context 'without params[:search]' do

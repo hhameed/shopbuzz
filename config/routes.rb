@@ -15,12 +15,16 @@ Rails.application.routes.draw do
   get 'products/wait'
 
   get 'site/browse'
+  get 'used_products/index'
 
   post 'site/browse' => 'site#browse', :as =>:site_browse_post
   #get 'browse' => 'site#browse'
 
   match '/contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
+
+  get 'used_products/page_by_category'
+  post 'used_products/page_by_category' => 'used_products#page_by_category', :as =>:used_products_pagebycategory_post
 
 
 

@@ -57,7 +57,7 @@ RSpec.describe SiteController, type: :controller do
 
 
     context 'with category and brand params' do
-      it "assigns products with filterted minimum value" do
+      it "assigns products with filterted according to brand" do
         post :browse, {category_id:4 ,brand_ids: [3]}
         expect(assigns(:category)).to eq(@mobile)
         expect(assigns(:products)).to eq([@samsung])
@@ -67,7 +67,7 @@ RSpec.describe SiteController, type: :controller do
 
 
     context 'with category and textmax params' do
-      it "assigns products with filterted minimum value" do
+      it "assigns products with filterted by  maximum price value" do
         post :browse, {category_id:4 ,textmax: 500}
         expect(assigns(:category)).to eq(@mobile)
         expect(assigns(:products)).to eq([@samsung])
@@ -76,7 +76,7 @@ RSpec.describe SiteController, type: :controller do
 
 
     context 'with category and textmax params' do
-      it "assigns products with filterted minimum value" do
+      it "assigns products with filterted minimum price and maximum price value and brand" do
         post :browse, {category_id:4 ,textmax: 600,brand_ids: [3],textmin: 500}
         expect(assigns(:category)).to eq(@mobile)
         expect(assigns(:products)).to eq([@samsung])

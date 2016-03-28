@@ -67,7 +67,7 @@
 
           <ul class="dropdown-menu">
             <% Category.all.each do |category| %>
-                <li><a href="#">Used <%= category.name %></a></li>
+                <li><a href="<%= url_for controller: 'used_products', action: 'page_by_category', category_id: category.id %>">Used <%= category.name %></a></li>
             <% end %>
           </ul>
         </li>
@@ -76,7 +76,7 @@
 
       <%= form_tag products_path, :method => 'get', :id => "products_search",:class=>"navbar-form navbar-right" do %>
           <p>
-            <%= text_field_tag :search, params[:search], :placeholder=>"Search" , :class=>"form-control", type: "search", data: {autocomplete: autocomplete_product_name_products_path}%>
+            <%= text_field_tag :search,@searchparam, :placeholder=>"Search" , :class=>"form-control", type: "search", data: {autocomplete: autocomplete_product_name_products_path}%>
           </p>
       <% end %>
       <script type="text/javascript" charset="utf-8">
