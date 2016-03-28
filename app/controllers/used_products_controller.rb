@@ -12,7 +12,15 @@ class UsedProductsController < ApplicationController
     @category=Category.find(params[:category_id])
     @used_products= UsedProduct.where(nil)
     @used_products = @used_products.where("category_id = ?",params[:category_id]) if params[:category_id].present?
-    #@used_products = UsedProduct.joins('LEFT OUTER JOIN products ON products.id = used_products.product_id').find_by_name(params[:pname]) if params[:pname].present?
+    @products = Product.joins('JOIN used_products ON products.id = used_products.product_id').where('products.name LIKE ?',"%#{params[:pname]}%") if params[:pname].present?
+    x=[]
+    if params[:pname].present?
+    @products.each do |p|
+    x<<p.id
+    end
+    end
+
+    @used_products = @used_products.search(x) if params[:pname].present?
     @used_products = @used_products.condition(params[:conditionid]) if params[:conditionid].present?
     @used_products = @used_products.duration(params[:duration]) if params[:duration].present?
     @used_products = @used_products.warranty(params[:warranty]) if params[:warranty].present?
@@ -22,6 +30,7 @@ class UsedProductsController < ApplicationController
     @min=arr[0].to_i if params[:data1].present?
     @max=arr[1].to_i if params[:data1].present?
     @used_products = @used_products.slide(@min,@max) if params[:data1].present?
+    @used_products = @used_products.paginate(page: params[:page], per_page: 10)
   end
 
 
