@@ -1,4 +1,3 @@
-Capybara.default_wait_time = 5
 require 'capybara/rspec'
 require 'simplecov'
 SimpleCov.start 'rails'

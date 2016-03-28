@@ -25,7 +25,7 @@ RSpec.describe ComparesController, type: :feature do
     )
     @mobile = Category.create(id:4)
   end
-descibe "compare" do
+describe "compare" do
   it "compares two different products" do
      
   end
