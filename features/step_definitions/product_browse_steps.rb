@@ -10,11 +10,11 @@ Given(/^the following products have been added to database$/) do |table|
 end
 
 Given(/^I am on the browse page$/) do
-  visit site_browse_path(:category_id=>4);
+  visit site_browse_path(:category_id=>1);
 end
 
 When(/^I click on Brand Samsung$/) do
-  find('#textmin').fill_in 'textmin', with: '500'
+  fill_in 'textmin', :with => 500
   click_button 'Submit'
 end
 
