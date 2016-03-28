@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   root 'site#index'
 
+  get 'products/wait'
+
   get 'site/browse'
 
   post 'site/browse' => 'site#browse', :as =>:site_browse_post

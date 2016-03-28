@@ -5,14 +5,16 @@ class ContactsController < ApplicationController
   end
 
  def create
-   @contact = Contact.new(params[:contact])
+   @contact = Contact.new(contact_params)
    @contact.request = request
-
-   if verify_recaptcha(model:@contact)&& @contact.deliver
-      render :create
-      else
-      render :new
+   respond_to do |format|
+   if verify_recaptcha(model:@contact)&& @contact.deliver && status
+      format.html { redirect_to contacts_path, notice: 'Thank you for contacting us. We will respond to you as soon as possible' }
    end
  end
+ end
 
+  def contact_params
+    params.require(:contact).permit(:name, :email, :message,)
+  end
 end

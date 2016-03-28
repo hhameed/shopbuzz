@@ -5,10 +5,14 @@ Feature: Filter and sort the products
 
   Background: products have been added to database
 
+    Given the following categories have been added to the database
+      |name        |code  |
+      |mobile      |MS    |
+
     Given the following products have been added to database
-      | name                    | price | category_id | brand_id | image  |
-      | iphone 6S           | 60000 | 4           | 1        | http://shopbuzz.pk/images/products/profile/1-apple-iphone-5-16gb-price-in-pakistan.jpg |
-      | samsung galaxy S6            | 50000 | 4           | 2        | http://shopbuzz.pk/images/products/profile/1-apple-iphone-5-16gb-price-in-pakistan.jpg |
+      | name                    | price | category_id | brand_id | image                                                                                  |
+      | iphone 6S               | 60000 | 1           | 1        | http://shopbuzz.pk/images/products/profile/1-apple-iphone-5-16gb-price-in-pakistan.jpg |
+      | samsung galaxy S6       | 50000 | 1           | 2        | http://shopbuzz.pk/images/products/profile/1-apple-iphone-5-16gb-price-in-pakistan.jpg |
 
   @javascript
   Scenario: To filter the products based on brand
