@@ -1,12 +1,38 @@
 class UsedProductsController < ApplicationController
 
   before_action :set_used_product, only: [:show, :edit, :update, :destroy]
-  before_action :set_product
-
+  before_action :set_product, only: [:new, :create]
   # GET /used_products
   def index
     @used_products = UsedProduct.all
   end
+
+
+  def page_by_category
+    @category=Category.find(params[:category_id])
+    @used_products= UsedProduct.where(nil)
+    @used_products = @used_products.where("category_id = ?",params[:category_id]) if params[:category_id].present?
+    @products = Product.joins('JOIN used_products ON products.id = used_products.product_id').where('products.name LIKE ?',"%#{params[:pname]}%") if params[:pname].present?
+    x=[]
+    if params[:pname].present?
+    @products.each do |p|
+    x<<p.id
+    end
+    end
+
+    @used_products = @used_products.search(x) if params[:pname].present?
+    @used_products = @used_products.condition(params[:conditionid]) if params[:conditionid].present?
+    @used_products = @used_products.duration(params[:duration]) if params[:duration].present?
+    @used_products = @used_products.warranty(params[:warranty]) if params[:warranty].present?
+    @used_products = @used_products.city(params[:city]) if params[:city].present?
+    str= params[:data1]
+    arr=str.try(:split, ",")
+    @min=arr[0].to_i if params[:data1].present?
+    @max=arr[1].to_i if params[:data1].present?
+    @used_products = @used_products.slide(@min,@max) if params[:data1].present?
+    @used_products = @used_products.paginate(page: params[:page], per_page: 10)
+  end
+
 
   # GET /used_products/1
   # def show

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -7,13 +8,30 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <meta name="description" content="">
   <meta name="author" content="">
+
+
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
+
   <!--<link rel="icon" href="../../favicon.ico">-->
 
   <title>ShopBuzz</title>
 
+
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%=javascript_include_tag "autocomplete-rails.js"%>
   <%= csrf_meta_tags %>
+
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+  <style>
+    .ui-autocomplete {
+    position: absolute;
+    z-index: 1000;
+  }</style>
 
 </head>
 <body
@@ -42,21 +60,30 @@
             <% end %>
           </ul>
         </li>
+
         <li class="dropdown">
+
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Used Products <span class="caret"></span></a>
+
           <ul class="dropdown-menu">
             <% Category.all.each do |category| %>
-                <li><a href="#">Used <%= category.name %></a></li>
+                <li><a href="<%= url_for controller: 'used_products', action: 'page_by_category', category_id: category.id %>">Used <%= category.name %></a></li>
             <% end %>
           </ul>
         </li>
         <li><a href="/contacts">Contact</a></li>
       </ul>
-      <form class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
-        </div>
-      </form>
+
+      <%= form_tag products_path, :method => 'get', :id => "products_search",:class=>"navbar-form navbar-right" do %>
+          <p>
+            <%= text_field_tag :search,@searchparam, :placeholder=>"Search" , :class=>"form-control", type: "search", data: {autocomplete: autocomplete_product_name_products_path}%>
+          </p>
+      <% end %>
+      <script type="text/javascript" charset="utf-8">
+        $('#search').bind('railsAutocomplete.select', function(event, data){
+          $('#products_search').submit()
+        });
+      </script>
     </div><!--/.nav-collapse -->
   </div>
 </nav>

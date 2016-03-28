@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+
 RSpec.describe Product, type: :model do
 
   before :each do
@@ -82,11 +83,44 @@ RSpec.describe Product, type: :model do
     end
 
   end
+  it "returns searched products for correct input" do
 
-
-
-
-
+    product2= Product.create(
+        id: "8",
+        rating: "4",
+        name: "Samsung Galaxy Y",
+        category_id: "4"
+    )
+    product3= Product.create(
+        id: "3",
+        rating: "3",
+        name: "Apple iphone",
+        category_id: "4"
+    )
+    expect(Product.search("Sam")).to eq [product2]
+  end
+  it "returns searched products for empty input" do
+    product1= Product.create(
+        id: "6",
+        rating: "4",
+        name: "Samsung Galaxy Ace II",
+        category_id: "4"
+    )
+    product2= Product.create(
+        id: "7",
+        rating: "5",
+        name: "Samsung Galaxy ABC",
+        category_id: "4"
+    )
+    product3= Product.create(
+        id: "3",
+        rating: "3",
+        name: "Apple iphone",
+        category_id: "4"
+    )
+    expect(Product.search("")).to eq [@samsung,@apple,product3,product1,product2]
+  end
 
 end
+
 
