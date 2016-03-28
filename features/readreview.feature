@@ -1,9 +1,11 @@
 Feature: Read review for the products
+
   As a user,
   I want to be able to read reviews for a product
   So that I can decide whether the product is good
 
   Background:
+
 
     Given the following categories have been added to the database
       |name        |code  |

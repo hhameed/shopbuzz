@@ -38,6 +38,11 @@ class ProductsController < ApplicationController
   #   end
   # end
 
+  def wait
+    @spl = SellerProductLink.find(params[:spl_id])
+    @product = @spl.product
+  end
+
   # # PATCH/PUT /products/1
   # # PATCH/PUT /products/1.json
   # def update
