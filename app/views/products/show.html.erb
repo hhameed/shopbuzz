@@ -30,16 +30,16 @@
         <!-- Social Widgets Begin Here -->
         <table border="0px" cellpadding="5px" cellspacing="0px">
           <tr>
-            <td>
+            <td style="padding: 5px">
               <div class="fb-share-button" data-href="http://shopbuzz.pk/535-LG-G3-32GB-price-in-pakistan.htm" data-type="box_count"></div>
             </td>
-            <td>
+            <td style="padding: 5px">
               <div class="fb-like" data-href="http://shopbuzz.pk/535-LG-G3-32GB-price-in-pakistan.htm" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
             </td>
-            <td>
+            <td style="padding: 5px">
               <div class="g-plus" data-action="share" data-annotation="vertical-bubble" data-height="60"></div>
             </td>
-            <td>
+            <td style="padding: 5px">
               <div class="g-plusone" data-size="tall"></div>
             </td>
           </tr>
@@ -93,9 +93,9 @@
 <a class="btn btn-default" href= <%=url_for(new_product_product_review_path(@product))%> role="button">Post Your Comments</a>
 <a class="btn btn-default" href= <%=url_for(product_product_reviews_path(@product))%> role="button">See All Comments</a>
 
-<div class="row">
+<div class="row grid">
   <% @product.product_review.each do |product_review| %>
-      <div class="col-md-4" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
+      <div class="col-md-4 grid-item" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
         <blockquote>
           <%= product_review.content%>
           <footer> <%= product_review.name%></footer>
