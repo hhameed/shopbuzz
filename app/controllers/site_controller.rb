@@ -17,8 +17,16 @@ class SiteController < ApplicationController
      # end
      # print params[:brand_ids]
      # print x
+     @searchparam=(params[:param1].present? ? params[:param1] : "")
+     if !params[:brand_ids].blank?
+       x=[]
+       params[:brand_ids].each do|i|
+         x<<i
+       end
+     end
 
       @products = Product.where(nil)
+      @products = Product.search(params[:param1]) if params[:param1].present?
       @products = @products.minprice(params[:textmin]) if params[:textmin].present?
       @products = @products.maxprice(params[:textmax]) if params[:textmax].present?
       @products = @products.brands(params[:brand_ids]) if params[:brand_ids].present?

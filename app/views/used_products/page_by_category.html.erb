@@ -1,0 +1,121 @@
+<script>
+  $(function () {
+$('.toggle').click(function (event) {
+event.preventDefault();
+var target = $(this).attr('href');
+$(target).toggleClass('hidden show');
+});
+
+});
+</script>
+<div class="container">
+  <h2>Used <%= @category.name%>  </h2>
+  <a class="btn btn-default" href= <%=url_for()%> role="button" >Sell Your Used <%= @category.name%>  </a>
+  <a class="toggle btn btn-default" href="#filterform">Filter Results</a>
+  <style type="text/css">
+    /* Adjust feedback icon position */
+    #movieForm .form-control-feedback {
+      right: 15px;
+    }
+    #movieForm .selectContainer .form-control-feedback {
+      right: 25px;
+    }
+  </style>
+  <br><br>
+  <form id="filterform" action="<%= url_for controller: 'used_products', action: 'page_by_category', category_id:@category.id%>" method="post" class="hidden">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token -%>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-xs-6">
+          <label class="control-label">Product Name</label>
+          <%= text_field_tag('pname',@pname, placeholder:"Product Name",class:"form-control",style:"width: 80%") %>
+        </div>
+        <div class="col-xs-6">
+        <p>
+          <label for="amount">Price range:</label>
+          <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold; width: 80%">
+        </p>
+        <div id="slider-range" style="width: 80%"></div>
+          <%= hidden_field_tag :data1  %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 selectContainer">
+          <label class="control-label">Warranty</label>
+
+          <%= select_tag(:warranty,options_for_select([['No Warranty'],['1-3 Months Warranty', 1],['4-6 Months Warranty', 2],['7-12 Months Warranty', 3],['12+ Months Warranty', 4]],@sortvalue),class:"form-control",style:"width: 80%",prompt:"Select Warranty") %>
+        </div>
+
+        <div class="col-xs-6 selectContainer">
+          <label class="control-label">Used Duration</label>
+          <%= select_tag(:duration,options_for_select([['Brand New'],['1-3 Months Used', 1],['4-12 Months Used', 2],['1-2 Years Used', 3],['2+ Years Used', 4]],@sortvalue),class:"form-control",style:"width: 80%",prompt:"Select Duration") %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 selectContainer">
+          <label class="control-label">Province</label>
+          <%= select_tag(:city,option_groups_from_collection_for_select(Province.all, :cities, :name, :id, :name, nil),class:"form-control",style:"width: 80%",prompt:"Select city")%>
+        </div>
+
+       <!-- <div class="col-xs-6 selectContainer">
+          <label class="control-label">City</label>
+          <#%= select_tag(:city,options_for_select([['1 (Poor)', 1],['2', 2],['3', 3],['4', 4], ['5 (Good)', 5]],@sortvalue),class:"form-control",style:"width: 80%") %>
+        </div>-->
+
+        <div class="col-xs-6 selectContainer">
+          <label class="control-label">Condition</label>
+          <%= select_tag(:conditionid,options_for_select([['1 (Poor)', 1],['2', 2],['3', 3],['4', 4], ['5 (Good)', 5]],nil),class:"form-control",style:"width: 80%",prompt:"Select condition") %>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-xs-6">
+      <button type="submit" class="btn btn-default btn-primary" style="width:100px; margin-top:20px">Apply Filters</button>
+
+        </div>
+        </div>
+
+    </div>
+
+
+  </form>
+<div class="grid-view">
+  <div style="float: right">
+  <%= page_entries_info @used_products %>
+  </div>
+  <table class="items table table-bordered">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Seller name</th>
+      <th>Condition</th>
+      <th>Addtional Information</th>
+      <th>Usage Duration</th>
+      <th>Warranty</th>
+      <th>Location</th>
+      <th>Contact Number</th>
+      <th>Price</th>
+    </tr>
+    </thead>
+    <tbody >
+    <% @used_products.each do |products|%>
+    <tr class="odd">
+      <td> <a href= <%=url_for(Product.find_by_name(products.product.name))%>><%=products.product.name%></a></td>
+      <td><%=products.name%></td>
+      <td><%=products.condition_ex%></td>
+      <td><%=products.additional_info%></td>
+      <td><%=products.usage_duration%></td>
+      <td><%=products.warranty%></td>
+      <td><%=products.city.name%></td>
+      <td><%=products.contact_number%></td>
+      <td><%=products.price%></td>
+    </tr>
+    <%end%>
+    </tbody>
+  </table>
+</div>
+</div>

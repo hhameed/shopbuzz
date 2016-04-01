@@ -1,13 +1,16 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  # GET /products
-  # GET /products.json
-  # def index
-  #   @products = Product.all
-  # end
+  autocomplete :product, :name
 
-  # GET /products/1
-  # GET /products/1.json
+  def index
+    if params[:search].blank?
+      redirect_to root_path
+    else
+      @products = Product.search(params[:search]).paginate(page: params[:page], per_page: 10)
+      redirect_to url_for(:controller => :site, :action => :browse , param1: params[:search])
+    end
+  end
+
   def show
     @products = Product.all
   end
@@ -77,4 +80,8 @@ class ProductsController < ApplicationController
     # def product_params
     #   params[:product]
     # end
+
+    def product_params
+      params[:product]
+    end
 end
