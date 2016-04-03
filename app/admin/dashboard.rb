@@ -1,14 +1,29 @@
 ActiveAdmin.register_page "Dashboard" do
 
-  menu priority: 1, label: proc{ I18n.t("active_admin.dashboard") }
+  menu :priority => 1
+  content :title => proc{ I18n.t("active_admin.dashboard") } do
 
-  content title: proc{ I18n.t("active_admin.dashboard") } do
-    div class: "blank_slate_container", id: "dashboard_default_message" do
-      span class: "blank_slate" do
-        span I18n.t("active_admin.dashboard_welcome.welcome")
-        small I18n.t("active_admin.dashboard_welcome.call_to_action")
+    columns do
+
+      column do
+        panel "UsedProducts" do
+          table_for UsedProduct.order('id desc').limit(10).each do |usedproduct|
+            column(:name)    {|usedproduct| link_to(usedproduct.name, admin_used_product_path(usedproduct)) }
+            column(:price)    {|usedproduct| link_to(usedproduct.price, admin_used_product_path(usedproduct)) }
+          end
+        end
       end
-    end
+
+      column do
+        panel "Catgeories" do
+          table_for Category.order('id desc').limit(10).each do |category|
+            column(:name)    {|category| link_to(category.name, admin_category_path(category)) }
+          end
+        end
+      end
+
+    end # columns
+
 
     # Here is an example of a simple dashboard with columns and panels.
     #
@@ -29,5 +44,6 @@ ActiveAdmin.register_page "Dashboard" do
     #     end
     #   end
     # end
+
   end # content
 end

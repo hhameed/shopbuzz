@@ -1,17 +1,11 @@
 ActiveAdmin.register UsedProduct do
-
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if resource.something?
-#   permitted
-# end
-
-
+  config.sort_order ="id_asc"
+  index do |customer|
+    column :id
+    column :name
+    column :price
+    column :product_id, :sortable => false do |used_product|
+    link_to "Product Link" , product_path(used_product.product_id)
+    end
+  end
 end
