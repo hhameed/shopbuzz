@@ -41,8 +41,9 @@
         var slider=$( "#slider-range" ).slider({
             range: true,
             min: 0,
+            step: 1000,
             max: 500000,
-            values: [ 100000, 400000 ],
+            values: [ 100000, 200000 ],
             change: function( event, ui ) {
                 $( "#amount" ).val( "Rs " + ui.values[ 0 ] + " - Rs " + ui.values[ 1 ] );
                 console.log(slider.slider("values"));
