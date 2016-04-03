@@ -9,7 +9,8 @@ ActiveAdmin.register_page "Dashboard" do
         panel "UsedProducts" do
           table_for UsedProduct.order('id desc').limit(10).each do |usedproduct|
             column(:name)    {|usedproduct| link_to(usedproduct.name, admin_used_product_path(usedproduct)) }
-            column(:price)    {|usedproduct| link_to(usedproduct.price, admin_used_product_path(usedproduct)) }
+            column(:price)
+            column(:product_id)    {|usedproduct| link_to(usedproduct.product_id, product_path(usedproduct.product_id)) }
           end
         end
       end
