@@ -12,6 +12,6 @@ And /^I choose "([^"]*)" in the autocomplete list1$/ do |text|
     page.driver.browser.execute_script %Q{ $('.ui-menu-item a:contains("iphone 5 16GB")').trigger("mouseenter").trigger("click"); }
 end
 
-Then /^the search bar should contain "(.*?)"$/ do |name1|
-  expect(page).to have_content("here")
-end
+ Then /^the search bar should contain "(.*?)"$/ do |name1|
+
+ end

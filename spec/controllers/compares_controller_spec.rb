@@ -55,19 +55,19 @@ RSpec.describe ComparesController, type: :controller do
       end
       it "product 1 is nil" do
         get :compare, {:product1=>nil}
-        expect { raise StandardError }.to raise_error
+        expect { raise StandardError }.to raise_error(StandardError)
       end
       it "product 2 is nil" do
         get :compare, {:product2=>nil}
-        expect { raise StandardError }.to raise_error
+        expect { raise StandardError }.to raise_error(StandardError)
       end
       it "product 1 and product 2 are equal" do
         get :compare, {:product1=> 1, :product2=>1}
-        expect { raise StandardError }.to raise_error
+        expect { raise StandardError }.to raise_error(StandardError)
       end
       it "product 1 and product 2 are not of same category" do
         get :compare, {:product1=> 1, :product2=>3}
-        expect { raise StandardError }.to raise_error
+        expect { raise StandardError }.to raise_error(StandardError)
       end
       it "product 1 and product 2 are different products" do
         get :compare, {:product1=> 1, :product2=>2}
