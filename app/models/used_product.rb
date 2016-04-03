@@ -1,6 +1,7 @@
 class UsedProduct < ActiveRecord::Base
   belongs_to :city
   belongs_to :product
+  belongs_to :category
 
   PRICE_REGEX = /\A\d+\z/
 
@@ -14,5 +15,16 @@ class UsedProduct < ActiveRecord::Base
 
   EMAIL_REGEX = /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
   validates :email, :format => {:with => EMAIL_REGEX}, :uniqueness => {case_sensitive:false}, :allow_blank=>true
+
+
+  scope :condition, -> (con) { where("condition_ex = ?", "#{con}")}
+  scope :slide, -> (min,max) { where(:price => min..max)}
+  scope :city, -> (city) { where("city_id = ?", city)}
+  scope :category, -> (cat_id) { where category_id: cat_id }
+  scope :brands, -> (x) { where "brand_id IN (?)",x }
+  scope :duration, -> (duration) { where("usage_duration= ?", duration)}
+  scope :warranty, -> (warranty) { where("warranty= ?", warranty)}
+  scope :search, -> (x) { where "product_id IN (?)",x }
+
 
 end
