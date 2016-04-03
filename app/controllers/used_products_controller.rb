@@ -20,7 +20,7 @@ class UsedProductsController < ApplicationController
     end
     end
 
-    @used_products = @used_products.search(x) if params[:pname].present?
+    @used_products = @used_products.search1(x) if params[:pname].present?
     @used_products = @used_products.condition(params[:conditionid]) if params[:conditionid].present?
     @used_products = @used_products.duration(params[:duration]) if params[:duration].present?
     @used_products = @used_products.warranty(params[:warranty]) if params[:warranty].present?
@@ -30,7 +30,7 @@ class UsedProductsController < ApplicationController
     @min=arr[0].to_i if params[:data1].present?
     @max=arr[1].to_i if params[:data1].present?
     @used_products = @used_products.slide(@min,@max) if params[:data1].present?
-    @used_products = @used_products.paginate(page: params[:page], per_page: 10)
+    @used_products = @used_products.page(params[:page]).per(10)
   end
 
 
