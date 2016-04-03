@@ -1,9 +1,9 @@
     RP = {
         setup: function() {
-            $('.ckbox').change(RP.formchange);
-            $('#textmin').change( RP.formchange);
-            $('#textmax').change( RP.formchange);
-            $('#sortid').change( RP.formchange);
+           // $('.ckbox').change(RP.formchange);
+           // $('#textmin').change( RP.formchange);
+           // $('#textmax').change( RP.formchange);
+           // $('#sortid').change( RP.formchange);
         }
         ,
         formchange: function() {

@@ -20,7 +20,7 @@ class UsedProductsController < ApplicationController
     end
     end
 
-    @used_products = @used_products.search(x) if params[:pname].present?
+    @used_products = @used_products.search1(x) if params[:pname].present?
     @used_products = @used_products.condition(params[:conditionid]) if params[:conditionid].present?
     @used_products = @used_products.duration(params[:duration]) if params[:duration].present?
     @used_products = @used_products.warranty(params[:warranty]) if params[:warranty].present?
