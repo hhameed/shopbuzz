@@ -9,7 +9,7 @@ class SiteController < ApplicationController
      @selected_brands = (params[:brand_ids].present? ? params[:brand_ids] : [])
      @textminvalue=(params[:textmin].present? ? params[:textmin] : "")
      @textmaxvalue=(params[:textmax].present? ? params[:textmax] : "")
-     @sortvalue=(params[:sortid].present? ? params[:sortid].to_i : 1)
+     @sortvalue=(params[:sortid].present? ? params[:sortid].to_i : nil)
      @category=Category.find(params[:category_id]) if params[:category_id].present?
 
      # if !params[:brand_ids].blank?

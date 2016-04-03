@@ -36,7 +36,6 @@
 
     $(RP.setup);
 
-
     $(document).ready(function() {
         var slider=$( "#slider-range" ).slider({
             range: true,
