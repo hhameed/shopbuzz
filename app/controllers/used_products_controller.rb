@@ -27,8 +27,10 @@ class UsedProductsController < ApplicationController
     @used_products = @used_products.city(params[:city]) if params[:city].present?
     str= params[:data1]
     arr=str.try(:split, ",")
-    @min=arr[0].to_i if params[:data1].present?
-    @max=arr[1].to_i if params[:data1].present?
+     @min=arr[0].to_i if params[:data1].present?
+     @max=arr[1].to_i if params[:data1].present?
+    #@min= params[:data1].present? ? arr[0].to_i : 100000
+    #@max= params[:data1].present? ? arr[1].to_i : 200000
     @used_products = @used_products.slide(@min,@max) if params[:data1].present?
     @used_products = @used_products.paginate(page: params[:page], per_page: 10)
   end

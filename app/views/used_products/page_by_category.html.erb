@@ -73,8 +73,10 @@ $(target).toggleClass('hidden show');
     </div>
   </form>
   <div id="ajaxusedproducts">
-
+    <%if @used_products.count !=0 %>
     <%= render partial: "used_product",:locals => { :used_products=> @used_products}%>
-
+    <%else%>
+    <%= render partial: "site/noproductfound"%>
+    <%end%>
   </div>
 </div>

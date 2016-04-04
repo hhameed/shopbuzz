@@ -1,2 +1,6 @@
+<%if @products.count !=0 %>
 $("#ajaxproducts").html("<%= escape_javascript(render partial: "products/product", collection: @products, layout: "product_wrapper_layout",:locals => {:size => "col-md-4",obj:"browse"}
 ) %>");
+<%else%>
+$("#ajaxproducts").html("<%= escape_javascript(render partial: "noproductfound")%>");
+<%end%>
