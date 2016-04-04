@@ -4,7 +4,7 @@ ActiveAdmin.register UsedProduct do
     column :id
     column :name
     column :price
-    column :condition_ex
+    column :condition_ex,:sortable => false
     column :additional_info, :sortable => false
     column :warranty, :sortable => false
     column :usage_duration, :sortable => false
@@ -13,9 +13,9 @@ ActiveAdmin.register UsedProduct do
     column :created_at
     column :updated_at
     column :city_id
-    column :category_id
+    column :category_id, :sortable => false
     column :product_id, :sortable => false do |used_product|
-    link_to used_product.product_id , product_path(used_product.product_id)
+      link_to Product.find(used_product.product_id).name , product_path(used_product.product_id)
     end
   end
 end

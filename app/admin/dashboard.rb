@@ -6,23 +6,26 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
 
       column do
-        panel "UsedProducts" do
-          table_for UsedProduct.order('id desc').limit(10).each do |usedproduct|
-            column(:name)    {|usedproduct| link_to(usedproduct.name, admin_used_product_path(usedproduct)) }
+        panel "Recent Product" do
+          table_for Product.order('id desc').limit(10).each do |product|
+            column(:id)
+            column(:name)    {|product| link_to(product.name, admin_product_path(product)) }
             column(:price)
-            column(:product_id)    {|usedproduct| link_to(usedproduct.product_id, product_path(usedproduct.product_id)) }
+            column(:rating)
           end
         end
       end
 
       column do
-        panel "Catgeories" do
-          table_for Category.order('id desc').limit(10).each do |category|
-            column(:name)    {|category| link_to(category.name, admin_category_path(category)) }
+        panel "Recent UsedProducts" do
+          table_for UsedProduct.order('id desc').limit(10).each do |usedproduct|
+            column(:id)
+            column(:name)    {|usedproduct| link_to(usedproduct.name, admin_used_product_path(usedproduct)) }
+            column(:price)
+            column(:product_id)    {|usedproduct| link_to(Product.find(usedproduct.product_id).name, product_path(usedproduct.product_id)) }
           end
         end
       end
-
     end # columns
 
 
