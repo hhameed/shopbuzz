@@ -1,7 +1,7 @@
 class UsedProductsController < ApplicationController
 
   before_action :set_used_product, only: [:show, :edit, :update, :destroy]
-  before_action :set_product, only: [:new, :create]
+  before_action :set_product, only: [:new, :create, :index]
   # GET /used_products
   def index
     @used_products = UsedProduct.all
@@ -53,6 +53,7 @@ class UsedProductsController < ApplicationController
   def create
     @used_product = UsedProduct.new(used_product_params)
     @used_product.product_id=@product.id
+    @used_product.category_id=@product.category_id
 
     respond_to do |format|
       if @used_product.save
