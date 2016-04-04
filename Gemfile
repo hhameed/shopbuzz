@@ -55,16 +55,6 @@ gem 'draper'
 gem 'pundit'
 gem 'kaminari'
 
-
-
-gem 'activeadmin', '~> 1.0.0.pre2'
-
-gem 'devise'
-gem 'cancan' # or cancancan
-gem 'draper'
-gem 'pundit'
-gem 'kaminari'
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
