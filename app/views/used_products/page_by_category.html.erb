@@ -10,7 +10,7 @@ $(target).toggleClass('hidden show');
 </script>
 <div class="container">
   <h2>Used <%= @category.name%>  </h2>
-  <a class="btn btn-default" href= <%=url_for()%> role="button" >Sell Your Used <%= @category.name%>  </a>
+  <!--<a class="btn btn-default" href= <%=url_for()%> role="button" >Sell Your Used <%= @category.name%>  </a>-->
   <a class="toggle btn btn-default" href="#filterform">Filter Results</a>
   <br><br>
   <form id="filterform" action="<%= url_for controller: 'used_products', action: 'page_by_category', category_id:@category.id%>" method="post" class="hidden">
