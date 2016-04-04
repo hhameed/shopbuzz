@@ -1,5 +1,10 @@
 <%if @products.count !=0 %>
+$("#page_entry_id").html("<%= escape_javascript(page_entries_info @products)%>");
+
 $("#ajaxproducts").html("<%= escape_javascript(render partial: "products/product", collection: @products, layout: "product_wrapper_layout",:locals => {:size => "col-md-4",obj:"browse"}
+) %>");
+
+$("#paginateid").html("<%= escape_javascript(paginate @products,:params=>{:sortid=>@sortvalue, :textmin=>@textminvalue, :textmax=>@textmaxvalue, :brand_ids=>@selected_brands }
 ) %>");
 <%else%>
 $("#ajaxproducts").html("<%= escape_javascript(render partial: "noproductfound")%>");

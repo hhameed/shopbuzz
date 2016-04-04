@@ -39,7 +39,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 gem "recaptcha", require: "recaptcha/rails"
 
-gem 'will_paginate', '~> 3.0.6'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
@@ -48,6 +48,14 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'activeadmin', '~>1.0.0.pre2'
+gem 'devise'
+gem 'cancan' # or cancancan
+gem 'draper'
+gem 'pundit'
+gem 'kaminari'
+
+
 
 gem 'activeadmin', '~> 1.0.0.pre2'
 

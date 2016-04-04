@@ -227,4 +227,4 @@ seller_product_links.each do |spl|
   SellerProductLink.create!(spl)
 end
 
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+AdminUser.create!(email: 'admin@shopbuzz.com', password: 'password', password_confirmation: 'password')

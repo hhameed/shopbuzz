@@ -3,8 +3,7 @@
 
 <div class="grid-view">
   <div style="float: right">
-    <--%= page_entries_info @used_products %>
-  </div>
+    <%= page_entries_info @used_products %>  </div>
   <table class="items table table-bordered">
     <thead>
     <tr>
@@ -35,4 +34,5 @@
     <%end%>
     </tbody>
   </table>
+  <%= paginate @used_products %>
 </div>

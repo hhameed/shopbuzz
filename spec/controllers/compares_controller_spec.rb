@@ -1,23 +1,10 @@
 require 'rails_helper'
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-RSpec.describe ComparesController, type: :feature do
-
-  before :each do
-    @samsung = Product.create(
-=======
-=======
->>>>>>> 6606db1bfd5c9e8861eb7bb5e2f074568167c571
 RSpec.describe ComparesController, type: :controller do
 
   before :each do
     @samsung = Product.create(
         id: '1',
-<<<<<<< HEAD
->>>>>>> sellusedproducts
-=======
->>>>>>> 6606db1bfd5c9e8861eb7bb5e2f074568167c571
         name: 'galaxy',
         price: '500',
         image: 'xyz',
@@ -28,15 +15,8 @@ RSpec.describe ComparesController, type: :controller do
         category_id:4
     )
     @apple = Product.create(
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        id: '2',
->>>>>>> sellusedproducts
-=======
         id: '2',
 
->>>>>>> 6606db1bfd5c9e8861eb7bb5e2f074568167c571
         name: 'iphone',
         price: '600',
         image: 'xyz',
@@ -46,20 +26,6 @@ RSpec.describe ComparesController, type: :controller do
         brand_id:4,
         category_id:4
     )
-<<<<<<< HEAD
-<<<<<<< HEAD
-    @mobile = Category.create(id:4)
-  end
-describe "compare" do
-  it "compares two different products" do
-     
-  end
-end
-
-
-=======
-=======
->>>>>>> 6606db1bfd5c9e8861eb7bb5e2f074568167c571
     @sony = Product.create(
         id: '3',
         name: 'sony alpha',
@@ -111,8 +77,4 @@ end
       end
     end
   end
-<<<<<<< HEAD
->>>>>>> sellusedproducts
-=======
->>>>>>> 6606db1bfd5c9e8861eb7bb5e2f074568167c571
 end
