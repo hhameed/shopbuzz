@@ -18,7 +18,7 @@ ActiveAdmin.register_page "Dashboard" do
       end
 
       column do
-        panel "Recent UsedProducts" do
+        panel "Recent Used Products" do
           table_for UsedProduct.order('id desc').limit(10).each do |usedproduct|
             column(:id)
             column(:name)    {|usedproduct| link_to(usedproduct.name, admin_used_product_path(usedproduct)) }
