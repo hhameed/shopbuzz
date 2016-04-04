@@ -27,7 +27,8 @@ class SiteController < ApplicationController
       @products = @products.category(params[:category_id]) if params[:category_id].present?
       @products = @products.asc if params[:sortid]=="1"
       @products = @products.desc if params[:sortid]=="2"
-      @products = @products.paginate(page: params[:page], per_page: 10)
+     # @products = @products.paginate(page: params[:page], per_page: 10)
+      @products = @products.page(params[:page]).per(12)
 
 
 

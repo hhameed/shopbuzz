@@ -24,7 +24,7 @@ class UsedProduct < ActiveRecord::Base
   scope :brands, -> (x) { where "brand_id IN (?)",x }
   scope :duration, -> (duration) { where("usage_duration= ?", duration)}
   scope :warranty, -> (warranty) { where("warranty= ?", warranty)}
-  scope :search, -> (x) { where "product_id IN (?)",x }
+  scope :search1, -> (x) { where "product_id IN (?)",x }
 
 
 end
