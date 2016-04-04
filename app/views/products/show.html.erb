@@ -27,7 +27,7 @@
           <span itemprop="name"><%=@product.name%></span>
           <br />
           <small>
-            Price: <strong>Rs.<%=@product.price%>/-</strong> | Used Available: 24 | Comments: 32		</small>
+            Price: <strong>Rs.<%=@product.price%>/-</strong> | Used Available: <%= @product.used_products.count %> | Comments: <%= @product.product_review.count %>		</small>
         </h2>
 
         <!-- Social Widgets Begin Here -->
