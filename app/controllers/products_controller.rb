@@ -80,8 +80,14 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
 
+
     # def product_params
     #   params[:product]
     # end
+
+
+    def product_params
+      params[:product]
+    end
 
 end

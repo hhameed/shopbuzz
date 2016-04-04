@@ -14,7 +14,7 @@ class UsedProduct < ActiveRecord::Base
   validates :city_id, presence: true
 
   EMAIL_REGEX = /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
-  validates :email, :format => {:with => EMAIL_REGEX}, :uniqueness => {case_sensitive:false}, :allow_blank=>true
+  validates :email, :format => {:with => EMAIL_REGEX}, :allow_blank=>true
 
 #scope to add a method for querying objects for filters.
   scope :condition, -> (con) { where("condition_ex = ?", "#{con}")}

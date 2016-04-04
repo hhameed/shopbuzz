@@ -1,3 +1,4 @@
+
 # Given(/^the following products have been added to database$/) do |table|
 #   table.hashes.each do |product|
 #     # Each returned user will be a hash representing one row of the user_table

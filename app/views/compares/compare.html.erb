@@ -3,7 +3,7 @@
     <%= @error %>
 
 <%else%>
-<h2><a href=""><%=@product1.name%></a> vs <a href=""><%=@product2.name%></a></h2>
+<h2><a href="<%= url_for @product1 %>"><%=@product1.name%></a> vs <a href="<%= url_for @product2 %>"><%=@product2.name%></a></h2>
 
 <table class="table table-bordered table-striped">
   <tbody>

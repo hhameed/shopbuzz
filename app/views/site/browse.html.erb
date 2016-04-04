@@ -6,10 +6,10 @@
       <div style="margin-left: 10px; margin-bottom: 5px; ">
         <h4>Price Range:</h4>
         <div class="form-group">
-          <%= text_field_tag('textmin',@textminvalue, placeholder:"Min Price",class:"form-control",style:"width: 80%") %>
+          <%= text_field_tag('textmin',@textminvalue, placeholder:"Min Price",class:"form-control textvalue",style:"width: 80%") %>
         </div>
         <div class="form-group">
-          <%= text_field_tag('textmax',@textmaxvalue,placeholder:"Max Price",class:"form-control",style:"width: 80%") %>
+          <%= text_field_tag('textmax',@textmaxvalue,placeholder:"Max Price",class:"form-control textvalue",style:"width: 80%") %>
         </div>
         <%= hidden_field_tag 'param1',@searchparam  %>
         <button type="submit" class="btn btn-default">Submit</button>
@@ -36,16 +36,20 @@
   <div class="col-md-9">
     <div style="margin-bottom: 60px;">
     <div style="margin-right: 10px;width: 250px; float:right; ">
-      <%= select_tag(:sortid,options_for_select([['Sort Price Min-Max', 1], ['Sort Price Max-Min', 2]],@sortvalue),class:"form-control") %>
-      <div style="width: 100%; float:right;margin-top:5px; ">
+      <%= select_tag(:sortid,options_for_select([['Sort Price Min-Max', 1], ['Sort Price Max-Min', 2]],params[:sortid]),class:"form-control",prompt:"Sort By") %>
+      <div id="page_entry_id" style="width: 105%; float:right;margin-top:5px; ">
         <%= page_entries_info @products %>
       </div>
     </div>
     </div>
-    <div class="row">
+    <div id="ajaxproducts" class="row">
+      <%if @products.count !=0 %>
       <%= render partial: "products/product", collection: @products, layout: "product_wrapper_layout",:locals => {:size => "col-md-4",obj:"browse"} %>
+      <%else%>
+      <%= render partial: "noproductfound"%>
+      <%end%>
     </div>
-    <div class="row">
+    <div id="paginateid" class="row">
       <center><%= paginate @products,:params=>{:sortid=>@sortvalue, :textmin=>@textminvalue, :textmax=>@textmaxvalue, :brand_ids=>@selected_brands }%></center>
     </div>
   </div>

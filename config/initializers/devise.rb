@@ -99,6 +99,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
+
   # config.pepper = '7248f7801f837a4a4eb804d5a17fd5a2c89b8fa2fb7879d4295a320910f330ad6fefd38e01628f171142a80f1f389cd68f6e9cc05e4404607556e39c22b2381d'
 
   # Send a notification email when the user's password is changed

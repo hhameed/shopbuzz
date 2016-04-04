@@ -84,6 +84,18 @@ RSpec.describe SiteController, type: :controller do
     end
 
 
+    context 'with category and sorting' do
+      it "assigns products with filterted from max price to min price" do
+        post :browse, {category_id:4 ,sortid:"2"}
+        expect(assigns(:category)).to eq(@mobile)
+        expect(assigns(:sortvalue)).to eq(2)
+        expect(assigns(:products)).to eq([@apple,@samsung])
+      end
+
+
+    end
+
+
   end
 
 
