@@ -16,7 +16,7 @@ class UsedProduct < ActiveRecord::Base
   EMAIL_REGEX = /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
   validates :email, :format => {:with => EMAIL_REGEX}, :uniqueness => {case_sensitive:false}, :allow_blank=>true
 
-
+#scope to add a method for querying objects for filters.
   scope :condition, -> (con) { where("condition_ex = ?", "#{con}")}
   scope :slide, -> (min,max) { where(:price => min..max)}
   scope :city, -> (city) { where("city_id = ?", city)}
