@@ -13,9 +13,4 @@ class SellersController < ApplicationController
     @seller = Seller.find(params[:id])
   end
 
-  def seller_params
-    params[:seller]
-  end
-
-
 end

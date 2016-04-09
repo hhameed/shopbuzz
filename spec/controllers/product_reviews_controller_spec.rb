@@ -60,7 +60,7 @@ RSpec.describe ProductReviewsController, type: :controller do
     end
 
     context "with invalid params" do
-      it "assigns a newly created but unsaved seller_review as @seller_review" do
+      it "assigns a newly created but unsaved product_review as @product_review" do
         post :create, {:product_id=>1,:product_review => invalid_attributes}
         expect(assigns(:product_review)).to be_a_new(ProductReview)
       end
