@@ -1,1 +1,44 @@
-Hi
+<p id="notice"><%= notice %></p>
+<div id="fb-root"></div>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+<% content_for(:body_attributes) do %>
+    data-no-turbolink="true"
+<% end %>
+
+<div itemscope itemtype="http://schema.org/Product">
+
+  <div class="row">
+
+    <div class ="col-md-8">
+      <!--<img src="" alt="" itemprop="image" style="vertical-align: middle"/>-->
+      <img src="<%=image_path("sellers/#{@seller.logo}")%>" alt="Image not found" itemprop="image" style="vertical-align: middle"/>
+    </div>
+    <div class ="col-md-4">
+      <div class="fb-page" data-href="https://www.facebook.com/pages/Shopbuzzpk/530971380350516" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/pages/Shopbuzzpk/530971380350516"><a href="https://www.facebook.com/pages/Shopbuzzpk/530971380350516">Shopbuzz.pk</a></blockquote></div></div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+<a class="btn btn-default" href= <%=url_for(new_seller_seller_review_path(@seller))%> role="button">Post Your Comments</a>
+<a class="btn btn-default" href= <%=url_for(seller_seller_reviews_path(@seller))%> role="button">See All Comments</a>
+
+<div class="row grid">
+  <% @seller.seller_reviews.each do |seller_review| %>
+      <div class="col-md-4 grid-item" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
+        <blockquote>
+          <%= seller_review.content%>
+          <footer> <%= seller_review.name%></footer>
+        </blockquote>
+      </div>
+  <% end %>
+</div>

@@ -152,9 +152,16 @@ ActiveRecord::Schema.define(version: 20160407032040) do
   add_index "seller_product_links", ["seller_id"], name: "index_seller_product_links_on_seller_id"
 
   create_table "seller_reviews", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "rating"
+    t.text     "content"
+    t.integer  "seller_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "seller_reviews", ["seller_id"], name: "index_seller_reviews_on_seller_id"
 
   create_table "sellers", force: :cascade do |t|
     t.string   "name"

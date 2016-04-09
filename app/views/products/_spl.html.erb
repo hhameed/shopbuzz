@@ -1,6 +1,6 @@
 <tr>
   <td>
-   <%= link_to(image_tag("sellers/#{spl.seller.logo}"),seller_path)%>
+   <%= link_to(image_tag("sellers/#{spl.seller.logo}"),seller_url(spl.id)) %>
 
   </td>
   <td><%= spl.name %></td>

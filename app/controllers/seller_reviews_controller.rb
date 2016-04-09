@@ -12,13 +12,12 @@ class SellerReviewsController < InheritedResources::Base
 
 
   def create
-
-    @seller_review = SellerReview.new(product_review_params)
+    @seller_review = SellerReview.new(seller_review_params)
     @seller_review.seller_id=@seller.id
 
     respond_to do |format|
       if verify_recaptcha(model:@seller_review)&& @seller_review.save
-        format.html { redirect_to product_product_reviews_url, notice: 'Seller review was successfully created.' }
+        format.html { redirect_to seller_seller_reviews_url, notice: 'Seller review was successfully created.' }
       else
         format.html { render :new }
       end
@@ -39,7 +38,7 @@ class SellerReviewsController < InheritedResources::Base
   end
 
     def seller_review_params
-      params.require(:seller_review).permit()
+      params.require(:seller_review).permit(:rating, :content, :name, :email)
     end
 end
 
