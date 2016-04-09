@@ -11,10 +11,45 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery.turbolinks
-//= require jquery_ujs
+//= require autocomplete-rails
+//= require turbolinks
 //= require bootstrap.min
 //= require ie-emulation-modes-warning
 //= require ie10-viewport-bug-workaround
 //= require turbolinks
 //= require_tree .
+
+
+$(function() {
+    $(".ckbox").change( function() {
+        $.post($("#formid").attr("action"), $("#formid").serialize(), null, "script");
+        return false;
+    });
+
+    console.log("xxx");
+
+    $(".textvalue").keyup(function() {
+        $.post($("#formid").attr("action"), $("#formid").serialize(), null, "script");
+        return false;
+    });
+
+    $("#sortid").change(function() {
+        $.post($("#formid").attr("action"), $("#formid").serialize(), null, "script");
+        return false;
+    });
+
+    $("#submit").click( function() {
+    //$("#pname").keyup(function() {
+        $.post($("#filterform").attr("action"), $("#filterform").serialize(), null, "script");
+        return false;
+    //});
+    });
+
+
+});
+
+
+
+

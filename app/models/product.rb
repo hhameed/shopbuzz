@@ -5,6 +5,7 @@ class Product < ActiveRecord::Base
   has_many :specification, through: :product_specification
   has_many :product_review
   has_many :used_products
+
   has_many :seller_product_links
 
 
@@ -16,5 +17,10 @@ class Product < ActiveRecord::Base
   scope :asc, -> () {reorder('price ASC')}
   scope :desc, -> () {reorder('price DESC')}
 
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    end
+  end
 
 end

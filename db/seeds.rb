@@ -6,8 +6,31 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+categories = [{:id=>1, :code=>'digital-cameras', :name=>'Digital Cameras'},
+              {:id=>2, :code=>'dslr-cameras', :name=>'DSLR Cameras'},
+              {:id=>3, :code=>'handy-cameras', :name=>'Handy Cameras'},
+              {:id=>4, :code=>'mobile-phones', :name=>'Mobile Phones'},
+              {:id=>5, :code=>'laptops', :name=>'Laptops'},
+              {:id=>6, :code=>'tablets', :name=>'Tablets'}]
+
+categories.each do |category|
+  Category.create!(category)
+end
+
+brands = [
+    {:id=>1, :code=>'sumsung', :name=>'Sumsung'},
+    {:id=>2, :code=>'sony', :name=>'Sony'},
+    {:id=>3, :code=>'nikon-d4s', :name=>'Nikon D4S'},
+    {:id=>4, :code=>'dslr', :name=>'DSLR'},
+    {:id=>5, :code=>'lenovo', :name=>'Lenovo'},
+    {:id=>6, :code=>'huawei', :name=>'Huawei'}]
+
+brands.each do |brand|
+  Brand.create!(brand)
+end
+
 products=[{:id=>1, :rating=>4.0, :review_count=>1, :views=>1, :name=>'Samsung Galaxy Note II N7100 16GB', :price=>34999, :image=>'http://shopbuzz.pk/images/products/profile/143-samsung-galaxy-note-ii-n7100-16gb-price-in-pakistan.jpg', :brand_id=>1, :category_id=>4},
-          {:id=>65, :rating=>4.0, :review_count=>1, :views=>1, :name=>'Samsung Galaxy Note II N7100 32GB', :price=>349931239, :image=>'http://shopbuzz.pk/images/products/profile/143-samsung-galaxy-note-ii-n7100-16gb-price-in-pakistan.jpg', :brand_id=>2, :category_id=>4},
+          {:id=>65, :rating=>4.0, :review_count=>1, :views=>1, :name=>'Sony Phone ABC', :price=>10939, :image=>'http://shopbuzz.pk/images/products/profile/143-samsung-galaxy-note-ii-n7100-16gb-price-in-pakistan.jpg', :brand_id=>2, :category_id=>4},
           {:id=>2, :rating=>5.0, :review_count=>1, :views=>1, :name=>'Sony DSC-TX30', :price=>33499, :image=>'http://shopbuzz.pk/images/products/profile/2052-sony-dsc-tx30-price-in-pakistan.jpg', :brand_id=>2, :category_id=>1},
           {:id=>3, :rating=>3.0, :review_count=>1, :views=>1, :name=>'Nikon D4S', :price=>474999, :image=>'http://shopbuzz.pk/images/products/profile/1911-nikon-d4s-price-in-pakistan.jpg', :brand_id=>3, :category_id=>2},
           {:id=>4, :rating=>4.0, :review_count=>1, :views=>1, :name=>'DSLR NEX-VG30EH', :price=>245999, :image=>'http://shopbuzz.pk/images/products/profile/953-dslr-nex-vg30eh-price-in-pakistan.jpg', :brand_id=>4, :category_id=>3},
@@ -75,29 +98,6 @@ products=[{:id=>1, :rating=>4.0, :review_count=>1, :views=>1, :name=>'Samsung Ga
 
 products.each do |product|
   Product.create!(product)
-end
-
-categories = [{:id=>1, :code=>'digital-cameras', :name=>'Digital Cameras'},
-              {:id=>2, :code=>'dslr-cameras', :name=>'DSLR Cameras'},
-              {:id=>3, :code=>'handy-cameras', :name=>'Handy Cameras'},
-              {:id=>4, :code=>'mobile-phones', :name=>'Mobile Phones'},
-              {:id=>5, :code=>'laptops', :name=>'Laptops'},
-              {:id=>6, :code=>'tablets', :name=>'Tablets'}]
-
-categories.each do |category|
-  Category.create!(category)
-end
-
-brands = [
-    {:id=>1, :code=>'sumsung', :name=>'Sumsung'},
-    {:id=>2, :code=>'sony', :name=>'Sony'},
-    {:id=>3, :code=>'nikon-d4s', :name=>'Nikon D4S'},
-    {:id=>4, :code=>'dslr', :name=>'DSLR'},
-    {:id=>5, :code=>'lenovo', :name=>'Lenovo'},
-    {:id=>6, :code=>'huawei', :name=>'Huawei'}]
-
-brands.each do |brand|
-  Brand.create!(brand)
 end
 
 product_reviews=[{:id=>1, :product_id=>1, :name=>'Haider', :email=>nil, :rating=>4, :content=>'i wanna sale my LG G3 D850 genion 32GB nd 3GB RAM Android 5.0 lolipop gray colr 10/10 condition not a single scrtch demand 30000 contct no 03244711555 m from lahore'},
@@ -189,8 +189,14 @@ cities.each do |city|
 end
 
 used_products = [
-    {id: 1, name: 'Haider', condition_ex: 5, price: 20000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
-     city_id: 1, email: 'haider@gmail.com', product_id: 1},
+    {id: 1, name: 'Haider', condition_ex: 5, price: 10000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
+     city_id: 1, email: 'haider@gmail.com', product_id: 1, category_id: 1},
+    {id: 2, name: 'Balaji', condition_ex: 5, price: 20000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
+     city_id: 2, email: 'haider1@gmail.com', product_id: 2, category_id: 1},
+    {id: 3, name: 'Rishabh', condition_ex: 5, price: 20000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
+     city_id: 3, email: 'rishabh@gmail.com', product_id:1 , category_id: 2},
+    {id: 4, name: 'Tony', condition_ex: 5, price: 20000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
+     city_id: 4, email: 'tony@gmail.com', product_id:1 , category_id: 2},
 ]
 
 used_products.each do |up|
@@ -209,7 +215,7 @@ sellers.each do |seller|
 end
 
 seller_product_links = [
-    {id: 1, name: 'Samsung Galaxy Note II', price: 20000, info: '', not_found: nil, product_id: 1, category_id: 4, seller_id: 1, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
+    {id: 1, name: 'Samsung Galaxy Note II', price: 40699, info: '', not_found: nil, product_id: 1, category_id: 4, seller_id: 1, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
     {id: 2, name: 'Samsung Galaxy Note II', price: 18000, info: '', not_found: nil, product_id: 1, category_id: 4, seller_id: 2, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
     {id: 3, name: 'Samsung Galaxy Note II', price: 21000, info: '', not_found: '2015-10-21 03:23:45', product_id: 1, category_id: 4, seller_id: 3, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
     {id: 4, name: 'Sony DSC-TX30', price: 20000, info: '', not_found: nil, product_id: 2, category_id: 1, seller_id: 1, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
@@ -220,3 +226,5 @@ seller_product_links = [
 seller_product_links.each do |spl|
   SellerProductLink.create!(spl)
 end
+
+AdminUser.create!(email: 'admin@shopbuzz.pk', password: 'password', password_confirmation: 'password')

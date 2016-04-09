@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   #get 'products/index'
   #root 'products#index'
 
@@ -15,12 +17,19 @@ Rails.application.routes.draw do
   get 'products/wait'
 
   get 'site/browse'
+  get 'used_products/index'
 
   post 'site/browse' => 'site#browse', :as =>:site_browse_post
   #get 'browse' => 'site#browse'
 
   match '/contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
+
+  get 'used_products/page_by_category'
+  post 'used_products/page_by_category' => 'used_products#page_by_category', :as =>:used_products_pagebycategory_post
+
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -70,9 +79,17 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
   get 'compare' => 'compares#compare'
+
+  resources :products do
+    get :autocomplete_product_name, on: :collection
+  end
+
   resources :products do
     resources :product_reviews
     resources :used_products
   end
+
+
 end

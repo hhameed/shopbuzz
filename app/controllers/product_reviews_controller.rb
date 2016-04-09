@@ -4,7 +4,7 @@ class ProductReviewsController < ApplicationController
   before_action :set_product
 
   def index
-    @product_reviews = ProductReview.where(product_id: @product.id).paginate(:page => params[:page], :per_page => 30)
+    @product_reviews = ProductReview.where(product_id: @product.id).page(params[:page]).per(30)
   end
 
   # The show page for food reviews is useless currently

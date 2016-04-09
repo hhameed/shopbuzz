@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'coffee-script-source', '1.8.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+gem 'rails4-autocomplete'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -37,7 +39,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 gem "recaptcha", require: "recaptcha/rails"
 
-gem 'will_paginate', '~> 3.0.6'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
@@ -46,6 +48,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'activeadmin', '~>1.0.0.pre2'
+gem 'devise'
+gem 'cancan' # or cancancan
+gem 'draper'
+gem 'pundit'
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -56,6 +64,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'rspec-rails'
+
   gem 'rspec-activemodel-mocks'
   gem "factory_girl_rails", "~> 4.4.1"
 end

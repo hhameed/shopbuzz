@@ -1,13 +1,16 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  # GET /products
-  # GET /products.json
-  # def index
-  #   @products = Product.all
-  # end
+  autocomplete :product, :name
 
-  # GET /products/1
-  # GET /products/1.json
+  def index
+    if params[:search].blank?
+      redirect_to root_path
+    else
+      @products = Product.search(params[:search])
+      redirect_to url_for(:controller => :site, :action => :browse , param1: params[:search])
+    end
+  end
+
   def show
     @products = Product.all
   end
@@ -24,19 +27,19 @@ class ProductsController < ApplicationController
 
   # POST /products
   # POST /products.json
-  def create
-    @product = Product.new(product_params)
-
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-
-      else
-        format.html { render :new }
-
-      end
-    end
-  end
+  # def create
+  #   @product = Product.new(product_params)
+  #
+  #   respond_to do |format|
+  #     if @product.save
+  #       format.html { redirect_to @product, notice: 'Product was successfully created.' }
+  #
+  #     else
+  #       format.html { render :new }
+  #
+  #     end
+  #   end
+  # end
 
   def wait
     @spl = SellerProductLink.find(params[:spl_id])
@@ -74,7 +77,15 @@ class ProductsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+
+
+    # def product_params
+    #   params[:product]
+    # end
+
+
     def product_params
       params[:product]
     end
+
 end

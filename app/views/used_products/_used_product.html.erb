@@ -1,0 +1,38 @@
+
+
+
+<div class="grid-view">
+  <div style="float: right">
+    <%= page_entries_info @used_products %>  </div>
+  <table class="items table table-bordered">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Seller name</th>
+      <th>Condition</th>
+      <th>Addtional Information</th>
+      <th>Usage Duration</th>
+      <th>Warranty</th>
+      <th>Location</th>
+      <th>Contact Number</th>
+      <th>Price</th>
+    </tr>
+    </thead>
+    <tbody >
+    <% used_products.each do |products|%>
+        <tr class="odd">
+          <td> <a href= <%=url_for(Product.find_by_name(products.product.name))%>><%=products.product.name%></a></td>
+          <td><%=products.name%></td>
+          <td><%=products.condition_ex%></td>
+          <td><%=products.additional_info%></td>
+          <td><%=products.usage_duration%></td>
+          <td><%=products.warranty%></td>
+          <td><%=products.city.name%></td>
+          <td><%=products.contact_number%></td>
+          <td><%=products.price%></td>
+        </tr>
+    <%end%>
+    </tbody>
+  </table>
+  <%= paginate @used_products %>
+</div>
