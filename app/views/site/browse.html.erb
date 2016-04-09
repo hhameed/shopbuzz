@@ -49,8 +49,8 @@
       <%= render partial: "noproductfound"%>
       <%end%>
     </div>
-    <div id="paginateid" class="row">
-      <center><%= paginate @products,:params=>{:sortid=>@sortvalue, :textmin=>@textminvalue, :textmax=>@textmaxvalue, :brand_ids=>@selected_brands }%></center>
+    <div id="paginateid" class="row" style="text-align: center">
+      <%= paginate @products,:params=>{:sortid=>@sortvalue, :textmin=>@textminvalue, :textmax=>@textmaxvalue, :brand_ids=>@selected_brands }%>
     </div>
   </div>
   </form>
