@@ -19,6 +19,7 @@
 //= require ie-emulation-modes-warning
 //= require ie10-viewport-bug-workaround
 //= require turbolinks
+//= require star-rating
 //= require_tree .
 
 

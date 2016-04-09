@@ -17,16 +17,12 @@
   <%=javascript_include_tag "autocomplete-rails.js"%>
   <%= csrf_meta_tags %>
 
-
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.9.1.js"></script>
-  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-
   <style>
     .ui-autocomplete {
     position: absolute;
     z-index: 1000;
   }</style>
+
 
 </head>
 <body
@@ -103,6 +99,9 @@
 <script>
   $('.grid').masonry({
     itemSelector: '.grid-item'
+  });
+  $(document).on('ready',function(){
+    $("#abcdef").rating({stars:5, displayOnly:true});
   });
 </script>
 

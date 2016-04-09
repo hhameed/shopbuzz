@@ -15,10 +15,18 @@
       <div class="col-md-4 grid-item" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
         <blockquote>
           <%= product_review.content%>
+          <div class="form-group">
+            <div class ="col-sm-3">
+              <form>
+                <input id="input-21b" value=<%= product_review.rating %> type="number" class="rating" min=0 max=5 step=1 data-size="xs" readOnly="true" showClear="false" >
+              </form>
+            </div>
+          </div>
           <footer> <%= product_review.name%></footer>
         </blockquote>
       </div>
     <% end %>
 </div>
+
 
 <%= paginate @product_reviews %>
