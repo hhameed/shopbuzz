@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :seller_reviews
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   #get 'products/index'
@@ -15,7 +16,6 @@ Rails.application.routes.draw do
   root 'site#index'
 
   get 'products/wait'
-
   get 'site/browse'
   get 'used_products/index'
 
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
   get 'used_products/page_by_category'
   post 'used_products/page_by_category' => 'used_products#page_by_category', :as =>:used_products_pagebycategory_post
-
+  #resources "seller"
 
 
 
@@ -91,5 +91,8 @@ Rails.application.routes.draw do
     resources :used_products
   end
 
+  resources :sellers do
+    resources :seller_reviews
+  end
 
 end
