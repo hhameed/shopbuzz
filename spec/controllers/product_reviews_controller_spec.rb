@@ -17,6 +17,15 @@ RSpec.describe ProductReviewsController, type: :controller do
     return hash
   }
 
+  let(:invalid_attributes) {
+    hash={};
+    hash[:rating]=4
+    hash[:content]='abcdef'
+    hash[:product_id]=1
+    hash[:email]='fake@email.com'
+    return hash
+  }
+
   describe "GET #index" do
     it 'assigns all product reviews as @product_reviews' do
       product_review=ProductReview.create! valid_attributes
@@ -49,6 +58,18 @@ RSpec.describe ProductReviewsController, type: :controller do
       post :create, {:product_id=>1, :product_review => valid_attributes}
       expect(response).to redirect_to(product_product_reviews_url)
     end
+
+    context "with invalid params" do
+      it "assigns a newly created but unsaved seller_review as @seller_review" do
+        post :create, {:product_id=>1,:product_review => invalid_attributes}
+        expect(assigns(:product_review)).to be_a_new(ProductReview)
+      end
+
+      it "re-renders the 'new' template" do
+        post :create, {:product_id=>1,:product_review => invalid_attributes}
+        expect(response).to render_template("new")
+      end
   end
 
+  end
 end

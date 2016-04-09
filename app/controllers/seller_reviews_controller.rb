@@ -25,8 +25,6 @@ class SellerReviewsController < InheritedResources::Base
   end
 
 
-
-
   private
 
   def set_seller_review
