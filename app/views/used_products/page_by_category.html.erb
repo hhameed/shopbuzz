@@ -79,4 +79,7 @@ $(target).toggleClass('hidden show');
     <%= render partial: "site/noproductfound"%>
     <%end%>
   </div>
+  <div id="paginateid_usedproducts" class="row" style="text-align: center">
+    <%= paginate @used_products, remote: true%>
+  </div>
 </div>

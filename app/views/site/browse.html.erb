@@ -1,6 +1,6 @@
 <div class="row">
   <form id="formid" action=" <%if @category.present?%> <%=  url_for controller: 'site', action: 'browse', category_id: @category.id %> <%else%> <%= url_for controller: 'site', action: 'browse'%> <% end %>" method="post">
-    <div class="col-md-3">
+    <div class="col-md-3" style="margin-top: 70px">
       <div style="margin-bottom: 60px;">
       <div class="thumbnail">
       <div style="margin-left: 10px; margin-bottom: 5px; ">
@@ -50,7 +50,7 @@
       <%end%>
     </div>
     <div id="paginateid" class="row" style="text-align: center">
-      <%= paginate @products,:params=>{:sortid=>@sortvalue, :textmin=>@textminvalue, :textmax=>@textmaxvalue, :brand_ids=>@selected_brands }%>
+      <%= paginate @products,:params=>{:sortid=>@sortvalue, :textmin=>@textminvalue, :textmax=>@textmaxvalue, :brand_ids=>@selected_brands },:remote => true%>
     </div>
   </div>
   </form>
