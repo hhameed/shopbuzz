@@ -104,6 +104,8 @@
       <div class="col-md-4 grid-item" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
         <blockquote>
           <%= product_review.content%>
+          <br>
+          <span class="glyphicon glyphicon-star" style="color:orange" aria-hidden="true"></span> <%=product_review.rating%>
           <footer> <%= product_review.name%></footer>
         </blockquote>
       </div>
