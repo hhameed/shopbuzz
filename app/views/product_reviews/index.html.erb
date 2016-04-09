@@ -12,13 +12,8 @@
 
 <div class="row grid">
     <% @product_reviews.each do |product_review| %>
-<<<<<<< HEAD
-      <div class="col-md-4" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
-        g<blockquote>
-=======
       <div class="col-md-4 grid-item" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
         <blockquote>
->>>>>>> 8ba5c2d7666f1316394b1d194a9079e2a9be7a8a
           <%= product_review.content%>
           <footer> <%= product_review.name%></footer>
         </blockquote>
