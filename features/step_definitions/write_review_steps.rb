@@ -4,14 +4,13 @@ Given(/^the following categories have been added to the database$/) do |table|
     c.save(:validate=>false)
   end
 end
-
 Given(/^the following products have been added to the database$/) do |table|
   table.hashes.each do |product|
     # Each returned user will be a hash representing one row of the user_table
     # The keys will be the table headers and the values will be the row contents.
     # Entries can be directly to the database with ActiveRecord methods
     # Add the necessary Active Record call(s) to populate the database.
-    p = Product.new(:name=>product["name"], :category_id=>1)
+    p = Product.new(product)
     p.save(:validate => false)
   end
 end
@@ -35,4 +34,3 @@ end
 Then /^(?:|I )should see a message "([^"]*)"$/ do |text|
   expect(page).to have_content(text)
 end
-

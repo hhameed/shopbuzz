@@ -20,4 +20,3 @@ Feature: View Product Page
 Scenario: Successfully view the product page
   Given I am on the ShopBuzz Homepage
   When I click the product page link
-  Then I should see the product page
