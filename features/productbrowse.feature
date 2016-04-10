@@ -6,8 +6,12 @@ Feature: Filter and sort the products
   Background: products have been added to database
 
     Given the following categories have been added to the database
-      |name        |code  |
-      |mobile      |MS    |
+      |id|name        |code  |
+      |4 |mobile      |MS    |
+
+    Given the following brands have been added to the database
+      |id|name        |code  |
+      |1|samsung      |SAM    |
 
     Given the following products have been added to database
       |id| name                    | price | category_id | brand_id | image  |
@@ -16,6 +20,32 @@ Feature: Filter and sort the products
 
 
   @javascript
-  Scenario: To filter the products based on brand
+  Scenario: To filter the products based on minimum price
     Given I am on the browse page
     When I fill the min value
+    Then I should see only the product "iphone 6S"
+  @javascript
+  Scenario: To filter the products based on maximum price
+    Given I am on the browse page
+    When I fill the max value
+    Then I should see only the product "samsung galaxy S6"
+
+  @javascript
+  Scenario: To filter the products based on maximum price
+    Given I am on the browse page
+    When I check the apple brand
+    Then I should see only the brand products "iphone 6S"
+
+  @javascript
+  Scenario: To filter the products based on maximum price
+    Given I am on the browse page
+    When I click on the min_to_max
+    Then product "samsung galaxy S6" should come before  "iphone 6S"
+
+  @javascript
+  Scenario: To filter the products based on maximum price
+    Given I am on the browse page
+    When I click on the max_to_min
+    Then product "iphone 6S" should come before  "samsung galaxy S6"
+
+

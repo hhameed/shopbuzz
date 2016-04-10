@@ -22,7 +22,7 @@
         <% Brand.all.each do |brand| %>
         <div class="checkbox">
           <label>
-            <%= check_box_tag "brand_ids[]",brand.id,@selected_brands.include?(brand.id.to_s), class:"ckbox" %>
+            <%= check_box_tag "brand_ids[]",brand.id,@selected_brands.include?(brand.id.to_s), class:"ckbox", id:"brand_id_#{brand.id}" %>
             <%= brand.name%>
             <%= token_tag(nil) %>
           </label>
