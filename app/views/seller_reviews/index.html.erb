@@ -1,0 +1,24 @@
+<% if flash[:notice] -%>
+    <div class = "alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+
+
+<h2>
+  Reviews on <%= link_to(@seller.name, url_for(@seller)) %>
+</h2>
+
+
+<a class="btn btn-default" href= <%=url_for(new_seller_seller_review_path)%> role="button">Post Your Comment</a>
+
+<div class="row grid">
+  <% @seller_reviews.each do |seller_review| %>
+      <div class="col-md-4 grid-item" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
+        <blockquote>
+          <%= seller_review.content%>
+          <footer> <%= seller_review.name%></footer>
+        </blockquote>
+      </div>
+  <% end %>
+</div>
+
+<%= paginate @seller_reviews %>
