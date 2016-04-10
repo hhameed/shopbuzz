@@ -17,4 +17,11 @@ When(/^I click on Comment Button$/) do
   page.find('a', text:'Post Your Comments').click
 end
 
+When(/^I fill in the form with with name kiran rating 3 and content a and click save$/) do
+  script = "document.getElementById('seller_review_rating').value = '3'"
+  fill_in "Name", :with=>'kiran'
+  fill_in "Content", :with=>'a'
+  page.evaluate_script(script)
+  click_button "Submit Your Comment"
+end
 
