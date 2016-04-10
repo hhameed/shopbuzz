@@ -3,6 +3,13 @@ require 'rails_helper'
 include Devise::TestHelpers
 
 RSpec.describe Admin::AdminUsersController, type: :controller do
+  describe "GET index" do
+    it "assigns email" do
+      user = AdminUser.create(id:'1',email:'abd@han.com')
+      get :index
+      expect(assigns(:adminusers)).to eq(nil)
+    end
+  end
 
   render_views
 
