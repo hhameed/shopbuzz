@@ -5,7 +5,6 @@ Feature: Write review for the products
 
 Background: products have been added to database
 
-<<<<<<< HEAD
     Given the following categories have been added to the database
     |name        |code  |
     |mobile      |MS    |
@@ -13,18 +12,6 @@ Background: products have been added to database
     Given the following products have been added to the database
     | name                    | price | category_id | brand_id | image                                                                                  |
     | iphone 5 16GB           | 20000 | 1           | 1        | http://shopbuzz.pk/images/products/profile/1-apple-iphone-5-16gb-price-in-pakistan.jpg |
-=======
-  Given the following categories have been added to the database
-    |name        |code  |
-    |mobile      |MS    |
-
-
-  Given the following products have been added to the database
-    | name          |id            | price | category_id | brand_id | image                                                                                  |
-    | iphone 5 16GB |1             | 20000 | 1           | 1        | http://shopbuzz.pk/images/products/profile/1-apple-iphone-5-16gb-price-in-pakistan.jpg |
->>>>>>> 8ba5c2d7666f1316394b1d194a9079e2a9be7a8a
-
-
 
 
 @javascript

@@ -6,10 +6,6 @@ Feature: Read review for the products
 
   Background:
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 8ba5c2d7666f1316394b1d194a9079e2a9be7a8a
     Given the following categories have been added to the database
       |name        |code  |
       |mobile      |MS    |

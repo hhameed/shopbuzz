@@ -4,11 +4,7 @@ Given(/^the following categories have been added to the database$/) do |table|
     c.save(:validate=>false)
   end
 end
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 8ba5c2d7666f1316394b1d194a9079e2a9be7a8a
 Given(/^the following products have been added to the database$/) do |table|
   table.hashes.each do |product|
     # Each returned user will be a hash representing one row of the user_table
