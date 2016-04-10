@@ -1,9 +1,10 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-  autocomplete :product, :name
+  autocomplete :product, :name, :full => true
 
   def index
     #taking values from the parameter of the item which is to be searched if params is blank return to homepage
+
     if params[:search].blank?
       redirect_to root_path
     else
