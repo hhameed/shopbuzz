@@ -13,6 +13,7 @@ ActiveAdmin.register_page "Dashboard" do
             column(:name)    {|product| link_to(product.name, admin_product_path(product)) }
             column(:price)
             column(:rating)
+            column (:email)
           end
         end
       end

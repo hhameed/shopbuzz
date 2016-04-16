@@ -2,6 +2,7 @@ class ComparesController < ApplicationController
 
   def compare
     begin
+      #find the product id's of the parameter got from view
       @product1 = Product.find_by_id(params[:product1])
       @product2 = Product.find_by_id(params[:product2])
       #check extreme cases
@@ -12,9 +13,11 @@ class ComparesController < ApplicationController
     elsif(@product1==@product2)
       raise "Same products cannot be compared"
     else
+      #calling create_spec_hash method of Compare model with given values and recieving a hash of specification values.
       @final_hash=Compare.create_spec_hash(@product1,@product2)
     end
     rescue Exception => e
+      #if anything goes wrong
       @error= e.message
     end
   end

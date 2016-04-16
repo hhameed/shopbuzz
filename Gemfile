@@ -74,6 +74,7 @@ group :test do
   gem 'cucumber-rails', :require => false
   gem 'simplecov', :require => false
   gem "faker", "~> 1.4.3"
+  gem 'shoulda-matchers', require: false
 end
 
 group :development do
