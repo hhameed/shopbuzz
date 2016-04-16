@@ -29,6 +29,27 @@ RSpec.describe ProductsController, type: :controller do
     )
 
     @mobile = Category.create(id:4)
+    @spl = SellerProductLink.create(
+        {
+            id: 1,
+            name: 'Samsung Galaxy Note II',
+            price: 40699,
+            info: '',
+            not_found: nil,
+            product_id: 1,
+            category_id: 4,
+            seller_id: 1,
+            url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'
+        }
+    )
+  end
+
+  describe "wait page" do
+    it 'it should redirect to seller page' do
+      get :wait, {spl_id: 1}
+      expect(response).to render_template(:wait)
+      expect(response).to have_http_status(200)
+    end
   end
 
 
