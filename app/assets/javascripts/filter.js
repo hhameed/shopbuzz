@@ -37,6 +37,7 @@
     $(RP.setup);
 
     $(document).ready(function() {
+
         var slider=$( "#slider-range" ).slider({
             range: true,
             min: 0,
@@ -57,6 +58,7 @@
 
         });
 
+        $("#data1").val(slider.slider("values"));
 
         $( "#amount" ).val( "Rs " + $( "#slider-range" ).slider( "values", 0 ) +
             " - Rs " + $( "#slider-range" ).slider( "values", 1 ) );

@@ -12,27 +12,32 @@ class UsedProductsController < ApplicationController
     @category=Category.find(params[:category_id])
     @used_products= UsedProduct.where(nil)
     @used_products = @used_products.where("category_id = ?",params[:category_id]) if params[:category_id].present?
+    #Join UsedProduct and Product relation to get the product id for a given product name.
     @products = Product.joins('JOIN used_products ON products.id = used_products.product_id').where('products.name LIKE ?',"%#{params[:pname]}%") if params[:pname].present?
     x=[]
     if params[:pname].present?
-    @products.each do |p|
-    x<<p.id
+      @products.each do |p|
+        x<<p.id
+      end
     end
-    end
-
+    #
     @used_products = @used_products.search1(x) if params[:pname].present?
     @used_products = @used_products.condition(params[:conditionid]) if params[:conditionid].present?
     @used_products = @used_products.duration(params[:duration]) if params[:duration].present?
     @used_products = @used_products.warranty(params[:warranty]) if params[:warranty].present?
     @used_products = @used_products.city(params[:city]) if params[:city].present?
+
     str= params[:data1]
     arr=str.try(:split, ",")
      @min=arr[0].to_i if params[:data1].present?
      @max=arr[1].to_i if params[:data1].present?
-    #@min= params[:data1].present? ? arr[0].to_i : 100000
-    #@max= params[:data1].present? ? arr[1].to_i : 200000
+
+    # @min= (params[:data1].present? ? arr[0].to_i : "100000")
+    # @max= (params[:data1].present? ? arr[1].to_i : "200000")
+
     @used_products = @used_products.slide(@min,@max) if params[:data1].present?
     @used_products = @used_products.page(params[:page]).per(10)
+
   end
 
 
