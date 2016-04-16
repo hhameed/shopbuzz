@@ -22,4 +22,41 @@ Background:
 
 
   Scenario: Compare two products with same category
+    Given I am on the compare page for product "1" and product "2"
+    Then I should see comparison between the "iphone 5s" and "LG G5"
 
+  Scenario: Compare two products with different category
+    Given I am on the compare page for product "1" and product "3"
+    Then I should see an error "Error Products should be of same category"
+
+  Scenario: Compare same products
+    Given I am on the compare page for product "1" and product "1"
+    Then I should see an error same product "Same products cannot be compared"
+
+  Scenario: Compare when first product is nil
+    Given I am on the compare page for product "nil" and product "1"
+    Then I should see invalid error for first product "Invalid Request"
+
+  Scenario: Compare when second product is nil
+    Given I am on the compare page for product "1" and product "nil"
+    Then I should see invalid error for second product "Invalid Request"
+
+  Scenario: Compare when first product id is 0
+    Given I am on the compare page for product "0" and product "1"
+    Then I should see invalid id for first product "Invalid Request"
+
+  Scenario: Compare when second product is 1
+    Given I am on the compare page for product "1" and product "0"
+    Then I should see invalid id for second product "Invalid Request"
+
+  Scenario: Compare when second product is 1
+    Given I am on the compare page for product "1" and product "0"
+    Then I should see invalid id for second product "Invalid Request"
+
+  Scenario: Compare when second product is 1
+    Given I am on the compare page for product "1" and product "0"
+    Then I should see invalid id for second product "Invalid Request"
+
+  Scenario: Compare when one product do not have the few specification
+    Given I am on the compare page for product "1" and product "2"
+    Then I should see comparison and one of the specification is 0
