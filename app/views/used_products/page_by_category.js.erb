@@ -1,5 +1,7 @@
 <%if @used_products.count !=0 %>
 $("#ajaxusedproducts").html("<%= escape_javascript(render partial: "used_product",:locals => { :used_products=> @used_products}) %>");
+$("#paginateid_usedproducts").html("<%= escape_javascript( paginate @used_products, remote: true) %>");
 <%else%>
 $("#ajaxusedproducts").html("<%= escape_javascript(render partial: "site/noproductfound")%>");
+$("#paginateid_usedproducts").html("<%= escape_javascript( paginate @used_products, remote: true) %>");
 <%end%>
