@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe UsedProductsController, type: :controller do
 
   before :each do
-    @product = Product.new({:id => 1})
+    @product = Product.new({:id => 1,name:'samsung'})
     @product.save(:validate=>false)
     @city = City.new({:id=>1})
     @city.save(:validate=>false)
@@ -103,7 +103,7 @@ RSpec.describe UsedProductsController, type: :controller do
       end
     end
 
-    context 'with category and condition params' do
+    context 'with category and price slider' do
       it "assigns used products according Price slider " do
         post :page_by_category, {category_id:1 ,data1:"400,600"}
         expect(assigns(:category)).to eq(@category)
@@ -113,8 +113,13 @@ RSpec.describe UsedProductsController, type: :controller do
     end
 
 
-
-
+    context 'with category and name of the product' do
+      it "assigns used products according name of the product " do
+        post :page_by_category, {category_id:1 ,pname:'samsung'}
+        expect(assigns(:category)).to eq(@category)
+        expect(assigns(:used_products)).to eq([@usedsamsung,@usedapple])
+      end
+    end
 
     end
 

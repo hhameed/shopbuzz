@@ -14,7 +14,7 @@
 #
 # When(/^I click the usedproduct page link$/) do
 #   #page.all(:link,"1")
-#   visit "/used_products/page_by_category?category_id=1"
+#   visit "/used_products/page_by_category?category_id=4"
 # end
 #
 # Then(/^I should see the usedproduct page$/) do
