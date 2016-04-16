@@ -37,7 +37,7 @@ Feature: Filter and sort the products
     Then I should see only the brand products "iphone 6S"
 
   @javascript
-  Scenario: To filter the products based on maximum price
+  Scenario: To filter the products based on minimum price
     Given I am on the browse page
     When I click on the min_to_max
     Then product "samsung galaxy S6" should come before  "iphone 6S"

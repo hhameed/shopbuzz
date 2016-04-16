@@ -69,7 +69,8 @@ end
 Then(/^product "([^"]*)" should come before  "([^"]*)"$/) do |product1, product2|
   merge = "#{product1}.*#{product2}"
   #puts merge.inspect
-  result = /#{merge}/m =~ page.body
+  bdy = page.body
+  result = /#{merge}/m =~ bdy
   expect(result).to be_truthy
 end
 
