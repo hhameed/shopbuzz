@@ -48,13 +48,16 @@ end
 
 Then(/^I should see the link shown on the page$/) do
   @spl = SellerProductLink.find(1)
-  expect(page).to have_text(@spl.name)
+  expect(find('#spl_1')).to be_truthy
 end
 
 When(/^I visit the product's page and click the seller product link$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  @product = Product.find(1)
+  visit product_path @product
+  find('#spl_1').click
 end
 
 Then(/^I should be taken to a page that redirects to the seller product page$/) do
-  pending # Write code here that turns the phrase above into concrete actions
+  @spl = SellerProductLink.find(1)
+  expect(page.body).to include(@spl.url)
 end
