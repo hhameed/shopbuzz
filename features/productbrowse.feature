@@ -20,7 +20,7 @@ Feature: Filter and sort the products
 
 
   @javascript
-  Scenario: To filter the products based on minimum price
+  Scenario: To filter the usedproducts based on minimum price
     Given I am on the browse page
     When I fill the min value
     Then I should see only the product "iphone 6S"
