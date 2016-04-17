@@ -9,15 +9,13 @@ class Compare < ActiveRecord::Base
     specs2final = []
     #looping over the specfication values for product1
     prod1spec.each do |spec1|
-      spec1name << spec1.specification.name
-      specs1final << spec1.value
+      spec1name << spec1.specification.name;  specs1final << spec1.value
     end
     #create hash of specification name and corresponding value of value of given product1.
     prod1hash = Hash[spec1name.zip specs1final]
     #looping over the specfication values for product2
     prod2spec.each do |spec2|
-      spec2name << spec2.specification.name
-      specs2final << spec2.value
+      spec2name << spec2.specification.name;      specs2final << spec2.value;
     end
     #create hash of specification name and corresponding value of value of given product2.
     prod2hash = Hash[spec2name.zip specs2final]
