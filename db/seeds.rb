@@ -93,7 +93,7 @@ products=[{:id=>1, :rating=>4.0, :review_count=>1, :views=>1, :name=>'Samsung Ga
           {:id=>61, :rating=>5.0, :review_count=>1, :views=>1, :name=>'Lenovo Yoga 900', :price=>163999, :image=>'http://shopbuzz.pk/images/products/profile/2212-lenovo-yoga-900-price-in-pakistan.jpg', :brand_id=>5, :category_id=>5},
           {:id=>62, :rating=>3.0, :review_count=>1, :views=>1, :name=>'Huawei Media Pad T1 8.0', :price=>18999, :image=>'http://shopbuzz.pk/images/products/profile/2183-huawei-media-pad-t1-8.0-price-in-pakistan.jpg', :brand_id=>6, :category_id=>6},
           {:id=>63, :rating=>4.4, :review_count=>1, :views=>1, :name=>'Samsung Galaxy ABC', :price=>6473, :image=>'http://shopbuzz.pk/images/products/profile/143-samsung-galaxy-note-ii-n7100-16gb-price-in-pakistan.jpg', :brand_id=>1, :category_id=>4},
-          {:id=>64, :rating=>4.4, :review_count=>1, :views=>1, :name=>'Samsung Galaxy B', :price=>6423, :image=>'http://shopbuzz.pk/images/products/profile/143-samsung-galaxy-note-ii-n7100-16gb-price-in-pakistan.jpg', :brand_id=>1, :category_id=>4}
+          {:id=>64, :rating=>4.4, :review_count=>1, :views=>1, :name=>'Samsung Galaxy XYZ', :price=>6423, :image=>'http://shopbuzz.pk/images/products/profile/143-samsung-galaxy-note-ii-n7100-16gb-price-in-pakistan.jpg', :brand_id=>1, :category_id=>4}
 ]
 
 products.each do |product|
