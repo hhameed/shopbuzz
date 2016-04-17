@@ -13,6 +13,3 @@ Feature: As a user,
     Given I am on the Homepage
     When I click the usedproduct page link
     Then I should see the usedproduct page
-
-
-
