@@ -6,7 +6,6 @@ Feature: Read review for the products
 
   Background:
 
-
     Given the following categories have been added to the database
       |name        |code  |
       |mobile      |MS    |

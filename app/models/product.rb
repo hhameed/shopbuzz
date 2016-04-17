@@ -17,6 +17,10 @@ class Product < ActiveRecord::Base
   scope :asc, -> () {reorder('price ASC')}
   scope :desc, -> () {reorder('price DESC')}
 
+  def avg_rating
+    ProductReview.where(:product_id=>self.id).average(:rating)
+  end
+
   def self.search(search)
     if search
       where('name LIKE ?', "%#{search}%")
