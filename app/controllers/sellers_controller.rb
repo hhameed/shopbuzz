@@ -6,9 +6,9 @@ class SellersController < ApplicationController
     @sellers = Seller.all
   end
 
-  def index
-    @sellers = Seller.all
-  end
+  # def index
+  #   @sellers = Seller.all
+  # end
 
 
   private

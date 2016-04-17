@@ -227,7 +227,7 @@ seller_product_links.each do |spl|
   SellerProductLink.create!(spl)
 end
 
-seller_reviews=[{:id=>1,  :seller_id=>1, :name=>'Haider', :email=>nil, :rating=>4, :content=>'Very reliable seller, He has got many deals during the festival time. I highly recommend you to buy from this seller, especialy you will get more discount on mobile phones.. '},
+seller_reviews=[{:id=>1,  :seller_id=>1, :seller_id=>'Haider', :email=>nil, :rating=>4, :content=>'Very reliable seller, He has got many deals during the festival time. I highly recommend you to buy from this seller, especialy you will get more discount on mobile phones.. '},
                  {:id=>2, :seller_id=>1, :name=>'Kiran', :email=>nil, :rating=>5, :content=>'The best seller in Pakistan, He has got many deals during the festival time. I highly recommend you to buy from this seller, especialy you will get more discount on camera..'},
                  {:id=>3, :seller_id=>1, :name=>'Balaji', :email=>nil, :rating=>3, :content=>'I recommend this seller, He has got many deals during the festival time. I highly recommend you to buy from this seller, especialy you will get more discount on camcorder..'},
                  {:id=>4, :seller_id=>1, :name=>'Rishabh', :email=>nil, :rating=>4, :content=>'Bahut discount milega, He has got many deals during the festival time. I highly recommend you to buy from this seller, especialy you will get more discount on Samsung mobile phones..'},
