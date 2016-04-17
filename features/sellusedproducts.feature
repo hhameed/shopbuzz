@@ -23,16 +23,8 @@ Feature: As a user,
 
   @javascript
   Scenario: Successfully view the usedproduct page
-<<<<<<< HEAD
-    Given I am on the Homepage
-    When I click the usedproduct page link
-    Then I should see the usedproduct page
-=======
     Given I am on the Product page
     When I click the sell usedproduct page link
     When I fill in the form and click submit
     Then I should see a message "Used product was successfully created"
 
-
-
->>>>>>> 5c121d2e3ab15fc2632a12c20107fff62a77f95a
