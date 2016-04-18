@@ -195,8 +195,10 @@ used_products = [
      city_id: 2, email: 'haider1@gmail.com', product_id: 2, category_id: 1},
     {id: 3, name: 'Rishabh', condition_ex: 5, price: 20000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
      city_id: 3, email: 'rishabh@gmail.com', product_id:1 , category_id: 2},
-    {id: 4, name: 'Tony', condition_ex: 5, price: 20000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
-     city_id: 4, email: 'tony@gmail.com', product_id:1 , category_id: 2},
+    {id: 5, name: 'Kiran', condition_ex: 5, price: 120000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
+     city_id: 4, email: 'kiran@gmail.com', product_id:1 , category_id: 4},
+    {id: 6, name: 'Haider', condition_ex: 5, price: 320000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
+     city_id: 4, email: 'haider@gmail.com', product_id:1 , category_id: 4},
 ]
 
 used_products.each do |up|
