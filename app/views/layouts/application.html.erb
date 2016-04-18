@@ -63,11 +63,11 @@
 
           <ul class="dropdown-menu">
             <% Category.all.each do |category| %>
-                <li><a href="<%= url_for controller: 'used_products', action: 'page_by_category', category_id: category.id %>">Used <%= category.name %></a></li>
+                <li><a id="cat_used_id_<%= category.id %>" href="<%= url_for controller: 'used_products', action: 'page_by_category', category_id: category.id %>">Used <%= category.name %></a></li>
             <% end %>
           </ul>
         </li>
-        <li><a href="/contacts">Contact</a></li>
+        <li><a id="contact_link" href="/contacts">Contact</a></li>
       </ul>
 
       <%= form_tag products_path, :method => 'get', :id => "products_search",:class=>"navbar-form navbar-right" do %>

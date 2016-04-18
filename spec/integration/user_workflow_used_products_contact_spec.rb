@@ -12,7 +12,7 @@ RSpec.describe "workflow of the user interested in buying used products:", type:
 
     expect(page).to_not have_content("Price Range")
 
-    visit "http://localhost:3000/used_products/page_by_category?category_id=4"
+    find('#cat_used_id_4').click
 
     expect(page).to have_content("Used Mobile Phones")
 
@@ -34,7 +34,7 @@ RSpec.describe "workflow of the user interested in buying used products:", type:
 
     expect(page).to have_content("Samsung Galaxy Note II N7100 16GB")
 
-    visit "http://localhost:3000/contacts"
+    find('#contact_link').click
 
     expect(page).to have_content("Message")
 
