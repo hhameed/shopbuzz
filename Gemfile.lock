@@ -337,6 +337,7 @@ DEPENDENCIES
   launchy
   mail
   mail_form
+  nokogiri (~> 1.6.7.2)
   pg
   pundit
   rails (= 4.2.4)

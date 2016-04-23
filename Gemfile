@@ -34,6 +34,8 @@ gem 'mail'
 
 gem 'mail_form'
 
+gem 'nokogiri','~> 1.6.7.2'
+
 ## Gemfile for Rails 3+, Sinatra, and Merb
 gem 'dotenv-rails', :groups => [:development, :test]
 
