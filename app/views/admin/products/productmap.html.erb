@@ -1,0 +1,67 @@
+<form id="form" action="<%=  url_for controller: 'admin/products', action: 'removeid' %>" method="post">
+  <%if @mappedproducts.count !=0%>
+<table border="0" cellspacing="0" cellpadding="0" id="index_table_products" class="index_table index" >
+
+  <tr style="font-size: medium ">
+    <td width="2%">  </td>
+    <td width="10%"> Name</td>
+    <td width="8%"> Price </td>
+    <td width="25%"> Link </td>
+    <td width="15%"> Seller </td>
+    <td width="10%"> Not Found </td>
+  </tr>
+
+  <%@mappedproducts.each do |product| %>
+      <tr>
+        <td width="10%"><%= check_box_tag "map_product_ids[]", product.id %></td>
+        <td width="10%"> <%=product.name %></td>
+        <td width="10%"> <%=product.price %> </td>
+        <td width="25%"> <%=product.url%></td>
+        <td width="10%"> <%=product.seller.name%></td>
+        <td width="10%"> <%=product.not_found%></td>
+      </tr>
+  <% end %>
+  <%= token_tag(nil) %>
+  <%= hidden_field_tag 'product_id',@product.id  %>
+</table>
+  <button id="form_submit" type="submit" class="btn btn-default">Remove Product ID</button>
+
+
+<%end%>
+</form>
+
+
+<form id="formss" action="<%=  url_for controller: 'admin/products', action: 'assignid' %>" method="post">
+  <%if @unmappedproducts.count !=0%>
+  <table border="0" cellspacing="0" cellpadding="0" id="index_table_products" class="index_table index" >
+
+    <tr style="font-size: medium ">
+      <td width="2%">  </td>
+      <td width="10%"> Name</td>
+      <td width="8%"> Price </td>
+      <td width="25%"> Link </td>
+      <td width="15%"> Seller </td>
+      <td width="10%"> Not Found </td>
+    </tr>
+
+    <%@unmappedproducts.each do |product| %>
+        <tr>
+          <td width="10%"><%= check_box_tag "unmap_product_ids[]", product.id %></td>
+          <td width="10%"> <%=product.name %></td>
+          <td width="10%"> <%=product.price %> </td>
+          <td width="25%"> <%=product.url%></td>
+          <td width="10%"> <%=product.seller.name%></td>
+          <td width="10%"> <%=product.not_found%></td>
+        </tr>
+    <% end %>
+    <%= token_tag(nil) %>
+    <%= hidden_field_tag 'product_id',@product.id  %>
+  </table>
+  <button id="form_submit" type="submit" class="btn btn-default">Assign Product ID</button>
+
+<%end%>
+
+</form>
+
+
+
