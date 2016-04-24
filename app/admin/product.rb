@@ -37,18 +37,21 @@ ActiveAdmin.register Product do
   def productmap
    @product=Product.find(params[:id])
    product_name = @product.name
+
+   product_name = params[:search] if params[:search].present?
+
    product_name = product_name.split(" ")
 
    product_name_search = product_name.map { |i| 'name like "%' + i + '%"' }.join(" AND ")
    #@products=SellerProductLink.find_by_name(params[:name])
    # @products=SellerProductLink.where("name LIKE ?", "%Samsung%").all
    # Foo.where("bar LIKE :query", query: "%#{query}%")
-   @mappedproducts=SellerProductLink.where(product_name_search)
-   @mappedproducts=@mappedproducts.where.not(product_id: nil)
+   @mappedproducts=SellerProductLink.where(product_id: @product.id)
+   #@mappedproducts=@mappedproducts.where.not(product_id: nil)
 
    # @unmappedproducts=SellerProductLink.where(product_name_search + " AND product_id = ? ", nil)
    @unmappedproducts=SellerProductLink.where(product_name_search).where(product_id: nil)
-    puts @unmappedproducts
+   # puts @unmappedproducts
 
   end
 
@@ -65,6 +68,8 @@ ActiveAdmin.register Product do
   end
 
   def assignid
+
+
     @paramsgot = params[:unmap_product_ids]
     @paramsgot.each do |pid|
       @pid = SellerProductLink.find(pid)

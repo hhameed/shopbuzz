@@ -30,7 +30,9 @@ Rails.application.routes.draw do
   #resources "seller"
 
 
-  get 'admin/products/test/:id' => 'admin/products#productmap', :as => :admin_product_mapping
+  get 'admin/products/productmap/:id' => 'admin/products#productmap', :as => :admin_product_mapping
+  post 'admin/products/productmap/:id' => 'admin/products#productmap', :as => :admin_product_mapping_post
+
   post 'admin/products/assignid' => 'admin/products#assignid', :as => :admin_product_mapping_assignid_post
   post 'admin/products/removeid' => 'admin/products#removeid', :as => :admin_product_mapping_removeid_post
 
