@@ -19,16 +19,16 @@ class AddNewProductsJob < Job
         product.brand_id = brand.id
         product.category_id = spl.category_id
         product.save!
-        spider.getSpecs.each do |spec|
-          specification = Specification.find_by_name(spec[:key])
+        spider.getSpecs.each do |key,val|
+          specification = Specification.find_by_name(key)
           if specification.nil?
             specification = Specification.new
-            specification.code = spec[:key]
-            specification.name = spec[:key]
+            specification.code = key
+            specification.name = key
             specification.save!
           end
           ps = ProductSpecification.new
-          ps.value = spec[:val]
+          ps.value = val
           ps.product_id = product.id
           ps.specification_id = specification.id
           ps.save!

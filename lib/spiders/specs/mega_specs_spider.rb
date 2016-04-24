@@ -24,9 +24,10 @@ class MegaSpecsSpider
         nil
       end
     end.reject(&:blank?)
-    specs.select do |elem|
+    specs = specs.select do |elem|
       selectSpecs.include?(elem[:key]) && elem[:val] != ""
     end
+    specs.map{|elem| [elem[:key], elem[:val]]}.to_h
   end
   def selectSpecs()
     raise NotImplementedError
