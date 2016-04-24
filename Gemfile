@@ -77,6 +77,8 @@ group :test do
   gem 'simplecov', :require => false
   gem "faker", "~> 1.4.3"
   gem 'shoulda-matchers', require: false
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :development do
