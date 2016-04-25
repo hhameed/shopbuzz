@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Spider for mega.pk specs", type: :helper do
+RSpec.describe "Job for adding new products", type: :helper do
 
   before(:each) do
     DatabaseCleaner.clean_with(:truncation)
