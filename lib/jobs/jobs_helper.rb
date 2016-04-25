@@ -3,7 +3,7 @@ class JobsHelper
     if (seller_id == 1)
       MegaSpiderFactory.new
     else
-      raise "Unsupported spider"
+      raise NotImplementedError
     end
   end
   def self.createSpecsSpider(url, cat_id)
@@ -14,7 +14,7 @@ class JobsHelper
     elsif (cat_id == 3)
       LapMegaSpecsSpider.new(url)
     else
-      raise "Unsupported category"
+      raise NotImplementedError
     end
   end
 end
