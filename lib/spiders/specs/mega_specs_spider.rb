@@ -5,7 +5,6 @@ require 'cgi'
 
 class MegaSpecsSpider
   def initialize(url)
-    puts url
     @page = Nokogiri::HTML(open(url))
   end
   def getImageLink()
