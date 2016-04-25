@@ -39,6 +39,7 @@ module Shopbuzz
     config.eager_load_paths += %W(
       #{config.root}/lib/spiders/sellers/abstract
       #{config.root}/lib/spiders/sellers/concrete/mega
+      #{config.root}/lib/spiders/sellers/concrete/shophive
       #{config.root}/lib/spiders/specs
       #{config.root}/lib/jobs
     )
