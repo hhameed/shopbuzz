@@ -5,7 +5,7 @@ require 'open-uri'
 class ShophiveProductExtractor < ProductExtractor
   def getProducts url
     page = Nokogiri::HTML(open(url))
-    page.css('#grid .item').map do |product|
+    page.css('li.item').map do |product|
       url = product.at_css('h2 a')['href'].strip
       name = product.at_css('h2').text.strip
       price = product.at_css('.special-price')
