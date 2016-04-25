@@ -207,8 +207,8 @@ end
 
 
 sellers = [
-    {id: 1, name: 'Shophive', logo:'shophive.png', website:'shophive.com'},
-    {id: 2, name: 'Mega', logo:'megapk.png', website:'mega.pk'},
+    {id: 1, name: 'Mega', logo:'megapk.png', website:'mega.pk'},
+    {id: 2, name: 'Shophive', logo:'shophive.png', website:'shophive.com'},
     {id: 3, name: 'Homeshopping', logo:'homeshopping.png', website:'homeshopping.com'},
 ]
 
@@ -217,10 +217,10 @@ sellers.each do |seller|
 end
 
 seller_product_links = [
-    {id: 1, name: 'Samsung Galaxy Note II', price: 40699, info: '', not_found: nil, product_id: 1, category_id: 4, seller_id: 1, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
+    {id: 1, name: 'Samsung Galaxy Note II', price: 40699, info: '', not_found: nil, product_id: 1, category_id: 4, seller_id: 2, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
     {id: 2, name: 'Samsung Galaxy Note II', price: 18000, info: '', not_found: nil, product_id: 1, category_id: 4, seller_id: 2, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
     {id: 3, name: 'Samsung Galaxy Note II', price: 21000, info: '', not_found: '2015-10-21 03:23:45', product_id: 1, category_id: 4, seller_id: 3, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
-    {id: 4, name: 'Sony DSC-TX30', price: 20000, info: '', not_found: nil, product_id: 2, category_id: 1, seller_id: 1, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
+    {id: 4, name: 'Sony DSC-TX30', price: 20000, info: '', not_found: nil, product_id: 2, category_id: 1, seller_id: 2, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
     {id: 5, name: 'Nikon D4S', price: 18000, info: '', not_found: nil, product_id: 3, category_id: 2, seller_id: 2, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
     {id: 6, name: 'Nikon D4S', price: 21000, info: '', not_found: nil, product_id: 3, category_id: 2, seller_id: 3, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
 ]
@@ -241,3 +241,13 @@ seller_reviews.each do |seller_review|
 end
 
 AdminUser.create!(email: 'admin@shopbuzz.pk', password: 'password', password_confirmation: 'password')
+
+csps = [
+    {:id=>1, :url=>'http://www.mega.pk/mobiles/', :category_id=>4, :seller_id=>1},
+    {:id=>2, :url=>'http://www.mega.pk/multimediatablets/', :category_id=>6, :seller_id=>1},
+    {:id=>3, :url=>'http://www.mega.pk/laptop/', :category_id=>5, :seller_id=>1},
+]
+
+csps.each do |csp|
+  CategorySellerPage.create!(csp)
+end

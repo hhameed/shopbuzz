@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160407032040) do
+ActiveRecord::Schema.define(version: 20160424015918) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -53,12 +53,32 @@ ActiveRecord::Schema.define(version: 20160407032040) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "catalogue_pages", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "category_seller_page_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "catalogue_pages", ["category_seller_page_id"], name: "index_catalogue_pages_on_category_seller_page_id"
+
   create_table "categories", force: :cascade do |t|
     t.string   "code"
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "category_seller_pages", force: :cascade do |t|
+    t.string   "url"
+    t.integer  "category_id"
+    t.integer  "seller_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "category_seller_pages", ["category_id"], name: "index_category_seller_pages_on_category_id"
+  add_index "category_seller_pages", ["seller_id"], name: "index_category_seller_pages_on_seller_id"
 
   create_table "category_specifications", force: :cascade do |t|
     t.integer  "category_id"

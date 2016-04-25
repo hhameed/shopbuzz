@@ -10,7 +10,7 @@ class MegaProductExtractor < ProductExtractor
       name = product.at_css('h3').text.strip
       price = product.at_css('.cat_price').text.strip.gsub(",","")
       price = price.match(/^(?<price>\d+).*$/)
-      {url: url, name: name, price: price['price']}
+      {url: url, name: name, price: price.nil? ? 0 : price['price']}
     end
   end
 end

@@ -37,8 +37,11 @@ module Shopbuzz
     config.assets.precompile += %w(autocomplete-rails)
 
     config.eager_load_paths += %W(
-      #{config.root}/lib/spiders/abstract
-      #{config.root}/lib/spiders/concrete/mega
+      #{config.root}/lib/spiders/sellers/abstract
+      #{config.root}/lib/spiders/sellers/concrete/mega
+      #{config.root}/lib/spiders/sellers/concrete/shophive
+      #{config.root}/lib/spiders/specs
+      #{config.root}/lib/jobs
     )
 
   end
