@@ -20,7 +20,7 @@ RSpec.describe "Spider for payless.pk", type: :helper do
       expect(products.count).to eq(162)
       non_zero_prices = 0
       products.each do |product|
-        expect(product[:name].length).to be > 2
+        expect(product[:name].length).to be > 5
         expect{Integer(product[:price])}.to_not raise_error
         expect(product[:url]).to match(/http:\/\/www\.payless\.pk\/Mobile-n-Accessories\/Payless-Mobile-Phones-In-Pakistan\//)
         if Integer(product[:price]) > 0

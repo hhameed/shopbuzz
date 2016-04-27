@@ -18,11 +18,16 @@ RSpec.describe "Spider for mega.pk", type: :helper do
       spider = factory.createProductExtractor
       products = spider.getProducts("http://www.mega.pk/mobiles/")
       expect(products.count).to eq(500)
+      non_zero_prices = 0
       products.each do |product|
         expect(product[:name].length).to be > 2
         expect{Integer(product[:price])}.to_not raise_error
         expect(product[:url]).to match(/http:\/\/www\.mega\.pk\//)
+        if Integer(product[:price]) > 0
+          non_zero_prices += 1
+        end
       end
+      expect(non_zero_prices).to eq(500)
     end
   end
 
