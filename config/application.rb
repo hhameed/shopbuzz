@@ -40,6 +40,7 @@ module Shopbuzz
       #{config.root}/lib/spiders/sellers/abstract
       #{config.root}/lib/spiders/sellers/concrete/mega
       #{config.root}/lib/spiders/sellers/concrete/shophive
+      #{config.root}/lib/spiders/sellers/concrete/payless
       #{config.root}/lib/spiders/specs
       #{config.root}/lib/jobs
     )
