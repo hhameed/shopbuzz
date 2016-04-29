@@ -86,9 +86,4 @@ class ProductsController < ApplicationController
     #   params[:product]
     # end
 
-
-    def product_params
-      params[:product]
-    end
-
 end

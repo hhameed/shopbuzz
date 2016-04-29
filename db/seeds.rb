@@ -93,7 +93,7 @@ products=[{:id=>1, :rating=>4.0, :review_count=>1, :views=>1, :name=>'Samsung Ga
           {:id=>61, :rating=>5.0, :review_count=>1, :views=>1, :name=>'Lenovo Yoga 900', :price=>163999, :image=>'http://shopbuzz.pk/images/products/profile/2212-lenovo-yoga-900-price-in-pakistan.jpg', :brand_id=>5, :category_id=>5},
           {:id=>62, :rating=>3.0, :review_count=>1, :views=>1, :name=>'Huawei Media Pad T1 8.0', :price=>18999, :image=>'http://shopbuzz.pk/images/products/profile/2183-huawei-media-pad-t1-8.0-price-in-pakistan.jpg', :brand_id=>6, :category_id=>6},
           {:id=>63, :rating=>4.4, :review_count=>1, :views=>1, :name=>'Samsung Galaxy ABC', :price=>6473, :image=>'http://shopbuzz.pk/images/products/profile/143-samsung-galaxy-note-ii-n7100-16gb-price-in-pakistan.jpg', :brand_id=>1, :category_id=>4},
-          {:id=>64, :rating=>4.4, :review_count=>1, :views=>1, :name=>'Samsung Galaxy B', :price=>6423, :image=>'http://shopbuzz.pk/images/products/profile/143-samsung-galaxy-note-ii-n7100-16gb-price-in-pakistan.jpg', :brand_id=>1, :category_id=>4}
+          {:id=>64, :rating=>4.4, :review_count=>1, :views=>1, :name=>'Samsung Galaxy XYZ', :price=>6423, :image=>'http://shopbuzz.pk/images/products/profile/143-samsung-galaxy-note-ii-n7100-16gb-price-in-pakistan.jpg', :brand_id=>1, :category_id=>4}
 ]
 
 products.each do |product|
@@ -195,8 +195,10 @@ used_products = [
      city_id: 2, email: 'haider1@gmail.com', product_id: 2, category_id: 1},
     {id: 3, name: 'Rishabh', condition_ex: 5, price: 20000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
      city_id: 3, email: 'rishabh@gmail.com', product_id:1 , category_id: 2},
-    {id: 4, name: 'Tony', condition_ex: 5, price: 20000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
-     city_id: 4, email: 'tony@gmail.com', product_id:1 , category_id: 2},
+    {id: 5, name: 'Kiran', condition_ex: 5, price: 120000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
+     city_id: 4, email: 'kiran@gmail.com', product_id:1 , category_id: 4},
+    {id: 6, name: 'Haider', condition_ex: 5, price: 320000, additional_info: 'nothing', warranty: 'No Warranty', usage_duration: 'Brand New', contact_number: '03457440330',
+     city_id: 4, email: 'haider@gmail.com', product_id:1 , category_id: 4},
 ]
 
 used_products.each do |up|
@@ -205,8 +207,8 @@ end
 
 
 sellers = [
-    {id: 1, name: 'Shophive', logo:'shophive.png', website:'shophive.com'},
-    {id: 2, name: 'Mega', logo:'megapk.png', website:'mega.pk'},
+    {id: 1, name: 'Mega', logo:'megapk.png', website:'mega.pk'},
+    {id: 2, name: 'Shophive', logo:'shophive.png', website:'shophive.com'},
     {id: 3, name: 'Homeshopping', logo:'homeshopping.png', website:'homeshopping.com'},
 ]
 
@@ -215,10 +217,10 @@ sellers.each do |seller|
 end
 
 seller_product_links = [
-    {id: 1, name: 'Samsung Galaxy Note II', price: 40699, info: '', not_found: nil, product_id: 1, category_id: 4, seller_id: 1, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
+    {id: 1, name: 'Samsung Galaxy Note II', price: 40699, info: '', not_found: nil, product_id: 1, category_id: 4, seller_id: 2, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
     {id: 2, name: 'Samsung Galaxy Note II', price: 18000, info: '', not_found: nil, product_id: 1, category_id: 4, seller_id: 2, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
     {id: 3, name: 'Samsung Galaxy Note II', price: 21000, info: '', not_found: '2015-10-21 03:23:45', product_id: 1, category_id: 4, seller_id: 3, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
-    {id: 4, name: 'Sony DSC-TX30', price: 20000, info: '', not_found: nil, product_id: 2, category_id: 1, seller_id: 1, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
+    {id: 4, name: 'Sony DSC-TX30', price: 20000, info: '', not_found: nil, product_id: 2, category_id: 1, seller_id: 2, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
     {id: 5, name: 'Nikon D4S', price: 18000, info: '', not_found: nil, product_id: 3, category_id: 2, seller_id: 2, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
     {id: 6, name: 'Nikon D4S', price: 21000, info: '', not_found: nil, product_id: 3, category_id: 2, seller_id: 3, url: 'http://www.payless.pk/Mobile-n-Accessories/Payless-Mobile-Phones-In-Pakistan/samsung-galaxy-note-ii-n7100-in-pakistan?limit=2000'},
 ]
@@ -239,3 +241,13 @@ seller_reviews.each do |seller_review|
 end
 
 AdminUser.create!(email: 'admin@shopbuzz.pk', password: 'password', password_confirmation: 'password')
+
+csps = [
+    {:id=>1, :url=>'http://www.mega.pk/mobiles/', :category_id=>4, :seller_id=>1},
+    {:id=>2, :url=>'http://www.mega.pk/multimediatablets/', :category_id=>6, :seller_id=>1},
+    {:id=>3, :url=>'http://www.mega.pk/laptop/', :category_id=>5, :seller_id=>1},
+]
+
+csps.each do |csp|
+  CategorySellerPage.create!(csp)
+end

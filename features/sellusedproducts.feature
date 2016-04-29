@@ -2,6 +2,7 @@ Feature: As a user,
   So that I can buy used products,
   I should be able to sell my
 
+
   Background: products have been added to database
 
     Given the following province have been added to database
@@ -10,6 +11,7 @@ Feature: As a user,
     Given the following cities have been added to database
       |id   |name        |province_id|
       |1    |new york    |1          |
+
 
     Given the following categories have been added to the database
       |name        |code  |

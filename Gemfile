@@ -34,6 +34,8 @@ gem 'mail'
 
 gem 'mail_form'
 
+gem 'nokogiri','~> 1.6.7.2'
+
 ## Gemfile for Rails 3+, Sinatra, and Merb
 gem 'dotenv-rails', :groups => [:development, :test]
 
@@ -75,6 +77,8 @@ group :test do
   gem 'simplecov', :require => false
   gem "faker", "~> 1.4.3"
   gem 'shoulda-matchers', require: false
+  gem 'webmock'
+  gem 'vcr'
 end
 
 group :development do

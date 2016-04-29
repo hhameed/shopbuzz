@@ -80,6 +80,8 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     concurrent-ruby (1.0.1)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
     cucumber (2.3.2)
       builder (>= 2.1.2)
       cucumber-core (~> 1.4.0)
@@ -137,6 +139,7 @@ GEM
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
+    hashdiff (0.3.0)
     i18n (0.7.0)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
@@ -253,6 +256,7 @@ GEM
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
     rubyzip (1.2.0)
+    safe_yaml (1.0.4)
     sass (3.4.21)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -300,6 +304,7 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    vcr (3.0.1)
     warden (1.2.6)
       rack (>= 1.0)
     web-console (2.3.0)
@@ -307,6 +312,10 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
+    webmock (1.24.5)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
     websocket (1.2.2)
     xpath (2.0.0)
       nokogiri (~> 1.3)
@@ -337,6 +346,7 @@ DEPENDENCIES
   launchy
   mail
   mail_form
+  nokogiri (~> 1.6.7.2)
   pg
   pundit
   rails (= 4.2.4)
@@ -358,7 +368,9 @@ DEPENDENCIES
   turbolinks
   tzinfo-data
   uglifier (>= 1.3.0)
+  vcr
   web-console (~> 2.0)
+  webmock
 
 BUNDLED WITH
    1.11.2
