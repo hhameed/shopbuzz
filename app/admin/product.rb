@@ -51,7 +51,7 @@ ActiveAdmin.register Product do
 
    # @unmappedproducts=SellerProductLink.where(product_name_search + " AND product_id = ? ", nil)
    @unmappedproducts=SellerProductLink.where(product_name_search).where(product_id: nil)
-   # puts @unmappedproducts
+
 
   end
 

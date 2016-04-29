@@ -47,6 +47,13 @@ $(function() {
     //});
     });
 
+    //$("").click( function() {
+    //    //$("#pname").keyup(function() {
+    //    $.post($("#filterform").attr("action"), $("#filterform").serialize(), null, "script");
+    //    return false;
+    //    //});
+    //});
+
 });
 
 
