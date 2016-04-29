@@ -17,16 +17,11 @@ I should be able to CRUD products from the admin backend
 
   Scenario: View Products
     Then I should be redirected to "/admin/products"
-    When I click on View for product2
+    When I click on "2"
     Then I should be redirected to "/admin/products/2"
     And I should see "Product Detail"
-  Scenario: Edit Products
-    Then I should be redirected to "/admin/products"
-    When I click on Edit for product2
-    Then I should be redirected to "/admin/products/2/edit"
-    When I fill "Rating" with "3"
-    And I click on "Update Product"
-    Then I should see "Product was successfully updated."
+
+
 
 
 
