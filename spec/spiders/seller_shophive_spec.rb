@@ -19,11 +19,16 @@ RSpec.describe "Spider for shophive", type: :helper do
       spider = factory.createProductExtractor
       products = spider.getProducts("http://www.shophive.com/mobiles-tablets/mobile-phones?limit=76&p=2")
       expect(products.count).to eq(76)
+      non_zero_prices = 0
       products.each do |product|
         expect(product[:name].length).to be > 2
         expect{Integer(product[:price])}.to_not raise_error
         expect(product[:url]).to match(/http:\/\/www\.shophive\.com\//)
+        if Integer(product[:price]) > 0
+          non_zero_prices += 1
+        end
       end
+      expect(non_zero_prices).to eq(73)
     end
   end
 
