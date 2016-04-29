@@ -1,0 +1,39 @@
+
+<h1><%= @product.name%></h1>
+<form id="form" action="<%=  url_for controller: 'admin/products', action: 'removeid' %>" method="post">
+
+      <%= render partial: "productmap_removeid",:locals => { :mappedproducts=> @mappedproducts}%>
+
+
+
+
+</form>
+
+<form id="formss" action="<%=  url_for controller: 'admin/products', action: 'productmap' %>" method="post">
+
+  <div style="margin-top: 40px; width: 500px;">
+    <label>
+      Enter Key words to search the Product
+    </label>
+    <%=text_field_tag 'search', nil, placeholder: 'Enter search term...' %>
+
+  </div>
+  <%= token_tag(nil) %>
+  <div style="margin-top: 10px;">
+    <button id="form_submit" type="submit" class="btn btn-default">Find by Product Name</button>
+
+  </div>
+</form>
+
+
+<form id="formss" action="<%=  url_for controller: 'admin/products', action: 'assignid' %>" method="post">
+
+
+      <%= render partial: "productmap_assignid",:locals => { :unmappedproducts=> @unmappedproducts}%>
+
+
+
+</form>
+
+
+
