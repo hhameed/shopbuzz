@@ -34,7 +34,6 @@ class MobiMegaSpecsSpider < MegaSpecsSpider
         "Video recorder",
         "Digital zoom (video)",
         "Maximum numbers of fps when recording",
-        "Maximum resolution (video)",
         "Torch/Lamp",
         "Graphics processor",
         "Graphics processor type",

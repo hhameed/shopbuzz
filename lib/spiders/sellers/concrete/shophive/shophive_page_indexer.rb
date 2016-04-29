@@ -9,7 +9,7 @@ class ShophivePageIndexer < PageIndexer
     summary = summary.match(/^Items\ (?<start>\d+)\ to\ (?<size>\d+)\ of\ (?<total>\d+)\ total$/)
     pages = (Float(summary['total'])/Float(summary['size'])).ceil
     (1..pages).map do |i|
-      url + "&p=" + i.to_s
+      url + "?p=" + i.to_s
     end
   end
 end
