@@ -43,3 +43,6 @@ end
 When /^I click on Edit for review1$/ do
   find(:xpath, "(//a[text()='Edit'])[1]").click
 end
+When /^I click on product Nikon D4S$/ do |title|
+  find(:xpath, "(//a[text()='Nikon D4S'])[1]").click
+end

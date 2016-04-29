@@ -44,17 +44,11 @@ RSpec.describe "Workflow of the admin going through the dashboard:", type: :feat
     click_button "Login"
     click_on "Products"
     expect(page.current_path).to eq "/admin/products"
-    expect(page).to have_content("Sony Phone ABC")
-    find(:xpath, "(//a[text()='View'])[1]").click
-    expect(page.current_path).to eq "/admin/products/65"
-    expect(page).to have_content("Sony Phone ABC")
+    expect(page).to have_content("Sony DSC-TX30")
+    find(:xpath, "(//a[text()='2'])[1]").click
+    expect(page.current_path).to eq "/admin/products/2"
+    expect(page).to have_content("Sony DSC-TX30")
     expect(page).to have_content("Rating")
-    click_on "Edit Product"
-    expect(page.current_path).to eq "/admin/products/65/edit"
-    fill_in "Price", :with => 1500
-    click_on "Update Product"
-    expect(page.current_path).to eq "/admin/products/65"
-    expect(page).to have_content("Product was successfully updated.")
   end
   it "should be able to use filter on usedproducts" do
     visit "/admin/login"
@@ -77,15 +71,15 @@ RSpec.describe "Workflow of the admin going through the dashboard:", type: :feat
     click_button "Login"
     click_on "Products"
     expect(page.current_path).to eq "/admin/products"
-    expect(page).to have_content("Sony Phone ABC")
-    find(:xpath, "(//a[text()='View'])[1]").click
-    expect(page.current_path).to eq "/admin/products/65"
-    expect(page).to have_content("Sony Phone ABC")
+    expect(page).to have_content("Sony DSC-TX30")
+    find(:xpath, "(//a[text()='2'])[1]").click
+    expect(page.current_path).to eq "/admin/products/2"
+    expect(page).to have_content("Sony DSC-TX30")
     click_on "Edit Product"
-    expect(page.current_path).to eq "/admin/products/65/edit"
+    expect(page.current_path).to eq "/admin/products/2/edit"
     fill_in "Price", :with => 1500
     click_on "Update Product"
-    expect(page.current_path).to eq "/admin/products/65"
+    expect(page.current_path).to eq "/admin/products/2"
     expect(page).to have_content("Product was successfully updated.")
     click_on "Used Products"
     expect(page.current_path).to eq "/admin/used_products"
