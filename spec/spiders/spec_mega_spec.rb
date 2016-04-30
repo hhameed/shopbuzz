@@ -25,7 +25,7 @@ RSpec.describe "Spider for mega.pk specs", type: :helper do
       spider = MobiMegaSpecsSpider.new("http://www.mega.pk/mobiles_products/13928/Apple-iPhone-SE-64GB.html")
       expect(spider.getBrand).to eq("Apple")
       expect(spider.getImageLink).to eq("http://www.mega.pk/items_images/Apple+iPhone+SE+64GB+Price+in+Pakistan_-_13928.jpg")
-      expect(spider.getSpecs.count).to eq(43)
+      expect(spider.getSpecs.count).to eq(42)
     end
   end
 
