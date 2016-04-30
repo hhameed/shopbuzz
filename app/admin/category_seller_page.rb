@@ -2,6 +2,13 @@ ActiveAdmin.register CategorySellerPage do
 
   actions :index, :show
   config.sort_order = "id_asc"
+  index do
+    column (:url) {|category_seller| link_to(category_seller.url, category_seller.url) }
+    column :category
+    column :seller
+    column :created_at
+    column :updated_at
+  end
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
