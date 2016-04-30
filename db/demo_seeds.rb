@@ -17,3 +17,5 @@ sellers = [
 sellers.each do |seller|
   Seller.create!(seller)
 end
+
+AdminUser.create!(email: 'admin@shopbuzz.pk', password: 'password', password_confirmation: 'password')

@@ -11,7 +11,12 @@ class MegaSpecsSpider
     @page.at_css("[itemprop='image'] img")['src']
   end
   def getBrand()
-    @page.at_css("[itemprop='brand']").text()
+    brand = @page.at_css("[itemprop='brand']")
+    if brand.nil?
+      nil
+    else
+      brand.text()
+    end
   end
   def getSpecs()
     specs = @page.css("#laptop_detail tr").map do |spec|

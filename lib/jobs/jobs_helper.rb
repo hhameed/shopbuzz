@@ -2,6 +2,10 @@ class JobsHelper
   def self.createSpiderFactory(seller_id)
     if (seller_id == 1)
       MegaSpiderFactory.new
+    elsif (seller_id == 2)
+      ShophiveSpiderFactory.new
+    elsif (seller_id == 3)
+      PaylessSpiderFactory.new
     else
       raise NotImplementedError
     end
