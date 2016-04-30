@@ -1,6 +1,7 @@
 class ProductExtractionJob < Job
   def run
     CataloguePage.all.each do |cp|
+      puts "PROCESSING: #{cp.url}" if !Rails.env.test?
       spiderFactory = JobsHelper.createSpiderFactory(cp.category_seller_page.seller_id)
       extractor = spiderFactory.createProductExtractor
       extractor.getProducts(cp.url).each do |product|
@@ -17,6 +18,7 @@ class ProductExtractionJob < Job
         end
         spl.save!
       end
+      puts "...done" if !Rails.env.test?
     end
   end
 end
