@@ -1,0 +1,2 @@
+$("#ajaxtable_assign").html("<%= escape_javascript(render partial: "productmap_assignid",:locals => { :unmappedproducts=> @unmappedproducts}) %>");
+$("#ajaxtable_remove").html("<%= escape_javascript(render partial: "productmap_removeid",:locals => { :mappedproducts=> @mappedproducts}) %>");
