@@ -37,14 +37,13 @@ ActiveAdmin.register Product do
   def productmap
    @product=Product.find(params[:id])
    product_name = @product.name
-   puts "HERE***************************************************"
-  puts product_name
+
    product_name = params[:search] if params[:search].present?
 
    product_name = product_name.split(" ")
 
    product_name_search = product_name.map { |i| 'name like "%' + i + '%"' }.join(" AND ")
-   puts product_name_search
+
    #@products=SellerProductLink.find_by_name(params[:name])
    # @products=SellerProductLink.where("name LIKE ?", "%Samsung%").all
    # Foo.where("bar LIKE :query", query: "%#{query}%")
@@ -53,7 +52,7 @@ ActiveAdmin.register Product do
 
    # @unmappedproducts=SellerProductLink.where(product_name_search + " AND product_id = ? ", nil)
    @unmappedproducts=SellerProductLink.where(product_name_search).where(product_id: nil)
-    puts @unmappedproducts
+
 
 
   end
@@ -83,14 +82,5 @@ ActiveAdmin.register Product do
     redirect_to admin_product_mapping_path(params[:product_id])
 
   end
-
-
-
-
-
-
-
  end
-
-
 end
