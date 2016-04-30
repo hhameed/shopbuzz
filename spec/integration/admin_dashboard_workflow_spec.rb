@@ -116,6 +116,10 @@ RSpec.describe "Workflow of the admin going through the dashboard:", type: :feat
     click_on "Remove Product ID"
     find(:css, "#unmap_product_ids_[value='4']").set(true)
     click_on "Assign Product ID"
+    click_on "Seller Product Links"
+    expect(page.current_path).to eq "/admin/seller_product_links"
+    expect(page).to have_content("Samsung Galaxy Note II")
+    expect(page).to have_content("Url")
     click_on "Logout"
     expect(page.current_path).to eq "/admin/login"
     expect(page).to have_content("You need to sign in or sign up before continuing.")

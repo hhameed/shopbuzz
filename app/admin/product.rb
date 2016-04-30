@@ -23,7 +23,7 @@ ActiveAdmin.register Product do
     column(:id)      {|product| link_to(product.id, admin_product_path(product)) }
     column(:name)    {|product| link_to(product.name, admin_product_mapping_path(product.id)) }
     column(:price)
-    column(:image)
+    column(:image)   {|product| link_to(product.image, product.image) }
     column(:rating)
     column(:views)
     column(:created_at)
