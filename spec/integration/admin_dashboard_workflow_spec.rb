@@ -105,6 +105,17 @@ RSpec.describe "Workflow of the admin going through the dashboard:", type: :feat
     click_on "Create Product review"
     expect(page).to have_content("Product review was successfully created.")
     expect(page).to have_content("Bravo")
+    click_on "Products"
+    expect(page.current_path).to eq "/admin/products"
+    expect(page).to have_content("Sony DSC-TX30")
+    find(:xpath, "(//a[text()='Sony DSC-TX30'])[1]").click
+    expect(page.current_path).to eq "/admin/products/productmap/2"
+    expect(page).to have_content("Sony DSC-TX30")
+    expect(page).to have_content("Remove Product ID")
+    find(:css, "#map_product_ids_[value='4']").set(true)
+    click_on "Remove Product ID"
+    find(:css, "#unmap_product_ids_[value='4']").set(true)
+    click_on "Assign Product ID"
     click_on "Logout"
     expect(page.current_path).to eq "/admin/login"
     expect(page).to have_content("You need to sign in or sign up before continuing.")
