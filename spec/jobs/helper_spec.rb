@@ -4,7 +4,9 @@ RSpec.describe "Job helper", type: :helper do
 
   it "should have properly working factory methods" do
     expect(JobsHelper.createSpiderFactory(1)).to be_a(MegaSpiderFactory)
-    expect{JobsHelper.createSpiderFactory(2)}.to raise_error(NotImplementedError)
+    expect(JobsHelper.createSpiderFactory(2)).to be_a(ShophiveSpiderFactory)
+    expect(JobsHelper.createSpiderFactory(3)).to be_a(PaylessSpiderFactory)
+    expect{JobsHelper.createSpiderFactory(4)}.to raise_error(NotImplementedError)
 
     VCR.use_cassette 'mega_product_mobile' do
       expect(JobsHelper.createSpecsSpider("http://www.mega.pk/mobiles_products/13928/Apple-iPhone-SE-64GB.html", 1)).to be_a(MobiMegaSpecsSpider)

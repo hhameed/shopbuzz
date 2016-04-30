@@ -1,6 +1,7 @@
 class PageIndexingJob < Job
   def run
     CategorySellerPage.all.each do |csp|
+      puts "PROCESSING: #{csp.url}" if !Rails.env.test?
       spiderFactory = JobsHelper.createSpiderFactory(csp.seller_id)
       indexer = spiderFactory.createPageIndexer
       indexer.getPageUrls(csp.url).each do |url|
@@ -12,6 +13,7 @@ class PageIndexingJob < Job
           cp.save!
         end
       end
+      puts "...done" if !Rails.env.test?
     end
   end
 end

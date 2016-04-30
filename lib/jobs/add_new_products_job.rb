@@ -2,11 +2,11 @@ class AddNewProductsJob < Job
   def run
     SellerProductLink.where(seller_id: 1).each do |spl|
       if (Product.find_by_name(spl.name).nil?)
-        puts "PROCESSING: #{spl.url}"
+        puts "PROCESSING: #{spl.url}" if !Rails.env.test?
         spider = JobsHelper.createSpecsSpider(spl.url, spl.category_id)
         brand_name = spider.getBrand
         if brand_name.nil?
-          puts "...skipping"
+          puts "...skipping" if !Rails.env.test?
           next
         end
         brand = Brand.find_by_name(brand_name)
@@ -38,7 +38,7 @@ class AddNewProductsJob < Job
           ps.specification_id = specification.id
           ps.save!
         end
-        puts "...done"
+        puts "...done" if !Rails.env.test?
       end
     end
   end
