@@ -33,7 +33,7 @@ ActiveAdmin.register Product do
     column(:views)
     column(:created_at)
     column (:updated_at)
-
+    actions
   end
 
 
