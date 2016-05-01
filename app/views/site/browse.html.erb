@@ -50,7 +50,7 @@
       <%end%>
     </div>
     <div id="paginateid" class="row" style="text-align: center">
-      <%= paginate @products,:params=>{:sortid=>@sortvalue, :textmin=>@textminvalue, :textmax=>@textmaxvalue, :brand_ids=>@selected_brands },:remote => true%>
+      <%= paginate @products,theme: 'site_pagination',:params=>{:sortid=>@sortvalue, :textmin=>@textminvalue, :textmax=>@textmaxvalue, :brand_ids=>@selected_brands },:remote => true%>
     </div>
   </div>
   </form>
