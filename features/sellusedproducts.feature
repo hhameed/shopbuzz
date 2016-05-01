@@ -30,5 +30,3 @@ Feature: As a user,
     When I fill in the form and click submit
     Then I should see a message "Used product was successfully created"
 
-
-

@@ -5,11 +5,12 @@ RSpec.describe Product, type: :model do
 
   before :each do
     @samsung = Product.create(
+        id: 1,
         name: 'galaxy',
         price: '500',
         image: 'xyz',
         rating: 5,
-        review_count: 10,
+        review_count: 2,
         views: 50,
         brand_id: 3,
         category_id:4
@@ -119,6 +120,31 @@ RSpec.describe Product, type: :model do
         category_id: "4"
     )
     expect(Product.search("")).to eq [@samsung,@apple,product3,product1,product2]
+  end
+
+  describe "get average rating for product" do
+    it 'assign the average rating to the rating of the product' do
+      @samsung_review1= ProductReview.create!(
+          name: 'Tony',
+          email: '',
+          rating: 4,
+          product_id: 1,
+          content: 'abc'
+      )
+
+      @samsung_review2 = ProductReview.create!(
+          name: 'Kiran',
+          email: '',
+          rating: 3,
+          product_id: 1,
+          content: 'abc'
+      )
+
+      product=Product.find(1).avg_rating()
+
+      expect(product).to eq(3.5)
+
+    end
   end
 
 end

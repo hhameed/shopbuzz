@@ -34,4 +34,3 @@ end
 Then /^(?:|I )should see a message "([^"]*)"$/ do |text|
   expect(page).to have_content(text)
 end
-

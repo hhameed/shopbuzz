@@ -1,8 +1,7 @@
 
 <% if flash[:notice] -%>
-    <div class = "alert alert-success"><%= flash[:notice] %></div>
+    <div class = "alert alert-success" role="alert"><%= flash[:notice] %></div>
 <% end %>
-
 
 <h2>
   Reviews on <%= link_to(@product.name, url_for(@product)) %>
@@ -16,10 +15,17 @@
       <div class="col-md-4 grid-item" style="margin-top:10px;" itemscope itemtype="http://schema.org/Product">
         <blockquote>
           <%= product_review.content%>
+          <br>
+          <span class="glyphicon glyphicon-star" style="color:orange" aria-hidden="true"></span> <%=product_review.rating%>
           <footer> <%= product_review.name%></footer>
         </blockquote>
       </div>
     <% end %>
 </div>
 
+<<<<<<< HEAD
+
+<%= paginate @product_reviews %>
+=======
 <%= paginate @product_reviews%>
+>>>>>>> 8d2b9d73687b5f1b638d773928671ec23dfff0f8
