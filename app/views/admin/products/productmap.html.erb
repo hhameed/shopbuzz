@@ -1,15 +1,17 @@
 
 <h1><%= @product.name%></h1>
-<form id="form" action="<%=  url_for controller: 'admin/products', action: 'removeid' %>" method="post">
+<form id="form_for_remove" action="<%=  url_for controller: 'admin/products', action: 'removeid' %>" method="post" data-remote="true">
+
+  <div id="ajaxtable_remove" class="row">
 
       <%= render partial: "productmap_removeid",:locals => { :mappedproducts=> @mappedproducts}%>
 
+  </div>
 
-
-
+  <button id="submit_remove_id" type="submit" class="btn btn-default">Unmap the Product</button>
 </form>
 
-<form id="formss" action="<%=  url_for controller: 'admin/products', action: 'productmap' %>" method="post">
+<form id="form_for_search" action="<%=  url_for controller: 'admin/products', action: 'productmap' %>" method="post" data-remote="true">
 
   <div style="margin-top: 40px; width: 500px;">
     <label>
@@ -26,12 +28,12 @@
 </form>
 
 
-<form id="formss" action="<%=  url_for controller: 'admin/products', action: 'assignid' %>" method="post">
+<form id="form_for_assign" action="<%=  url_for controller: 'admin/products', action: 'assignid' %>" method="post" data-remote="true">
 
-
+  <div id="ajaxtable_assign" class="row">
       <%= render partial: "productmap_assignid",:locals => { :unmappedproducts=> @unmappedproducts}%>
-
-
+</div>
+  <button id="submit_assign" type="submit" class="btn btn-default">Map the Product</button>
 
 </form>
 
