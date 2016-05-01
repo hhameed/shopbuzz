@@ -35,8 +35,6 @@ class SiteController < ApplicationController
       @products = @products.desc if params[:sortid]=="2"
       @products = @products.page(params[:page]).per(12)
 
-
-
   end
 
   end
