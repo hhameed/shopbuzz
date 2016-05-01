@@ -20,6 +20,11 @@ ActiveAdmin.register Product do
  end
 
   index do
+    div class: 'top_pagination' do
+      paginated_collection(collection, download_links: false)
+    end
+    render('/admin/linebreak')
+
     column(:id)      {|product| link_to(product.id, admin_product_path(product)) }
     column(:name)    {|product| link_to(product.name, admin_product_mapping_path(product.id)) }
     column(:price)
@@ -28,6 +33,7 @@ ActiveAdmin.register Product do
     column(:views)
     column(:created_at)
     column (:updated_at)
+    actions
   end
 
 

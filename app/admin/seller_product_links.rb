@@ -14,6 +14,10 @@ ActiveAdmin.register SellerProductLink do
 #   permitted
 # end
   index do
+    div class: 'top_pagination' do
+      paginated_collection(collection, download_links: false)
+    end
+    render('/admin/linebreak')
     column :name
     column :price
     column (:url) {|seller_product| link_to(seller_product.url, seller_product.url) }
