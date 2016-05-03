@@ -1,5 +1,6 @@
 class AddNewProductsJob < Job
   def run
+    added = 0
     SellerProductLink.where(seller_id: 1).each do |spl|
       if (Product.find_by_name(spl.name).nil?)
         puts "PROCESSING: #{spl.url}" if !Rails.env.test?
@@ -24,6 +25,7 @@ class AddNewProductsJob < Job
         product.brand_id = brand.id
         product.category_id = spl.category_id
         product.save!
+        added += 1
         spider.getSpecs.each do |key,val|
           specification = Specification.find_by_name(key)
           if specification.nil?
@@ -41,5 +43,6 @@ class AddNewProductsJob < Job
         puts "...done" if !Rails.env.test?
       end
     end
+    puts "#{added} new products added..." if !Rails.env.test?
   end
 end

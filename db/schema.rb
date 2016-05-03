@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160424015918) do
+ActiveRecord::Schema.define(version: 20160430020159) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20160424015918) do
   end
 
   add_index "catalogue_pages", ["category_seller_page_id"], name: "index_catalogue_pages_on_category_seller_page_id"
+  add_index "catalogue_pages", ["url"], name: "index_catalogue_pages_on_url"
 
   create_table "categories", force: :cascade do |t|
     t.string   "code"
@@ -154,6 +155,7 @@ ActiveRecord::Schema.define(version: 20160424015918) do
 
   add_index "products", ["brand_id"], name: "index_products_on_brand_id"
   add_index "products", ["category_id"], name: "index_products_on_category_id"
+  add_index "products", ["name"], name: "index_products_on_name"
 
   create_table "provinces", force: :cascade do |t|
     t.string   "name"
@@ -212,6 +214,7 @@ ActiveRecord::Schema.define(version: 20160424015918) do
   add_index "seller_product_links", ["category_id"], name: "index_seller_product_links_on_category_id"
   add_index "seller_product_links", ["product_id"], name: "index_seller_product_links_on_product_id"
   add_index "seller_product_links", ["seller_id"], name: "index_seller_product_links_on_seller_id"
+  add_index "seller_product_links", ["url"], name: "index_seller_product_links_on_url"
 
   create_table "seller_reviews", force: :cascade do |t|
     t.string   "name"

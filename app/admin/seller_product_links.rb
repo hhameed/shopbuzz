@@ -1,14 +1,6 @@
-ActiveAdmin.register CataloguePage do
-
+ActiveAdmin.register SellerProductLink do
   actions :index, :show
   config.sort_order = "id_asc"
-
-  index do
-    column (:url) {|catalogue_seller| link_to(catalogue_seller.url, catalogue_seller.url) }
-    column :category_seller_page
-    column :created_at
-    column :updated_at
-  end
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -21,6 +13,15 @@ ActiveAdmin.register CataloguePage do
 #   permitted << :other if resource.something?
 #   permitted
 # end
-
-
+  index do
+    column :name
+    column :price
+    column (:url) {|seller_product| link_to(seller_product.url, seller_product.url) }
+    column :info, :sortable => false
+    column :product
+    column :category, :sortable => false
+    column :seller, :sortable => false
+    column :created_at
+    column :updated_at
+  end
 end

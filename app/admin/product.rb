@@ -23,7 +23,7 @@ ActiveAdmin.register Product do
     column(:id)      {|product| link_to(product.id, admin_product_path(product)) }
     column(:name)    {|product| link_to(product.name, admin_product_mapping_path(product.id)) }
     column(:price)
-    column(:image)
+    column(:image)   {|product| link_to(product.image, product.image) }
     column(:rating)
     column(:views)
     column(:created_at)
@@ -43,6 +43,7 @@ ActiveAdmin.register Product do
    product_name = product_name.split(" ")
 
    product_name_search = product_name.map { |i| 'name like "%' + i + '%"' }.join(" AND ")
+
    #@products=SellerProductLink.find_by_name(params[:name])
    # @products=SellerProductLink.where("name LIKE ?", "%Samsung%").all
    # Foo.where("bar LIKE :query", query: "%#{query}%")
@@ -51,7 +52,8 @@ ActiveAdmin.register Product do
 
    # @unmappedproducts=SellerProductLink.where(product_name_search + " AND product_id = ? ", nil)
    @unmappedproducts=SellerProductLink.where(product_name_search).where(product_id: nil)
-   # puts @unmappedproducts
+
+
 
   end
 
@@ -80,13 +82,5 @@ ActiveAdmin.register Product do
     redirect_to admin_product_mapping_path(params[:product_id])
 
   end
-
-
-
-
-
-
-
  end
-
 end
