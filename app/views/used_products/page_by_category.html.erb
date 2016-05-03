@@ -80,6 +80,6 @@ $(target).toggleClass('hidden show');
     <%end%>
   </div>
   <div id="paginateid_usedproducts" class="row" style="text-align: center">
-    <%= paginate @used_products, remote: true%>
+    <%= paginate @used_products,theme: 'site_pagination', remote: true%>
   </div>
 </div>

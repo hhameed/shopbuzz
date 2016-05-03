@@ -4,6 +4,10 @@ ActiveAdmin.register CataloguePage do
   config.sort_order = "id_asc"
 
   index do
+    div class: 'top_pagination' do
+      paginated_collection(collection, download_links: false)
+    end
+    render('/admin/linebreak')
     column (:url) {|catalogue_seller| link_to(catalogue_seller.url, catalogue_seller.url) }
     column :category_seller_page
     column :created_at
