@@ -3,6 +3,10 @@ ActiveAdmin.register CategorySellerPage do
   actions :index, :show
   config.sort_order = "id_asc"
   index do
+    div class: 'top_pagination' do
+      paginated_collection(collection, download_links: false)
+    end
+    render('/admin/linebreak')
     column (:url) {|category_seller| link_to(category_seller.url, category_seller.url) }
     column :category
     column :seller

@@ -3,19 +3,20 @@
     <%= @error %>
 
 <%else%>
+<div id="content">
 <h2><a href="<%= url_for @product1 %>"><%=@product1.name%></a> vs <a href="<%= url_for @product2 %>"><%=@product2.name%></a></h2>
 
 <table class="table table-bordered table-striped">
   <tbody>
   <tr>
-    <td></td>
-    <td style="text-align: center;"><img src=<%=@product1.image%> width="150px" itemprop="image" /></td>
-    <td style="text-align: center;"><img src=<%=@product2.image%> width="150px" itemprop="image" /></td>
+    <td width = "20%"></td>
+    <td style="text-align: center;" width = "40%"><img src=<%=@product1.image%> width="150px"  itemprop="image" /></td>
+    <td style="text-align: center;"width = "40%"><img src=<%=@product2.image%> width="150px" itemprop="image" /></td>
   </tr>
   <tr>
     <td></td>
-    <td style="text-align: center;"><a href=""><%=@product1.name%></a></td>
-    <td style="text-align: center;"><a href=""><%=@product2.name%></a></td>
+    <td style="text-align: center;"><a href="<%= url_for(@product1) %>"><%=@product1.name%></a></td>
+    <td style="text-align: center;"><a href="<%= url_for(@product2) %>"><%=@product2.name%></a></td>
   </tr>
   <tr>
     <td>Price</td>
@@ -39,5 +40,5 @@
   <%end%>
 
   </tbody>
-</table>
+</table></div>
 <% end %>
