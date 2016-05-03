@@ -120,6 +120,13 @@ RSpec.describe "Workflow of the admin going through the dashboard:", type: :feat
     expect(page.current_path).to eq "/admin/seller_product_links"
     expect(page).to have_content("Samsung Galaxy Note II")
     expect(page).to have_content("Url")
+    click_on "Category Seller Pages"
+    expect(page.current_path).to eq "/admin/category_seller_pages"
+    expect(page).to have_content("Mega")
+    expect(page).to have_content("Shophive")
+    click_on "Catalogue Pages"
+    expect(page.current_path).to eq "/admin/catalogue_pages"
+    expect(page).to have_content("Updated at")
     click_on "Logout"
     expect(page.current_path).to eq "/admin/login"
     expect(page).to have_content("You need to sign in or sign up before continuing.")
