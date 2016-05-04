@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "Workflow of the admin going through the dashboard:", type: :feature do
   before(:each) do
-      DatabaseCleaner.clean_with(:truncation)
-      load "#{Rails.root}/db/seeds.rb"
-    end
+    DatabaseCleaner.clean_with(:truncation)
+    load "#{Rails.root}/db/seeds.rb"
+  end
   it "should be able to signin with correct username and password" do
     visit "/admin/login"
     expect(page).to have_content("Forgot your password?")
@@ -111,11 +111,11 @@ RSpec.describe "Workflow of the admin going through the dashboard:", type: :feat
     find(:xpath, "(//a[text()='Sony DSC-TX30'])[1]").click
     expect(page.current_path).to eq "/admin/products/productmap/2"
     expect(page).to have_content("Sony DSC-TX30")
-    expect(page).to have_content("Remove Product ID")
+    expect(page).to have_content("Unmap the Product")
     find(:css, "#map_product_ids_[value='4']").set(true)
-    click_on "Remove Product ID"
+    click_on "Unmap the Product"
     find(:css, "#unmap_product_ids_[value='4']").set(true)
-    click_on "Assign Product ID"
+    click_on "Map the Product"
     click_on "Seller Product Links"
     expect(page.current_path).to eq "/admin/seller_product_links"
     expect(page).to have_content("Samsung Galaxy Note II")
