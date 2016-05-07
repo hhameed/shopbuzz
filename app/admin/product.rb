@@ -57,7 +57,10 @@ ActiveAdmin.register Product do
     @paramsgot.each do |pid|
       @pid = SellerProductLink.find(pid)
       @pid.product_id = nil
+      begin
       @pid.save
+      rescue
+      end
     end
 
     redirect_to admin_product_mapping_path(params[:product_id])
@@ -71,7 +74,10 @@ ActiveAdmin.register Product do
     @paramsgot.each do |pid|
       @pid = SellerProductLink.find(pid)
       @pid.product_id = params[:product_id]
+      begin
       @pid.save
+      rescue
+      end
     end
 
     redirect_to admin_product_mapping_path(params[:product_id])
